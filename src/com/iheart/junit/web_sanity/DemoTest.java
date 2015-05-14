@@ -232,10 +232,11 @@ public class DemoTest {
 	 
 	    @After
 	    public void tearDown() throws Exception{
-	    	//driver.quit(); 
+	    	driver.quit(); 
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
-	    	//closeBrowserSession();
+	    	
+	    	closeBrowserSession();
 	    }
 	
 	    private void handleException(Exception e)
@@ -249,6 +250,7 @@ public class DemoTest {
             }
 	    }
 	    
+	    //to handle firefox v37.0 specific issue
 	    public void closeBrowserSession() throws Exception 
 		  { 
 		    	
