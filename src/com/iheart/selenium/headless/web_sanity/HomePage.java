@@ -1,4 +1,4 @@
-package com.iheart.selenium.web_sanity;
+package com.iheart.selenium.headless.web_sanity;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

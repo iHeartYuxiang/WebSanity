@@ -1,7 +1,7 @@
-package com.iheart.junit.web_sanity;
+package com.iheart.selenium.headless.web_sanity;
 
 
-import com.iheart.selenium.web_sanity.*;
+import com.iheart.selenium.headless.web_sanity.*;
 
 import static org.junit.Assert.*; 
 
@@ -29,8 +29,8 @@ public class DemoTest {
 		
 		PopularUserFlow popularFlow;
 		
-		String browser = "firefox";
-		//String browser = "chrome";
+		//String browser = "firefox";
+		String browser = "chrome";
 		
 		static String userCity = "";
 		

@@ -1,4 +1,4 @@
-package com.iheart.selenium.web_sanity;
+package com.iheart.selenium.headless.web_sanity;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -87,6 +87,52 @@ public class Utils {
 	      return driver;
 	
 	  }
+	
+public static WebDriver  createHealessDriver(String browser) 
+	
+	{   WebDriver driver;
+	
+	    if (browser.equalsIgnoreCase("firefox"))
+	
+	        driver = new FirefoxDriver();
+	
+	    else if (browser.equalsIgnoreCase("chrome"))
+	    {   //Set actual path to the driver file
+	
+	      System.setProperty("webdriver.chrome.driver", "C:\\Users\\1111128\\workspace\\drivers\\chromedriver.exe");
+	   //   System.setProperty("webdriver.chrome.driver", "/Users/1111128/Documents/workspace/drivers/chromedriver.exe");	
+	
+	      ChromeOptions options = new ChromeOptions();
+	      options.addArguments("test-type");
+	      options.addArguments("--start-maximized");
+	     
+	      driver = new ChromeDriver(options);
+	
+	      }else if (browser.equalsIgnoreCase("ie"))
+	      {    //Set actual path to the driver file
+	
+	      System.setProperty("webdriver.ie.driver","C:\\Users\\1111128\\workspace\\drivers\\IEDriverServer.exe");
+	
+	      
+	      driver = new InternetExplorerDriver();
+	
+	      }else 
+	      {
+	
+	      System.out.println("Unknown browser.");
+	
+	      return null;
+	
+	      }
+	
+	      driver.manage().window().maximize();
+	
+	      driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+	      return driver;
+	
+	  }
+	
 	
 	public static WebDriver  createRemoteDriver(CapabilitySetting setting) 
 	{  
