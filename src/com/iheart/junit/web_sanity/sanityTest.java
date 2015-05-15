@@ -52,7 +52,118 @@ public class sanityTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 		
+		 @Test
+		 public void testWEB_11749_playStationAfterLogin() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		liveRadioPage.WEB_11749_playStationAfterLogin();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		 @Test
+		 public void testWEB_11743_playLiveWithoutLogin() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		liveRadioPage.WEB_11743_playLiveWithoutLogin();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		
+		 @Test
+		 public void testWEB_11757_liveShare() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		liveRadioPage.WEB_11757_liveShare();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
 		 
+		 
+		 @Test
+		 public void testWEB_21226_playDefaultByLocation() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		homePage.WEB_21226_playDefaultByLocation();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		
+		
+		
+		 @Test
+		 public void testWEB_14440_playerUponFirstLaunch() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		homePage.WEB_14440_playerUponFirstLaunch();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		 
+		 @Test
+		 public void testWEB_11736_signUp() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		homePage.WEB_11736_signUp();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		 
+		 
+		 @Test
+		 public void testWEB_11738_FACEBOOKsignUp() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		homePage.WEB_11738_FACEBOOKsignUp();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		 
+		 @Test
+		 public void testWEB_11741_searchAfterLogin() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		homePage.WEB_11741_searchAfterLogin();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
 
 		@Test
 	    public void testWEB_18302_PopularUserFlow() 
@@ -78,12 +189,27 @@ public class sanityTest {
 	    }
 	    
 	    @Test
-	    public void testWEB_11759_11790_Hero() throws Exception
+	    public void testWEB_11759_Hero() throws Exception
 	    {
 	       
 	    	System.out.println("test method:" +  name.getMethodName() );
 	    	try{
-		    	   homePage.WEB_11759_11790_Hero();
+		    	   homePage.WEB_11759_Hero();
+	    	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	} 	   
+	    	System.out.println(name.getMethodName() + " is Done.");
+	    	
+	    }
+	    
+	    @Test
+	    public void testWEB_11790_Hero() throws Exception
+	    {
+	       
+	    	System.out.println("test method:" +  name.getMethodName() );
+	    	try{
+		    	   homePage.WEB_11790_Hero();
 	    	}catch(Exception e)
 		 	{
 		 		handleException(e);
@@ -266,6 +392,51 @@ public class sanityTest {
 	    	System.out.println(name.getMethodName() + " is Done.");
 	    }
 		
+	   
+	   @Test
+		 public void testWEB_11748_ThumbUpAndDownLiveWithoutLogin() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		liveRadioPage.WEB_11748_ThumbUpAndDownLiveWithoutLogin();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		 
+		 @Test
+		 public void testWEB_11753_favStationAndListenHistoryOnPlayer() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		liveRadioPage.WEB_11753_favStationAndListenHistoryOnPlayer();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		 @Test
+		 public void testWEB_11785_playStationFromGenreProfile() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		liveRadioPage.WEB_11785_playStationFromGenreProfile();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		 
+	   
+	   
+	   
 		 @Test
 		    public void testWEB_11796_LiveStationAutoPlay() throws Exception
 		    {   
@@ -293,7 +464,19 @@ public class sanityTest {
 		    	System.out.println(name.getMethodName() + " is Done.");
 		    }
 		    
-		    
+		 
+		    @Test
+			 public void testWEB_11756_LivePlayStopScanAfterLogin() throws Exception
+			 {   
+			 	System.out.println("test method:" +  name.getMethodName() );
+			 	try{
+			 		liveRadioPage.WEB_11756_LivePlayStopScanAfterLogin();
+			 	}catch(Exception e)
+			 	{
+			 		handleException(e);
+			 	}  	
+			 	System.out.println(name.getMethodName() + " is Done.");
+			 }   
 		   
 			
 		

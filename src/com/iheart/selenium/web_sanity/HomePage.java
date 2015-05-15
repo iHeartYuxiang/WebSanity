@@ -75,6 +75,32 @@ public class HomePage extends Page {
 	}
 	
 	
+	public void WEB_14440_playerUponFirstLaunch()
+	{  
+		WaitUtility.sleep(500);
+		top40.click();
+		getStations.click();
+		
+		if(!player.isDisplayed())
+			 handleError("Player doesn't exist upon first launch.", "WEB_14440_playerUponFirstLaunch" );
+	}
+	
+	public void WEB_21226_playDefaultByLocation()
+	{  
+		WaitUtility.sleep(500);
+		top40.click();
+		getStations.click();
+		
+		
+		String stationName = playerStation.getText();
+		
+		System.out.println("stationName:" + stationName );
+		if(!stationName.contains("106.7"))
+			 handleError("Default Station is not based on location.", "WEB_21226_playDefaultByLocation" );
+		
+	}
+	
+	
 	public void WEB_11734_startUp()
 	{   WaitUtility.sleep(500);
 		comedy.click();
@@ -86,18 +112,18 @@ public class HomePage extends Page {
 	}
 	
 	
-	public void WEB_11759_11790_Hero() throws Exception
+	public void WEB_11759_Hero() throws Exception
 	{
 		
 		firstGenra.click();
 		getStation.click();
 		WaitUtility.sleep(500);
-		//makeSureItIsPlaying();
+		
 		// assert that player shall appear
 	   System.out.println("See text:"+ myStation.getText());
 	   
 		if(!myStation.getText().contains("Stations"))
-			 handleError("Didn't reach My Stations page.", "WEB_11759_11790_Hero" );
+			 handleError("Didn't reach My Stations page.", "WEB_11759_Hero" );
 		
 		//Check for you link
 		//check Hero 
@@ -112,7 +138,54 @@ public class HomePage extends Page {
 			hero.getText();
 		}catch(Exception e)
 		{   
-			handleError("Hero is missing.", "WEB_11759_forYou");
+			handleError("Hero is missing.", "WEB_11759_Hero");
+		}
+		
+		heroEnter.click();
+		
+		//Verify that a seperate window is launched
+		String winHandleBefore = driver.getWindowHandle();
+		
+		//Switch to new window opened
+		for(String winHandle : driver.getWindowHandles()){
+		    driver.switchTo().window(winHandle);
+		}
+		
+	    //Check page title of the newly launched window
+		System.out.println(driver.getTitle()); 
+		
+		driver.close();
+
+		//Switch back to original browser (first window)
+		driver.switchTo().window(winHandleBefore);
+	}
+	
+	public void WEB_11790_Hero() throws Exception
+	{
+		
+		firstGenra.click();
+		getStation.click();
+		WaitUtility.sleep(500);
+		
+	   System.out.println("See text:"+ myStation.getText());
+	   
+		if(!myStation.getText().contains("Stations"))
+			 handleError("Didn't reach My Stations page.", "WEB_11790_Hero" );
+		
+		//Check for you link
+		//check Hero 
+		try {
+			forYouLink.getText();
+			System.out.println("For You link is here.");
+		}catch(Exception e)
+		{   handleError("For You link is missing.", "WEB_11790_Hero" );
+		}
+		
+		try {
+			hero.getText();
+		}catch(Exception e)
+		{   
+			handleError("Hero is missing.", "WEB_11790_Hero");
 		}
 		
 		heroEnter.click();
@@ -133,7 +206,25 @@ public class HomePage extends Page {
 
 		//Switch back to original browser (first window)
 		driver.switchTo().window(winHandleBefore);
+		
+		//play live and custom station respectively
+		//live
+		driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		//Check stream
+	    if (icon_play.isDisplayed())
+	    	errors.append("Stream is not started for live radio.");
+	    
+	    driver.navigate().back();
+	    //Play a custom station
+	    driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(8) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+	    
+	    if (!icon_play.isDisplayed())
+	    	errors.append("Custom station is playing for unauthorized user.");
+	    if(!isSoftGateShow())
+	    	errors.append("Sign up page is not displayed for unauthorized user.");
+	    	
 	}
+	
 	
 	public void WEB_11735_explorerMenu() throws Exception
 	{   String theOption ="";
@@ -222,6 +313,36 @@ public class HomePage extends Page {
 	}
 	
 	
+	public void WEB_11736_signUp()
+	{   driver.findElement(By.cssSelector("button.short:nth-child(3)")).click();
+		signUp();
+	}
+	
+	public void WEB_11738_FACEBOOKsignUp()
+	{   header_signUp.click();
+	   // facebookLogin.click();
+	    faceBookSignUp();
+		
+	}
+	
+	
+	public void WEB_11741_searchAfterLogin()
+	{   login();
+		search("Pool Party");
+		
+		search("Elvis Duran");
+		
+		search("WHTZ");
+	
+		search("97.1");
+		
+		search("Bruno Mars");
+		
+		search("Umbrella");
+	}
+	
+	
+	
 	public void WEB_8823_faceBooksignUp()
 	{
 		firstGenra.click();
@@ -229,6 +350,7 @@ public class HomePage extends Page {
 		playButton.click();
 		makeSureItIsPlaying();
 		
+		/*
 		faceBook.click();
 		
 		String winHandleBefore = switchWindow();
@@ -243,7 +365,8 @@ public class HomePage extends Page {
 	   // goToPreviousWindow(driver, winHandleBefore);
 	    
 	    driver.switchTo().window(winHandleBefore);
-	    
+	    */
+		faceBookSignUp();
 	  //  String signedAcct = driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(1) > button:nth-child(1)")).getText();
 	    System.out.println("see account:" + signedFBacct.getText());
 	    

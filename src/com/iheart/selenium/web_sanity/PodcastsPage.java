@@ -1,5 +1,7 @@
 package com.iheart.selenium.web_sanity;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -12,10 +14,14 @@ public class PodcastsPage  extends Page{
 	
 	@FindBy(css="#main > div > div:nth-child(2) > section:nth-child(1) > ul > li:nth-child(2) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i")
 	    private WebElement secondPod;
-	@FindBy(css="#main > div > div.filters > div > div > select") private WebElement topics;
+	
+	//@FindBy(css="#main > div > div.filters > div > div > select") private WebElement topics; //This works fine for Firefox
+	@FindBy(name="category") private WebElement topics; //topics for podcasts
 	
 	@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)") 
 	    private WebElement firstPod;
+	//CSS PATH IN CHROME
+	//#main > div > div:nth-child(2) > section:nth-child(1) > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i
 	//@FindBy(css="ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
 	@FindBy(css="ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
 		private WebElement  firstPodName;
@@ -88,7 +94,15 @@ public class PodcastsPage  extends Page{
 	public void WEB_11774_filterPodAfterLogin()
 	{
 		login();
-		gotoExplorerOption(option_podCasts,"Popular");
+		//gotoExplorerOption(option_podCasts,"Popular");
+		
+		
+		WebElement podcast = driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a"));
+		System.out.println("Before call:" + driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a")).getText());
+		
+		
+		//gotoExplorerOption_chrome(option_podCasts,"Popular");
+		gotoExplorerOption_chrome(podcast,"Popular");
 		
 		new Select(topics).selectByIndex(2);
 		WaitUtility.sleep(1500);
@@ -96,7 +110,24 @@ public class PodcastsPage  extends Page{
 		String chosenStation = firstPodNameAfterFilter.getText();
 		
 		System.out.println("See chosenStation:" + chosenStation);
-	    firstPod.click();
+		/*
+	    if (Page.getBrowser().equalsIgnoreCase("chrome"))
+	    	driver.findElement(By.cssSelector("#main > div > section > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > div")).click();
+	    else 
+	    	firstPod.click();
+	   */
+		
+		/*
+		List<WebElement> pods = driver.findElements(By.className("icon-play"));
+		System.out.println("PODS count:" + pods.size());
+		
+	    for (WebElement pod: pods)
+	    {
+	    	pod.click();
+	    	break;
+	    }
+	   */
+		playAstation();
 	   
 	    makeSureItIsPlayingWithNoWait();
 		

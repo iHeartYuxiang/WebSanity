@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 import static org.junit.Assert.*; 
 
@@ -30,6 +31,9 @@ public class LiveRadioPage extends Page {
 		@FindBy(css="#main > div > section > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i") public WebElement firstStation;
 		@FindBy(css="#main > div > section > ul > li:nth-child(1) > div > div.station-text > a") public WebElement firstStationLabel;
 		@FindBy(css=".player-station") public WebElement stationPlaying;
+		
+		//AFTER SEARCH
+		@FindBy(css=".selected > div:nth-child(2) > p:nth-child(1) > a:nth-child(1)") private WebElement firstSearchResult;
 		
 		//h3 title
 		@FindBy(css=".section-header") public WebElement h3_header;
@@ -55,6 +59,149 @@ public class LiveRadioPage extends Page {
 	    @FindBy(css=".slider-range-appearance") private WebElement volumeBar;
 	    
 		
+    public void WEB_11743_playLiveWithoutLogin()
+    {
+    	gotoExplorerOption(option_liveRadio, "Live");
+		makeSureItIsPlaying();
+		
+		verifyPlayer("Live Radio");
+    }
+    
+    public void WEB_11749_playStationAfterLogin()
+    {   login();
+    	gotoExplorerOption(option_liveRadio, "Live");
+		makeSureItIsPlaying();
+		
+		verifyPlayer("Live Radio");
+    }
+	    
+    public void WEB_11756_LivePlayStopScanAfterLogin()
+    {
+    	login();
+    	WEB_11746_PlayStopScan();
+    }
+    
+    public void WEB_11753_favStationAndListenHistoryOnPlayer()
+    {
+    	//for users not sign in
+    	gotoExplorerOption(option_liveRadio, "Live");
+		firstLive.click();
+		
+		try{
+		    icon_play.isDisplayed();
+		    System.out.println("Music is not playing. About to click.");
+			icon_play.click();
+
+	    }catch(Exception e)
+
+	    {   System.out.println("Music is playing. ");
+	    	return;
+	    }
+		
+		//Click on Add to Favorite link
+		
+		addToFavoriteFromPlayer();
+		
+		handlePreRoll();
+		//is softgate show up?
+		if (!isSoftGateShow())
+			handleError("Sing up page is not displayed after unauthorized user clicks on Add To Favorite button.", "WEB_11753_favStationAndListenHistoryOnPlayer");
+		
+		// For logged in user
+		faceBookSignUp();
+		handlePreRoll();
+		
+		String player_station = playerStation.getText();
+		
+		//Add station to favorite
+		addToFavoriteFromPlayer();
+	    
+		//verify that station is saved under Listen Hisotry and My Station page
+	    listenHistory.click();
+	    if (!driver.getPageSource().contains(player_station))
+	    	handleError("Your favorite station is not added to listen history.", "WEB_11753_favStationAndListenHistoryOnPlayer");
+    	
+	    myStations.click();
+	    if (!driver.getPageSource().contains(player_station))
+	    	handleError("Your favorite station is not added to My Stations page.", "WEB_11753_favStationAndListenHistoryOnPlayer");
+    	
+    }
+    
+    
+    public void WEB_11748_ThumbUpAndDownLiveWithoutLogin()
+    {
+    	
+    	gotoExplorerOption(option_liveRadio, "Live");
+		firstLive.click();
+		makeSureItIsPlaying();
+		
+		 if(!isSoftGateShow())
+		    handleError("Sign up page is not displayed.", "WEB_11748_ThumbUpAndDownLiveWithoutLogin");
+		
+		//Verify that thumbUP/Down button is present
+		 if (!thumbUp.isDisplayed())
+			 errors.append("ThumbUp button is not displayed.");
+		 
+		 if (!thumbDown.isDisplayed())
+			 errors.append("ThumbDown button is not displayed.");
+    }
+    
+    public void WEB_11750_filterLiveStationAfterLogin()
+    {
+    	login();
+    	gotoExplorerOption(option_liveRadio, "Live");
+    	filterStation();
+    	String chosenStation = firstStation.getText();
+    	firstStation.click();
+		
+		makeSureItIsPlaying();
+		//Verify it is playing
+	    verifyPlayer("filtered station");
+		
+		//verify that station is saved under Listen Hisotry and My Station page
+	    listenHistory.click();
+	    if (!driver.getPageSource().contains(chosenStation))
+	    	handleError("Filtered station is not added to listen history.", "WEB_11750_filterLiveStationAfterLogin");
+    	
+	    myStations.click();
+	    if (!driver.getPageSource().contains(chosenStation))
+	    	handleError("Filtered station is not added to My Stations page.", "WEB_11750_filterLiveStationAfterLogin");
+    	
+    }
+	    
+    public void WEB_11757_liveShare()
+	{
+		login();
+		search("Elvis Duran");
+		firstSearchResult.click();
+	//	makeSureItIsPlaying();
+		WaitUtility.sleep(1000);
+		addToFavoriteFromPlayer();
+	
+		//Verify that we are on share page now
+		System.out.println("Share page title: " + sharePageTitle.getText());
+	
+		
+		if (!sharePageTitle.getText().trim().equals("Share"))
+			handleError("Share button is not working.", "WEB_11757_liveShare");
+		
+		shareOnfaceBook();
+	}    
+    
+    private void addToFavoriteFromPlayer()
+    {
+    	Actions builder = new Actions(driver);
+		builder = builder.moveToElement(icon_more_horizontal);
+			
+		try{
+			builder.moveToElement(shareButton).click().build().perform();
+		}catch(Exception e)
+		{
+			
+		}
+    }
+    
+	    
 	public void WEB_14441_mutePlayer()
 	{   
 		gotoExplorerOption(option_liveRadio, "Live");
@@ -67,27 +214,38 @@ public class LiveRadioPage extends Page {
 	public void WEB_11744_filterStation()
 	{   
 		gotoExplorerOption(option_liveRadio, "Live");
+		/*
 		new Select(country).selectByVisibleText("Mexico");
 		WaitUtility.sleep(2000);
 		//new Select(city).selectByIndex(3);
 		new Select(driver.findElement(By.name("city"))).selectByIndex(1);
 		WaitUtility.sleep(1000);
 		new Select(genres).deselectByIndex(2);
-		
+		*/
+		filterStation();
 		String chosenStation = firstStationLabel.getText();
 		System.out.println("chosen station:" + chosenStation);
 		firstStation.click();
 		
-		WaitUtility.sleep(31000);//wait for the pre-roll done
+		makeSureItIsPlaying();
 		
 		String playingStation = stationPlaying.getText();
 		System.out.println("station PLAYING:" + playingStation);
+		
 		
 		if (!chosenStation.equalsIgnoreCase(playingStation))
 			handleError("Filter is not working.", "WEB_11744_filterStation");
 	}
 	
-	
+	private void filterStation()
+	{
+		new Select(country).selectByVisibleText("Mexico");
+		WaitUtility.sleep(2000);
+		//new Select(city).selectByIndex(3);
+		new Select(driver.findElement(By.name("city"))).selectByIndex(1);
+		WaitUtility.sleep(1000);
+		new Select(genres).deselectByIndex(2);
+	}
 
 	public void WEB_11745_International()
 	{  
@@ -176,15 +334,7 @@ public class LiveRadioPage extends Page {
 		makeSureItIsNotPlaying();
 		
 		doFavorite("WEB_11755_favorite");
-		/*
-		favorite.click();
-		WaitUtility.sleep(500);
-		String _growls = growls.getText();
-		System.out.println("See growls:" + _growls);
-		if (!_growls.contains("Favorite"))
-		   handleError("Add to Favorite failed.", "WEB_11755_favorite");
-		   
-		*/   
+		
 	}
 	
 	
@@ -225,6 +375,37 @@ public class LiveRadioPage extends Page {
 		
 	}
 	
+	
+	public void WEB_11785_playStationFromGenreProfile(){
+		
+		gotoExplorerOption(option_genres, "Genres");
+		
+		//click on country genre
+		driver.findElement(By.cssSelector("section.section-block:nth-child(7) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).click();
+		
+		//play top country station
+		driver.findElement(By.cssSelector("#main > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+	    //Verify: 0. user is brought to the station page; and it is playing & sign up page shows up
+		String subTitle = driver.findElement(By.cssSelector("section.section-block:nth-child(3) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).getText();
+		if (!subTitle.contains("Similar"))
+			errors.append("Clicking on top country station doesn't bring user to station page. ");
+		verifyPlayer("Country station", "WEB_11785_playStationFromGenreProfile");
+		if (!isSoftGateShow())
+			handleError("Sign up page is not showing up. ", "WEB_11785_playStationFromGenreProfile");
+		
+		
+		//top country artist	
+		driver.navigate().back();
+	    driver.findElement(By.cssSelector("#main > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		//verify: it is not playing & signup page shows up
+	    
+	    if (!icon_play.isDisplayed())  
+	       errors.append("Custom station is playing for unauthorized user.");
+	    
+	    if (!isSoftGateShow())
+			handleError("Sign up page is not showing up. ", "WEB_11785_playStationFromGenreProfile");
+		 
+	}
 	
 
 }

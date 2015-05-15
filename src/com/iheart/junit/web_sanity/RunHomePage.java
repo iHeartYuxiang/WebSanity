@@ -52,12 +52,27 @@ public class RunHomePage {
 	    }
 	    
 	    @Test
-	    public void testWEB_11759_11790_Hero() throws Exception
+	    public void testWEB_11759_Hero() throws Exception
 	    {
 	       
 	    	System.out.println("test method:" +  name.getMethodName() );
 	    	try{
-		    	   homePage.WEB_11759_11790_Hero();
+		    	   homePage.WEB_11759_Hero();
+	    	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	} 	   
+	    	System.out.println(name.getMethodName() + " is Done.");
+	    	
+	    }
+	    
+	    @Test
+	    public void testWEB_11790_Hero() throws Exception
+	    {
+	       
+	    	System.out.println("test method:" +  name.getMethodName() );
+	    	try{
+		    	   homePage.WEB_11790_Hero();
 	    	}catch(Exception e)
 		 	{
 		 		handleException(e);

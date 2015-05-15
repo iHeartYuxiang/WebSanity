@@ -18,7 +18,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.openqa.selenium.remote.Augmenter;
 
 
@@ -30,7 +29,8 @@ public abstract class Page {
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul") 
 		public WebElement dropdowns;
 	
-	//body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li
+	//body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li  //The following is firefox version
+	
 	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")
 		public WebElement option_forYou;
 	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)") 
@@ -45,15 +45,37 @@ public abstract class Page {
 		public WebElement option_perfectFor;
 	
 	
+	//Chrome Version
+	/*
+	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(1) > a")
+		public WebElement option_forYou;
+	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(2) > a") 
+		public WebElement option_liveRadio;
+	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(3) > a") 
+		public WebElement option_customRadio;
+	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(4) > a") 
+		public WebElement option_genres;
+	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a") 
+		public WebElement option_podCasts;
+	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(6) > a")
+		public WebElement option_perfectFor;
+	*/
+	
 	//Search
    @FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > form > div.form-group.ui-inline-block.search-input > input") 
    	public WebElement searchBox;
-		
+  
+   @FindBy(css="li.genre:nth-child(1) > div:nth-child(1) > div:nth-child(1)") public WebElement top40;
+   @FindBy(css=".genre-game-footer > button:nth-child(1)") public WebElement getStations;
+   @FindBy(css=".player-station") public WebElement playerStation;
 	
 	//In the header
 	
 	@FindBy(css=".header-right > button:nth-child(1)") public WebElement header_login;
 	@FindBy(css="button.short:nth-child(3)") public WebElement header_signUp;
+	//inside signup page
+	@FindBy(css="button.facebook:nth-child(1)") public WebElement facebookLogin;
+	@FindBy(css="button.facebook:nth-child(2)") public WebElement googleLogin;
 	
 	 //For Signup Page
 	//
@@ -133,6 +155,8 @@ public abstract class Page {
 	@FindBy(css=".player-song") public WebElement player_song;
 	
 	//player buttons
+	
+	@FindBy(id="player") public WebElement player;
 	@FindBy(css="button.idle:nth-child(3)") public WebElement button_playing;
 	
 	@FindBy(css="button.playing:nth-child(3)") public WebElement button_pause;
@@ -146,6 +170,14 @@ public abstract class Page {
 	    public WebElement myStations;
 	
 	
+	//@FindBy(css=".icon-more-horizontal") public WebElement icon_more_horizontal;
+	@FindBy(css=".more") public WebElement icon_more_horizontal;
+	
+	@FindBy(css="div.align-left:nth-child(3) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)") public WebElement shareButton;
+	@FindBy(css="div.align-left:nth-child(3) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)") public WebElement addToFavorite;
+	@FindBy(css=".dialog-title") public WebElement sharePageTitle;
+	@FindBy(css="button._42ft:nth-child(2)") public WebElement shareOnFacebook;
+	
 	//Common for live radios and custom radios
 	//thumbUp
 	@FindBy(css="button.medium:nth-child(2)") protected WebElement thumbUp_button;
@@ -158,9 +190,12 @@ public abstract class Page {
 
 	//Add to favorite
 	@FindBy(css=".favorite") protected WebElement favorite;
-	@FindBy(css=".icon-favorite-filled") WebElement icon_fav_filled;
+	@FindBy(css=".icon-favorite-filled") protected WebElement icon_fav_filled;
 	
-  
+    //AD CONTAINER
+	@FindBy(id="imaAdContainer") protected WebElement adContainer;
+	
+	
 	//FACE BOOK Signup info
 	public final String FACEBOOKemail = "iheartRadio.tribecca@gmail.com";
 	public final String _PASSWORD = "iheart001";
@@ -256,10 +291,10 @@ public abstract class Page {
 		    
 		do{
 			loginButton.click();
-			WaitUtility.sleep(1000);
+			WaitUtility.sleep(500);
 		}while (!driver.getPageSource().contains("Don't have an account?"));
 		
-		WaitUtility.sleep(1000);
+		WaitUtility.sleep(500);
     	userName.sendKeys(FACEBOOKemail);
 	    passWord.sendKeys(_PASSWORD);
 	
@@ -318,7 +353,7 @@ public abstract class Page {
 		   errors.append(name + " is not added in profile -> Favorite Episodes.");
 	}
 	
-	//For Podcasts and Perfect For
+	
 	public void doSkip()
 	{
 		String songPlaying = player_song.getText();
@@ -423,19 +458,28 @@ public abstract class Page {
 		    System.out.println("Music is not playing. About to click.");
 	
 			icon_play.click();
-		
-			//Wait for pre-roll
-		
-			WaitUtility.sleep(35000);
 
 	    }catch(Exception e)
 
 	    {   System.out.println("Music is playing. ");
-
-	    return;
-
+	    	return;
 	    }
-	    System.out.println("OUT of makeSureItIsPlaying()");
+	    
+	    handlePreRoll();
+	    
+	}
+	
+	
+	public void handlePreRoll()
+	{
+		//Wait for pre-roll if adContainer is detected
+		   try {
+			   if (adContainer.isDisplayed())
+				   WaitUtility.sleep(35000);
+		   }catch(Exception e)
+		   {
+			   System.out.println("No pre-roll is detected.");
+		   }
 	}
 	
 	public void makeSureItIsPlayingWithNoWait()
@@ -493,9 +537,11 @@ public abstract class Page {
 		Actions action = new Actions(driver);
 		do {
 			action = action.moveToElement(explorer);
+			//action = action.click(explorer);
 			WaitUtility.sleep(500);
 			try {
-			  action.moveToElement(option).click().build().perform();
+			   action.moveToElement(option).click().build().perform();
+				
 			}catch(Exception e)
 			{
 				
@@ -511,6 +557,30 @@ public abstract class Page {
 	}
 	
 	
+	public void gotoExplorerOption_chrome(WebElement option, String expectedTitle)
+	{   String chosenOption = option.getText();
+	     System.out.println("chosenOption:" + chosenOption );
+		Actions action = new Actions(driver);
+		 action.moveToElement(explorer).perform();;
+		List<WebElement>  options = driver.findElements(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li"));
+		System.out.println("See option count:" + options.size());
+		for (WebElement op: options)
+		{   action.moveToElement(explorer).perform();
+			System.out.println("op:" + op.getText() );
+			if (op.getText().equals(chosenOption))
+			{	op.click();
+			    break;
+			}
+		}
+		
+	}
+	
+	
+	public void gotoSingedAccountOption_chrome(WebElement option, String expectedTitle)
+	{
+		
+	}
+	
 	public void gotoSingedAccountOption(WebElement option, String expectedTitle)
 	{  // limit try to 5 times
 		int count = 0;
@@ -519,7 +589,7 @@ public abstract class Page {
 		do {
 				
 			action = action.moveToElement(signedAccount);
-			WaitUtility.sleep(500);
+			WaitUtility.sleep(1500);
 			try{
 		    	action.moveToElement(option).click().build().perform();
 			}catch(Exception e)
@@ -562,8 +632,8 @@ public abstract class Page {
 		
 		String response = driver.findElement(By.className("growls")).getText();
 		System.out.println("See growls:" + response);
-		//if (!(response.contains("Glad you like") || response.contains("Thanks for your feedback")))
-		//	handleError("Thump Up is not working properly.", methodName);
+		if (!(response.contains("Glad you like") || response.contains("Thanks for your feedback")))
+			handleError("Thump Up is not working properly.", methodName);
 	}
 	
 	public void doFavorite(String methodName)
@@ -602,7 +672,7 @@ public abstract class Page {
 	}
 	
 	public boolean isSoftGateShow()
-	{   WaitUtility.sleep(2000);
+	{   WaitUtility.sleep(5000);
 	    System.out.println(signupHint.getText());
 		return signupHint.getText().contains("Have an account?");
 	}
@@ -643,4 +713,46 @@ public abstract class Page {
 		
 	}
 	
+	
+	public void playAstation()
+	{
+		List<WebElement> stations = driver.findElements(By.className("icon-play"));
+		System.out.println("stations count:" + stations.size());
+		
+	    for (WebElement station: stations)
+	    {
+	    	station.click();
+	    	break;
+	    }
+	   
+	}
+	
+	
+	public void faceBookSignUp()
+	{
+		faceBook.click();
+		String winHandleBefore = switchWindow();
+		
+		faceEmail.sendKeys(FACEBOOKemail);
+		facePass.sendKeys("iheart001");
+		faceLogin.click();
+	    
+	    WaitUtility.sleep(2000);
+	    
+	    driver.switchTo().window(winHandleBefore);
+	}
+	
+	
+	public void shareOnfaceBook()
+	{
+		driver.findElement(By.className("facebook")).click();
+		String winHandleBefore = switchWindow();
+		
+		faceEmail.sendKeys(FACEBOOKemail);
+		facePass.sendKeys("iheart001");
+		faceLogin.click();
+	    WaitUtility.sleep(1000);
+	    shareOnFacebook.click();
+	    driver.switchTo().window(winHandleBefore);
+	}
 }
