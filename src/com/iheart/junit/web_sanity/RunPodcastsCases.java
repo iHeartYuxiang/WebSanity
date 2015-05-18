@@ -160,8 +160,8 @@ public class RunPodcastsCases {
 	 public void closeBrowserSession() throws Exception 
 	  { 
 		 Runtime.getRuntime().exec("taskkill /F /IM chrome.exe"); 
-		  Runtime.getRuntime().exec("taskkill /F /IM iexplorer.exe"); 
-		  Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
+		//  Runtime.getRuntime().exec("taskkill /F /IM iexplorer.exe"); 
+		//  Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
 	  }
 	
 		

@@ -380,6 +380,7 @@ public class LiveRadioPage extends Page {
 		
 		gotoExplorerOption(option_genres, "Genres");
 		
+		
 		//click on country genre
 		driver.findElement(By.cssSelector("section.section-block:nth-child(7) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).click();
 		
@@ -390,6 +391,7 @@ public class LiveRadioPage extends Page {
 		if (!subTitle.contains("Similar"))
 			errors.append("Clicking on top country station doesn't bring user to station page. ");
 		verifyPlayer("Country station", "WEB_11785_playStationFromGenreProfile");
+		WaitUtility.sleep(10000);//for some reason, it takes long time for the pre-roll to show
 		if (!isSoftGateShow())
 			handleError("Sign up page is not showing up. ", "WEB_11785_playStationFromGenreProfile");
 		

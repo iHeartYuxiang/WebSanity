@@ -15,6 +15,8 @@ public class PodcastsPage  extends Page{
 	@FindBy(css="#main > div > div:nth-child(2) > section:nth-child(1) > ul > li:nth-child(2) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i")
 	    private WebElement secondPod;
 	
+	
+	
 	//@FindBy(css="#main > div > div.filters > div > div > select") private WebElement topics; //This works fine for Firefox
 	@FindBy(name="category") private WebElement topics; //topics for podcasts
 	
@@ -55,6 +57,8 @@ public class PodcastsPage  extends Page{
 	public void WEB_11772_browsePodcasts()
 	{
 		gotoExplorerOption(option_podCasts,"Popular");
+		
+		
 		secondPod.click();
 		
 		//Verify sign-up gate shows up
@@ -76,7 +80,21 @@ public class PodcastsPage  extends Page{
 	public void WEB_11773_playPodAfterLogin()
 	{
 		login();
-		gotoExplorerOption(option_podCasts,"Popular");
+		
+		
+		  gotoExplorerOption(option_podCasts,"Popular");
+		
+		
+		/*
+	  
+		Actions action = new Actions(driver);
+		
+		 action.moveToElement(explorer).click().perform();
+		 driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[5]/a")).click();
+		WaitUtility.sleep(500);
+		*/
+		
+				
 		secondPod.click();
 		makeSureItIsPlaying();
 		//verify the player is playing
@@ -94,15 +112,14 @@ public class PodcastsPage  extends Page{
 	public void WEB_11774_filterPodAfterLogin()
 	{
 		login();
-		//gotoExplorerOption(option_podCasts,"Popular");
 		
 		
 		WebElement podcast = driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a"));
 		System.out.println("Before call:" + driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a")).getText());
 		
 		
-		//gotoExplorerOption_chrome(option_podCasts,"Popular");
-		gotoExplorerOption_chrome(podcast,"Popular");
+		gotoExplorerOption(option_podCasts,"Popular");
+		
 		
 		new Select(topics).selectByIndex(2);
 		WaitUtility.sleep(1500);
@@ -110,23 +127,7 @@ public class PodcastsPage  extends Page{
 		String chosenStation = firstPodNameAfterFilter.getText();
 		
 		System.out.println("See chosenStation:" + chosenStation);
-		/*
-	    if (Page.getBrowser().equalsIgnoreCase("chrome"))
-	    	driver.findElement(By.cssSelector("#main > div > section > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > div")).click();
-	    else 
-	    	firstPod.click();
-	   */
 		
-		/*
-		List<WebElement> pods = driver.findElements(By.className("icon-play"));
-		System.out.println("PODS count:" + pods.size());
-		
-	    for (WebElement pod: pods)
-	    {
-	    	pod.click();
-	    	break;
-	    }
-	   */
 		playAstation();
 	   
 	    makeSureItIsPlayingWithNoWait();
@@ -149,6 +150,8 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		gotoExplorerOption(option_podCasts,"Popular");
+		
+		
 		
 		//Need to remember this station name
 		String chosenStation = firstPodName.getText();
@@ -173,6 +176,7 @@ public class PodcastsPage  extends Page{
 		
 		gotoExplorerOption(option_podCasts,"Popular");
 		
+		
 		//Need to remember this station name
 		String chosenStation = firstPodName.getText();
 		System.out.println("See chosenStation:" + chosenStation);
@@ -192,6 +196,7 @@ public class PodcastsPage  extends Page{
 		login();
 		gotoExplorerOption(option_podCasts,"Popular");
 		
+		
 	    firstPod.click();
 	    
 	    makeSureItIsPlaying();
@@ -203,6 +208,7 @@ public class PodcastsPage  extends Page{
 	public void WEB_11778_pauseResume()
 	{
 		login();
+		
 		gotoExplorerOption(option_podCasts,"Popular");
 		
 	    firstPod.click();

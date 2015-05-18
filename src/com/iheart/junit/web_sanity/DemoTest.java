@@ -54,9 +54,33 @@ public class DemoTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
+		 @Test
+		 public void testWEB_11774_filterPodAfterLogin() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		podcastsPage.WEB_11774_filterPodAfterLogin();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
 		
-		
+		 @Test
+		 public void testWEB_11773_playPodAfterLogin() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 	   podcastsPage.WEB_11773_playPodAfterLogin();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}     
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
 		 
+		 /*
 	
 		 	 
 		
@@ -139,7 +163,7 @@ public class DemoTest {
 			 	System.out.println(name.getMethodName() + " is Done.");
 			 }
 			 
-		/*
+		
 		   @Test
 		 public void testWEB_11779_playStations() throws Exception
 		 {   
@@ -152,7 +176,7 @@ public class DemoTest {
 		 	}  
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
-		 */
+		 
 		  
 		    @Test
 			 public void testWEB_11747_adjustVolume() throws Exception
@@ -186,7 +210,7 @@ public class DemoTest {
 
 		
 		
-		/*
+		
 		@Test
 		 public void testWEB_11752_thumpUpLiveRadio() throws Exception
 		 {   
@@ -200,7 +224,7 @@ public class DemoTest {
 	    	}
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
-		 */
+		 
 			
 		 @Test
 		 public void testWEB_11755_favorite() throws Exception
@@ -229,6 +253,9 @@ public class DemoTest {
 		 	}  
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
+		 
+		 
+		 */
 	 
 	    @After
 	    public void tearDown() throws Exception{

@@ -52,6 +52,8 @@ public class CustomRadioPage  extends Page {
 			
 			gotoExplorerOption(option_customRadio, "Popular");
 			
+			
+			
 			//Select a genra and play
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(4);
 		
@@ -66,6 +68,7 @@ public class CustomRadioPage  extends Page {
 	  	public void WEB_11761_filterAndPlayCustomAfterLogin()
 		{   login();
 		    gotoExplorerOption(option_customRadio, "Popular");
+		
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(5); 
 			
 			customFirstLinkPlayButton.click();
@@ -132,6 +135,7 @@ public class CustomRadioPage  extends Page {
 			login();
 			
 			gotoExplorerOption(option_customRadio, "Popular");
+		
 			firstArtist.click();
 	
 			/*
@@ -167,6 +171,8 @@ public class CustomRadioPage  extends Page {
 		{   
 			
 			gotoExplorerOption(option_podCasts, "Popular");
+			
+			
 			driver.findElement(By.cssSelector("ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 			makeSureItIsPlaying();
 			
@@ -187,8 +193,9 @@ public class CustomRadioPage  extends Page {
 		
 		private void playCustomRadio()
 		{   
-			//gotoExplorerOption(option_customRadio);
+			
 			gotoExplorerOption(option_customRadio, "Popular");
+			
 			customFirstLinkPlayButton.click();
 			//makeSureItIsPlaying();
 		}

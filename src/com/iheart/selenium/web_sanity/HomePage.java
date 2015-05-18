@@ -409,12 +409,14 @@ public class HomePage extends Page {
 		googleButton.click();
 		
 		//Need to switch Windows here
+		String winHandleBefore = switchWindow();
+		googEmail.sendKeys(FACEBOOKemail);
+		googPass.sendKeys(_PASSWORD);
+		googLogin.click();
 		
-		userName.sendKeys(FACEBOOKemail);
-		passWord.sendKeys(_PASSWORD);
-		login.click();
 		WaitUtility.sleep(2000);
 		
+		 driver.switchTo().window(winHandleBefore);
 	    System.out.println("see account:" + signedFBacct.getText());
 	    
 	    try{
@@ -423,6 +425,8 @@ public class HomePage extends Page {
 	    {
 	    	errors.append("login with G+ failed.");
 	    }
+	    
+	    
 	}
 	
 	public void WEB_11740_search()

@@ -46,20 +46,20 @@ public abstract class Page {
 	
 	
 	//Chrome Version
-	/*
+	
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(1) > a")
-		public WebElement option_forYou;
+		public WebElement option_forYou_chrome;
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(2) > a") 
-		public WebElement option_liveRadio;
+		public WebElement option_liveRadio_chrome;
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(3) > a") 
-		public WebElement option_customRadio;
+		public WebElement option_customRadio_chrome;
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(4) > a") 
-		public WebElement option_genres;
+		public WebElement option_genres_chrome;
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a") 
-		public WebElement option_podCasts;
+		public WebElement option_podCasts_chrome;
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(6) > a")
-		public WebElement option_perfectFor;
-	*/
+		public WebElement option_perfectFor_chrome;
+	
 	
 	//Search
    @FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > form > div.form-group.ui-inline-block.search-input > input") 
@@ -133,6 +133,11 @@ public abstract class Page {
 	@FindBy(id="pass") public WebElement facePass;
 	@FindBy(id="u_0_2") public WebElement faceLogin;
 	@FindBy(css="div.dropdown-trigger:nth-child(1) > button:nth-child(1)") public WebElement signedFBacct;
+	
+	//Google login
+	@FindBy(id="Email")  public WebElement googEmail;
+	@FindBy(id="Passwd") public WebElement googPass;
+	@FindBy(id="signIn") public WebElement googLogin;
 	
 	//login with email
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(3) > div > button:nth-child(1)") public WebElement loginButton;
@@ -469,15 +474,46 @@ public abstract class Page {
 	    
 	}
 	
-	
+	//to be done
 	public void handlePreRoll()
+	{   
+		 WaitUtility.sleep(35000);
+	}
+	
+	public void handlePreRoll_obsolete()
+	{   
+		  int milliSeconds = 0;
+		  //Wait for pre-roll if adContainer is detected
+	      String duration = driver.findElement(By.cssSelector(".seconds")).getText();
+		   System.out.println("duration:" + duration);
+		   if (duration!= null && duration.length()>0)
+		   {
+			   milliSeconds = (Integer.parseInt(duration))*1000;
+		       System.out.println("Pre-roll will last (:milliSeconds):" + milliSeconds );
+		       WaitUtility.sleep(milliSeconds + 5000);
+		   }else
+		   {
+			   System.out.println("No pre-roll is detected.");
+		   }
+		
+	}
+	
+	public void handlePreRoll_OLD()
 	{
 		//Wait for pre-roll if adContainer is detected
 		   try {
-			   if (adContainer.isDisplayed())
-				   WaitUtility.sleep(35000);
+			   if (adContainer.isDisplayed() && adContainer.isEnabled())
+			   {	
+				   System.out.println("Pre-roll is taking over the planet. Wait...");
+				   String duration = driver.findElement(By.cssSelector(".seconds")).getText();
+				   System.out.println("duration:" + duration);
+				   int milliSeconds = (Integer.parseInt(duration))*1000;
+				   System.out.println("milliSeconds:" + milliSeconds );
+				   WaitUtility.sleep(milliSeconds);
+			   
+			   }
 		   }catch(Exception e)
-		   {
+		   {   e.printStackTrace();
 			   System.out.println("No pre-roll is detected.");
 		   }
 	}
@@ -556,23 +592,66 @@ public abstract class Page {
 			WaitUtility.sleep(500);
 	}
 	
-	
-	public void gotoExplorerOption_chrome(WebElement option, String expectedTitle)
-	{   String chosenOption = option.getText();
-	     System.out.println("chosenOption:" + chosenOption );
+	/*
+	public void gotoExplorerOption_new(String  optionName, String expectedTitle)
+	{   
+		
+		int count = 0;
 		Actions action = new Actions(driver);
-		 action.moveToElement(explorer).perform();;
-		List<WebElement>  options = driver.findElements(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li"));
-		System.out.println("See option count:" + options.size());
-		for (WebElement op: options)
-		{   action.moveToElement(explorer).perform();
-			System.out.println("op:" + op.getText() );
-			if (op.getText().equals(chosenOption))
-			{	op.click();
-			    break;
+		do {
+			action = action.moveToElement(explorer);
+			//action = action.click(explorer);
+			WaitUtility.sleep(500);
+			try {
+			   action.moveToElement(getExplorerOption(optionName)).click().build().perform();
+				
+			}catch(Exception e)
+			{
+				
 			}
+			WaitUtility.sleep(1500);
+			count++;
+		}while(count < 5 && !driver.getTitle().contains(expectedTitle));	
+		
+		if (Page.getBrowser().equalsIgnoreCase("chrome"))
+			WaitUtility.sleep(1500);
+		else
+			WaitUtility.sleep(500);
+	}
+	
+	private WebElement getExplorerOption(String optionName)
+	{   boolean isChrome = Page.getBrowser().equalsIgnoreCase("chrome");
+		if (isChrome)
+		{
+			 if (optionName.equals("For You"))
+					return option_forYou_chrome;
+			 else if (optionName.equals("Live Radio"))
+				return option_liveRadio_chrome;
+			 else if (optionName.equals("Custom Radio"))
+					return option_customRadio_chrome;
+			 else if (optionName.equals("Genres"))
+					return option_genres_chrome;
+			 else if (optionName.equals("Podcasts"))
+					return option_podCasts_chrome;
+			 else if (optionName.equals("Perfect For"))
+					return option_perfectFor_chrome;
+		}else 
+		{	
+			if (optionName.equals("For You"))
+				return option_forYou;
+			 else if (optionName.equals("Live Radio"))
+				return option_liveRadio;
+			 else if (optionName.equals("Custom Radio"))
+					return option_customRadio;
+			 else if (optionName.equals("Genres"))
+					return option_genres;
+			 else if (optionName.equals("Podcasts"))
+					return option_podCasts;
+			 else if (optionName.equals("Perfect For"))
+					return option_perfectFor;
 		}
 		
+		return option_forYou;
 	}
 	
 	
@@ -580,7 +659,7 @@ public abstract class Page {
 	{
 		
 	}
-	
+	*/
 	public void gotoSingedAccountOption(WebElement option, String expectedTitle)
 	{  // limit try to 5 times
 		int count = 0;
@@ -672,7 +751,7 @@ public abstract class Page {
 	}
 	
 	public boolean isSoftGateShow()
-	{   WaitUtility.sleep(5000);
+	{   WaitUtility.sleep(2000);
 	    System.out.println(signupHint.getText());
 		return signupHint.getText().contains("Have an account?");
 	}
