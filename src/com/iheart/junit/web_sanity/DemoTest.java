@@ -29,8 +29,9 @@ public class DemoTest {
 		
 		PopularUserFlow popularFlow;
 		
-		String browser = "firefox";
-		//String browser = "chrome";
+		//String browser = "firefox";
+		//rUN in chrome
+		String browser = "chrome";
 		
 		static String userCity = "";
 		
@@ -112,7 +113,7 @@ public class DemoTest {
 	 
 	    @After
 	    public void tearDown() throws Exception{
-	    	driver.quit(); 
+	    	//driver.quit(); 
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	
