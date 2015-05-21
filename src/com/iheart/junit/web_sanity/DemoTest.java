@@ -54,19 +54,20 @@ public class DemoTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
-		 @Test
-		    public void testWEB_11784_signUp() throws Exception
-		    {
-		    	System.out.println("test method:" +  name.getMethodName() );
-		    	try{
-			    	   homePage.WEB_11784_signUp();
-		    	}catch(Exception e)
-			 	{
-			 		handleException(e);
-			 	} 
-			     System.out.println(name.getMethodName() + " is Done.");
-		    	
-		    }
+	    @Test
+	    public void testWEB_11784_signUp() throws Exception
+	    {
+	    	System.out.println("test method:" +  name.getMethodName() );
+	    	try{
+		    	   homePage.WEB_11784_signUp();
+	    	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	} 
+		     System.out.println(name.getMethodName() + " is Done.");
+	    	
+	    }
+		
 		
 		 @Test
 		 public void testWEB_11774_filterPodAfterLogin() throws Exception
@@ -81,7 +82,7 @@ public class DemoTest {
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
 		
-		 
+		
 		 
 		 @Test
 		 public void testWEB_11741_searchAfterLogin() throws Exception
@@ -105,11 +106,12 @@ public class DemoTest {
 		 	}catch(Exception e)
 		 	{
 		 		handleException(e);
+
 		 	}  
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
 		 
-		
+
 	 
 	    @After
 	    public void tearDown() throws Exception{

@@ -901,7 +901,7 @@ public class sanityTest {
 	    	 if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	 
-	    	closeBrowserSession();
+	    //	closeBrowserSession();
 	    }
 		
 	    
