@@ -35,7 +35,8 @@ public class DemoTest {
 		
 		static String userCity = "";
 		
-		 
+		String forTest ="akjasfa"; 
+		
 		final String URL = "http://www.iheart.com";
 		
 		@Rule public TestName name = new TestName();
