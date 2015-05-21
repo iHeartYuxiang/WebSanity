@@ -29,8 +29,8 @@ public class DemoTest {
 		
 		PopularUserFlow popularFlow;
 		
-		//String browser = "firefox";
-		String browser = "chrome";
+		String browser = "firefox";
+		//String browser = "chrome";
 		
 		static String userCity = "";
 		
@@ -54,6 +54,20 @@ public class DemoTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
+	    @Test
+	    public void testWEB_11784_signUp() throws Exception
+	    {
+	    	System.out.println("test method:" +  name.getMethodName() );
+	    	try{
+		    	   homePage.WEB_11784_signUp();
+	    	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	} 
+		     System.out.println(name.getMethodName() + " is Done.");
+	    	
+	    }
+		
 		 @Test
 		 public void testWEB_11774_filterPodAfterLogin() throws Exception
 		 {   
@@ -67,42 +81,14 @@ public class DemoTest {
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
 		
-		 @Test
-		 public void testWEB_11773_playPodAfterLogin() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 	   podcastsPage.WEB_11773_playPodAfterLogin();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}     
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
 		 
-		 /*
-	
-		 	 
-		
+		 
 		 @Test
-		 public void testWEB_11777_skipLimitless() throws Exception
+		 public void testWEB_11741_searchAfterLogin() throws Exception
 		 {   
 		 	System.out.println("test method:" +  name.getMethodName() );
 		 	try{
-		 		podcastsPage.WEB_11777_skipLimitless();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-			
-		 @Test
-		 public void testWEB_11778_pauseResume() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		podcastsPage.WEB_11778_pauseResume();
+		 		homePage.WEB_11741_searchAfterLogin();
 		 	}catch(Exception e)
 		 	{
 		 		handleException(e);
@@ -111,65 +97,11 @@ public class DemoTest {
 		 }
 		 
 		 @Test
-		    public void testWEB_11796_LiveStationAutoPlay() throws Exception
-		    {   
-		    	System.out.println("test method:" +  name.getMethodName() );
-		    	try {
-		    	   liveRadioPage.WEB_11796_LiveStationAutoPlay();
-		    	}catch(Exception e)
-		    	{
-		    		handleException(e);
-		    	}
-		    	System.out.println(name.getMethodName() + " is Done.");
-		    }
-		    
-		    @Test
-		    public void testWEB_11746_PlayStopScan() throws Exception
-		    {   
-		    	System.out.println("test method:" +  name.getMethodName() );
-		    	try
-		    	{
-		    	   liveRadioPage.WEB_11746_PlayStopScan();
-		    	}catch(Exception e)
-		    	{
-		    		handleException(e);
-		    	}
-		    	System.out.println(name.getMethodName() + " is Done.");
-		    }
-		    
-		    @Test
-			 public void testWEB_11762_customSkipLimit() throws Exception
-			 {   
-			 	System.out.println("test method:" +  name.getMethodName() );
-			 	try{
-			 	   customRadioPage.WEB_11762_skipLimit();
-			 	}catch(Exception e)
-			 	{
-			 		handleException(e);
-			 	}  
-			 	System.out.println(name.getMethodName() + " is Done.");
-			 }
-		    
-		    @Test
-			 public void testWEB_11774_filterPodAfterLogin() throws Exception
-			 {   
-			 	System.out.println("test method:" +  name.getMethodName() );
-			 	try{
-			 		podcastsPage.WEB_11774_filterPodAfterLogin();
-			 	}catch(Exception e)
-			 	{
-			 		handleException(e);
-			 	}  	
-			 	System.out.println(name.getMethodName() + " is Done.");
-			 }
-			 
-		
-		   @Test
-		 public void testWEB_11779_playStations() throws Exception
+		 public void testWEB_11762_skipLimit() throws Exception
 		 {   
 		 	System.out.println("test method:" +  name.getMethodName() );
 		 	try{
-		 	   profilePage.WEB_11779_playStations();
+		 	   customRadioPage.WEB_11762_skipLimit();
 		 	}catch(Exception e)
 		 	{
 		 		handleException(e);
@@ -177,89 +109,10 @@ public class DemoTest {
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
 		 
-		  
-		    @Test
-			 public void testWEB_11747_adjustVolume() throws Exception
-			 {   
-			 	System.out.println("test method:" +  name.getMethodName() );
-			 	try
-		    	{
-			 		liveRadioPage.WEB_11747_adjustVolume();
-		    	}catch(Exception e)
-		    	{
-		    		handleException(e);
-		    	}
-			 	System.out.println(name.getMethodName() + " is Done.");
-			 }
-		  
-		   
-	
-		@Test
-		 public void testWEB_11754_thumpDown() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try
-	    	{
-		 	    liveRadioPage.WEB_11754_thumpDown();
-	    	}catch(Exception e)
-	    	{
-	    		handleException(e);
-	    	}
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-
-		
-		
-		
-		@Test
-		 public void testWEB_11752_thumpUpLiveRadio() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try
-	    	{
-		 	   liveRadioPage.WEB_11752_thumpUp();
-	    	}catch(Exception e)
-	    	{
-	    		handleException(e);
-	    	}
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		 
-			
-		 @Test
-		 public void testWEB_11755_favorite() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try
-	    	{
-		 	   liveRadioPage.WEB_11755_favorite();
-	    	}catch(Exception e)
-	    	{
-	    		handleException(e);
-	    	}
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		
-	  
-		 @Test
-		 public void testWEB_11763_thumpUpCustom() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 	   customRadioPage.WEB_11763_thumpUpCustom();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		 
-		 
-		 */
 	 
 	    @After
 	    public void tearDown() throws Exception{
-	    	//driver.quit(); 
+	    	driver.quit(); 
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	
