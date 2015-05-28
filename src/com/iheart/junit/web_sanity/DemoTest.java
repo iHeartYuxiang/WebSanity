@@ -30,12 +30,12 @@ public class DemoTest {
 		PopularUserFlow popularFlow;
 		
 		//String browser = "firefox";
-		//rUN in chrome
+	
 		String browser = "chrome";
 		
 		static String userCity = "";
 		
-		String forTest ="akjasfa"; 
+		
 		
 		final String URL = "http://www.iheart.com";
 		
@@ -56,67 +56,129 @@ public class DemoTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
-	    @Test
-	    public void testWEB_11784_signUp() throws Exception
-	    {
-	    	System.out.println("test method:" +  name.getMethodName() );
-	    	try{
-		    	   homePage.WEB_11784_signUp();
-	    	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	} 
-		     System.out.println(name.getMethodName() + " is Done.");
-	    	
-	    }
+		
+		
+		
 		
 		 @Test
-		 public void testWEB_11774_filterPodAfterLogin() throws Exception
-		 {   
+		 public void testWEB_11768_addToFavorite() throws Exception
+		 {  
 		 	System.out.println("test method:" +  name.getMethodName() );
 		 	try{
-		 		podcastsPage.WEB_11774_filterPodAfterLogin();
+		 	    perfectForPage.WEB_11768_addToFavorite();
 		 	}catch(Exception e)
 		 	{
 		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		
-		 
-		 
-		 @Test
-		 public void testWEB_11741_searchAfterLogin() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		homePage.WEB_11741_searchAfterLogin();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
+		 	}
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
 		 
 		 @Test
-		 public void testWEB_11762_skipLimit() throws Exception
+		 public void testWEB_11765_CustomStationPlayStop() throws Exception
 		 {   
 		 	System.out.println("test method:" +  name.getMethodName() );
 		 	try{
-		 	   customRadioPage.WEB_11762_skipLimit();
-		 	}catch(Exception e)
+		 	   customRadioPage.WEB_11765_CustomStationPlayStop();
+		    }catch(Exception e)
 		 	{
 		 		handleException(e);
 		 	}  
 		 	System.out.println(name.getMethodName() + " is Done.");
 		 }
 		 
-	 
+		 
+		 @Test
+		 public void testWEB_11772_browsePodcasts() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		    	podcastsPage.WEB_11772_browsePodcasts();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		 @Test
+		 public void testWEB_11754_thumpDownLiveRadio() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try
+	    	{
+		 	    liveRadioPage.WEB_11754_thumpDown();
+	    	}catch(Exception e)
+	    	{
+	    		handleException(e);
+	    	}
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		/*
+		 * 
+		 * @Test
+		 public void testWEB_11783_logout() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		    	profilePage.WEB_11783_logout();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		@Test
+		 public void testWEB_11781_playStationsInListenHistoryPage() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		    	profilePage.WEB_11781_playStationsInListenHistoryPage();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		
+		 @Test
+		 public void testWEB_11772_browsePodcasts() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		    	podcastsPage.WEB_11772_browsePodcasts();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		 @Test
+		 public void testWEB_11738_FACEBOOKsignUp() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		homePage.WEB_11738_FACEBOOKsignUp();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
+		 
+	*/
+		 
+		
 	    @After
 	    public void tearDown() throws Exception{
 	    	//driver.quit(); 
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
+	    	
+	    	
 	    	
 	    	//closeBrowserSession();
 	    }

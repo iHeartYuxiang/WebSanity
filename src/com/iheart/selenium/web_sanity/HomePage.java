@@ -33,6 +33,12 @@ public class HomePage extends Page {
 	@FindBy(css="button.text:nth-child(1)") public WebElement myStation;
 	
 	
+	//For chrome using xpath
+	@FindBy(xpath="//*[@id='dialog']/div/div[2]/div[2]/div/div[1]/div/button") public WebElement playStation_xpath;
+					//*[@id="dialog"]/div/div[2]/div[2]/div/div[2]/p
+	
+	//@FindBy(css="button.text:nth-child(1)") public WebElement myStation;
+	
 	@FindBy(css="li.genre:nth-child(1) > div:nth-child(1) > div:nth-child(1)") public WebElement firstGenra;
 	@FindBy(css=".genre-game-footer > button:nth-child(1)") public WebElement getStation;
 	@FindBy(css="li.tabbar:nth-child(1) > a:nth-child(1)") public WebElement forYouLink;
@@ -104,11 +110,25 @@ public class HomePage extends Page {
 	public void WEB_11734_startUp()
 	{   WaitUtility.sleep(500);
 		comedy.click();
-		playStation.click();
+		if (isChrome)
+			playStation_xpath.click();
+		else
+		     playStation.click();
 		
-		driver.navigate().refresh();
-		sport.click();
-		playStation.click();
+		if(isChrome)
+		{   driver.quit();
+		    driver = Utils.createWebDriver("chrome");
+		   
+			driver.get("http://www.iheart.com");
+			//Click on Sports, then get Stations.
+			driver.findElement(By.xpath("//*[@id='dialog']/div/div[2]/div[2]/div/div[1]/ul/li[10]/div/div[1]")).click();
+			driver.findElement(By.xpath("//*[@id='dialog']/div/div[2]/div[2]/div/div[1]/div/button")).click();
+		}else
+		{	
+			driver.navigate().refresh();
+			sport.click();
+		    playStation.click();
+		}
 	}
 	
 	
@@ -162,8 +182,9 @@ public class HomePage extends Page {
 	
 	public void WEB_11790_Hero() throws Exception
 	{
-		
+		WaitUtility.sleep(500);
 		firstGenra.click();
+		WaitUtility.sleep(500);
 		getStation.click();
 		WaitUtility.sleep(500);
 		
@@ -190,6 +211,7 @@ public class HomePage extends Page {
 		
 		heroEnter.click();
 		
+		
 		//Verify that a seperate window is launched
 		String winHandleBefore = driver.getWindowHandle();
 		
@@ -207,18 +229,22 @@ public class HomePage extends Page {
 		//Switch back to original browser (first window)
 		driver.switchTo().window(winHandleBefore);
 		
+	
 		//play live and custom station respectively
 		//live
-		driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		//driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		makeSureItIsPlaying();
 		//Check stream
-	    if (icon_play.isDisplayed())
+	    if (!isPlaying())
 	    	errors.append("Stream is not started for live radio.");
 	    
-	    driver.navigate().back();
+	    if(!isChrome)
+	    	driver.navigate().back();
 	    //Play a custom station
-	    driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(8) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+	   // driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(8) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+	    makeSureItIsPlaying();
 	    
-	    if (!icon_play.isDisplayed())
+	    if (!isPlaying())
 	    	errors.append("Custom station is playing for unauthorized user.");
 	    if(!isSoftGateShow())
 	    	errors.append("Sign up page is not displayed for unauthorized user.");
@@ -230,19 +256,35 @@ public class HomePage extends Page {
 	{   String theOption ="";
 		String options ="";
 		
-		 explorer.click();
+		if (isChrome)
+			driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/button")).click();
+		else
+		    explorer.click();
 		 WaitUtility.sleep(1000);
 		 
 		 //Verify drop down options
-		 List<WebElement> allElements = driver.findElements(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li")); 
+		
+		 List<WebElement> allElements ;
+		 
+		 if(isChrome)
+		 {	 
+			 allElements = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li"));
+			 //allElements = driver.findElements(By.cssSelector()
+		 	   System.out.println("COUNT:" + allElements.size());
+		 }else
+		    allElements = driver.findElements(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li")); 
 
 		 for (WebElement element: allElements) 
 	     {   
-	    	 theOption = element.getText().trim();
+	    	 // theOption = element.findElement(By.tagName("a")).getText().trim();
+			 //theOption = element.getText().trim();
+			  theOption = element.getAttribute("innerHTML");
 	    	  options += theOption;
 	    	 WaitUtility.sleep(500);
 	    	
 	     }
+		 
+         System.out.println("options:" + options); 		 
 		 
 		 if (!options.contains("For You") || !options.contains("Live Radio") || !options.contains("Custom Radio") 
 				 || !options.contains("Genres") || !options.contains("Podcasts") || !options.contains("Perfect For"))
@@ -253,31 +295,24 @@ public class HomePage extends Page {
 		 
 		 //Click on each opton of the drop-down menu
 		
+		 if (isChrome)
+		 {
+			 verifyExplorerLink(option_forYou_xpath, "Home");
+			 verifyExplorerLink(option_liveRadio_xpath, "Live");
+			 verifyExplorerLink(option_customRadio_xpath, "Popular Artists");
+			 verifyExplorerLink(option_genres_xpath, "Genres");
+			 verifyExplorerLink(option_podCasts_xpath, "Popular Talk Shows");
+			 verifyExplorerLink(option_perfectFor_xpath, "Perfect For");
+		 }else
+		 {
+			 verifyExplorerLink(option_forYou, "Home");
+			 verifyExplorerLink(option_liveRadio, "Live");
+			 verifyExplorerLink(option_customRadio, "Popular Artists");
+			 verifyExplorerLink(option_genres, "Genres");
+			 verifyExplorerLink(option_podCasts, "Popular Talk Shows");
+			 verifyExplorerLink(option_perfectFor, "Perfect For");
+		 }
 		 
-		 verifyExplorerLink(option_forYou, "Home");
-	
-		// verifyExplorerLink(option_liveRadio, "Live");
-		 explorer.click();
-		 driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)")).click();
-		
-		 //verifyExplorerLink(option_customRadio, "Popular Artists");
-		 explorer.click();
-		 driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)")).click();
-		
-		 
-	
-		// verifyExplorerLink(option_genres, "Genres");
-		 explorer.click();
-		 driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1)")).click();
-		
-		 
-		// verifyExplorerLink(option_podCasts, "Popular Talk Shows");
-		 explorer.click();
-		 driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(5) > a:nth-child(1)")).click();
-		
-		 //verifyExplorerLink(option_perfectFor, "Perfect For");
-		 explorer.click();
-		 driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")).click();
 		
 	}
 	
@@ -285,9 +320,17 @@ public class HomePage extends Page {
 	
 	private void verifyExplorerLink(WebElement option, String expectedTitle)
 	{   
-		explorer.click();
+		//explorer.click();
+		if (isChrome)
+			//explorer_xpath.click();
+			driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/button/span")).click();
+		else
+		    explorer.click();
 		WaitUtility.sleep(200);
+		
+		System.out.println("Verify option:" + option.getAttribute("innerHTML"));
 		String _option = option.getText().trim();
+		
 		System.out.println("Verify option:" + _option);
 		
 		//clickOnExplorerOption(option, expectedTitle);
@@ -344,28 +387,15 @@ public class HomePage extends Page {
 	
 	
 	public void WEB_8823_faceBooksignUp()
-	{
+	{   WaitUtility.sleep(500);
 		firstGenra.click();
+		WaitUtility.sleep(500);
 		getStation.click();
+		WaitUtility.sleep(500);
 		playButton.click();
 		makeSureItIsPlaying();
 		
-		/*
-		faceBook.click();
 		
-		String winHandleBefore = switchWindow();
-		
-		
-		faceEmail.sendKeys(FACEBOOKemail);
-		facePass.sendKeys("iheart001");
-		faceLogin.click();
-	    
-	    WaitUtility.sleep(2000);
-	     
-	   // goToPreviousWindow(driver, winHandleBefore);
-	    
-	    driver.switchTo().window(winHandleBefore);
-	    */
 		faceBookSignUp();
 	  //  String signedAcct = driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(1) > button:nth-child(1)")).getText();
 	    System.out.println("see account:" + signedFBacct.getText());
@@ -382,7 +412,16 @@ public class HomePage extends Page {
 	
 	public void WEB_11737_loginWithEmail()
 	{
-		loginButton.click();
+		if (isChrome)
+		{	for (int i = 0; i < 5; i++)
+	    	{
+		    	loginButton_xpath.click();
+		    	if (userName.isDisplayed())
+		    		break;
+		    	
+	    	}	
+		}else
+		    loginButton.click();
 		userName.sendKeys(FACEBOOKemail);
 		passWord.sendKeys(_PASSWORD);
 		login.click();
@@ -476,5 +515,10 @@ public class HomePage extends Page {
 			errors.append("Returned top hit is not based on user's geo.");
 	}
 	
+	
+	public void comeToThisPage()
+	{
+		//do nothing
+	}
 	
 }

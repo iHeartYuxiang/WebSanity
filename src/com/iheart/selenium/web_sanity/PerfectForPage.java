@@ -33,7 +33,9 @@ public class PerfectForPage extends Page{
 	
 	public void WEB_11766_browsePerfect()
 	{
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage();
+		
 	    firstBox.click();
 	    makeSureItIsPlaying();
 	    
@@ -58,8 +60,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11769_skipLimit()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
-		
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage();
 		//First one is my 80s, which is a live station. No skip button will be displayed. 
 		//Make sure that a custom station is chosen and played
 	    searchBox.clear();
@@ -76,8 +78,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11768_addToFavorite()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
-		
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage();
 		//Need to remember this station name
 		String chosenStation = firstBoxTitle.getText();
 		System.out.println("See chosenStation:" + chosenStation);
@@ -119,8 +121,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11770_thumpUpPerfect()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
-		
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage();
 		//Need to remember this station name
 		String chosenStation = firstBoxTitle.getText();
 		System.out.println("See chosenStation:" + chosenStation);
@@ -134,8 +136,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11771_pauseResume()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
-		
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage();
 	   
 		driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 		makeSureItIsPlaying();
@@ -157,7 +159,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11767_filterAfterLogin()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage();
 		
 		new Select(activity).selectByIndex(2);
 		
@@ -188,13 +191,19 @@ public class PerfectForPage extends Page{
 	private void checkSkipLimit()
 	{
 		for (int i = 0; i < 6; i++)
-		{
-			icon_skip.click();
+		{   if (isChrome)
+			   driver.findElement(By.xpath("//*[@id='player']/div[2]/div[1]/button[4]/i")).click();
+		    else
+			    icon_skip.click();
 			thumpDown.click();
 			WaitUtility.sleep(200);
 		}
 		
-		icon_skip.click();
+		//icon_skip.click();
+		if (isChrome)
+			   driver.findElement(By.xpath("//*[@id='player']/div[2]/div[1]/button[4]/i")).click();
+		    else
+			    icon_skip.click();
 		String _growls = growls.getText();
 		System.out.println("See growls:" + _growls);
 		if (!_growls.contains("reached your skip limit"))
@@ -202,4 +211,27 @@ public class PerfectForPage extends Page{
 		
 	}
 
+	public void comeToThisPage()
+	{
+		if (isChrome)
+			gotoExplorerOption(option_perfectFor_xpath,"Perfect");
+		else	
+		    gotoExplorerOption(option_perfectFor,"Perfect");
+		
+		 if (!driver.getTitle().contains("Perfect"))
+		    	comeToThisPage_direct();
+	}
+	
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/perfect-for/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
 }

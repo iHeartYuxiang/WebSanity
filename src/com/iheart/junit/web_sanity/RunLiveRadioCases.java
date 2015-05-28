@@ -188,8 +188,8 @@ public class RunLiveRadioCases {
 		 if ( Page.getErrors().length() > 0)
 		     fail( Page.getErrors().toString());
 		 
-	      driver.quit();
-	      closeBrowserSession();
+	     driver.quit();
+	     closeBrowserSession();
 	    
 	 }
 
@@ -208,7 +208,7 @@ public class RunLiveRadioCases {
 	  public void closeBrowserSession() throws Exception 
 	  { 
 		  Runtime.getRuntime().exec("taskkill /F /IM chrome.exe"); 
-		  Runtime.getRuntime().exec("taskkill /F /IM iexplorer.exe"); 
-		  Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
+		 // Runtime.getRuntime().exec("taskkill /F /IM iexplorer.exe"); 
+		  //Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
 	  }
 }

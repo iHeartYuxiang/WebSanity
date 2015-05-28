@@ -50,14 +50,19 @@ public class CustomRadioPage  extends Page {
 			//Close signup page
 			icon_close.click();
 			
-			gotoExplorerOption(option_customRadio, "Popular");
-			
+			//gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage();
 			
 			
 			//Select a genra and play
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(4);
 		
-			playCustomRadio();
+			//playCustomRadio();
+			//customFirstLinkPlayButton.click();
+			driver.findElement(By.xpath("//*[@id='main']/div/section/ul/li[1]/div/div[1]/a/div[2]/button/i")).click();
+			
+			makeSureItIsPlaying();
+			
 			
 			hint = driver.findElement(By.cssSelector("#dialog > div > div.dialog.ui-on-grey > div.wrapper > header > div.type-xsmall.type-secondary > span > span")).getText();
 			if (!hint.contains("Have an account?"))
@@ -67,8 +72,9 @@ public class CustomRadioPage  extends Page {
 	  	
 	  	public void WEB_11761_filterAndPlayCustomAfterLogin()
 		{   login();
-		    gotoExplorerOption(option_customRadio, "Popular");
-		
+		   // gotoExplorerOption(option_customRadio, "Popular");
+		    comeToThisPage();
+		    
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(5); 
 			
 			customFirstLinkPlayButton.click();
@@ -115,18 +121,7 @@ public class CustomRadioPage  extends Page {
 			System.out.println("It is playing:" + songPlaying);
 			
 			doThumbUp("WEB_11763_thumpUpCustom");
-			//doSkip();
 			
-			/*
-			icon_skip.click();
-			WaitUtility.sleep(2000);
-			
-			String nextSong = driver.findElement(By.cssSelector("#player > div.player-left > div.player-info > a.player-artist.type-secondary.type-xsmall")).getText();
-			System.out.println("After skip:" + nextSong);
-			
-			if (nextSong.equalsIgnoreCase(songPlaying))
-				handleError("skip button is not working for custom radio.", "WEB_11763_thumpUpCustom");
-			*/
 			
 		}
 		
@@ -134,20 +129,9 @@ public class CustomRadioPage  extends Page {
 		{   
 			login();
 			
-			gotoExplorerOption(option_customRadio, "Popular");
-		
+			//gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage();
 			firstArtist.click();
-	
-			/*
-			customFavorite.click();
-			WaitUtility.sleep(1000);
-			
-			String _growls = growls.getText();
-			System.out.println("See growls:" + _growls);
-		
-			if (!_growls.contains("Favorite"))
-			   handleError("Add to Favorite failed.", "WEB_11764_addCustomStationToFavorite");
-			*/
 			
 			doFavorite("WEB_11764_addCustomStationToFavorite");
 			
@@ -159,19 +143,26 @@ public class CustomRadioPage  extends Page {
 			login();
 			playCustomRadioAfterLogin();
 						
-			//icon_pause.click();
-			driver.findElement(By.cssSelector("button.playing")).click();
-			icon_play.click();
 			
-			
+			if (isChrome)
+			{	icon_play_pause_stop_xpath.click();
+			     //Verify that player stops
+				if (!isPlaying())
+					errors.append("Player didn't stop.");
+			}else 
+			{	
+				driver.findElement(By.cssSelector("button.playing")).click();
+				icon_play.click();
+			}
+		    
 		}
 		
 		
 		public void WEB_11772_browsePodcasts()
 		{   
 			
-			gotoExplorerOption(option_podCasts, "Popular");
-			
+			//gotoExplorerOption(option_podCasts, "Popular");
+			comeToThisPage();
 			
 			driver.findElement(By.cssSelector("ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 			makeSureItIsPlaying();
@@ -194,31 +185,43 @@ public class CustomRadioPage  extends Page {
 		private void playCustomRadio()
 		{   
 			
-			gotoExplorerOption(option_customRadio, "Popular");
-			
+			//gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage();
 			customFirstLinkPlayButton.click();
-			//makeSureItIsPlaying();
+			makeSureItIsPlaying();
 		}
 	
 		private void playCustomRadioAfterLogin()
 		{   
-			//gotoExplorerOption(option_customRadio);
-			gotoExplorerOption(option_customRadio, "Popular");
+			
+			//gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage();
+			
 			customFirstLinkPlayButton.click();
 			makeSureItIsPlaying();
 		}
 		
-	/*
-		public void gotoCustomRadioPage()
-		{  
-			Actions action = new Actions(driver);
+		public void comeToThisPage()
+		{
+			if (isChrome)
+				gotoExplorerOption(option_customRadio_xpath,"Popular");
+			else	
+			    gotoExplorerOption(option_customRadio,"Popular");
 			
-			action = action.moveToElement(explorer);
-			WaitUtility.sleep(500);
-			action.moveToElement(option_customRadio).click().build().perform();
-		
+			if (!driver.getTitle().contains("Popular"))
+		    	comeToThisPage_direct();
 		}
 		
-	*/
-
+		private void comeToThisPage_direct()
+		{   String currentURL = driver.getCurrentUrl();
+			System.out.println("SEE current url:"  + currentURL);
+		    String part1 = currentURL.split("//")[0];
+		    String part2  = currentURL.split("//")[1].split("/")[0];
+		    
+		    String newURL = part1 + "//" + part2 + "/artist/" ;
+			System.out.println("SEE new url:"  + newURL );
+			
+			driver.get(newURL);
+			WaitUtility.sleep(1000);
+		}
 }

@@ -219,8 +219,8 @@ public class RunHomePage {
 	    	 if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	 
-	          driver.quit();
-	          closeBrowserSession();
+	          //driver.quit();
+	        //  closeBrowserSession();
 	    }
 	    
 	    private void handleException(Exception e)

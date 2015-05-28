@@ -111,9 +111,10 @@ public class RunProfileCases {
 	 
 	 @After
 	 public void tearDown() throws Exception {
+		 driver.quit();
 		 if ( Page.getErrors().length() > 0)
 			 fail( Page.getErrors().toString());
-	    // driver.quit();
+	    
 	     closeBrowserSession();
 	    
 	 }

@@ -61,7 +61,8 @@ public class LiveRadioPage extends Page {
 		
     public void WEB_11743_playLiveWithoutLogin()
     {
-    	gotoExplorerOption(option_liveRadio, "Live");
+    	//gotoExplorerOption(option_liveRadio, "Live");
+    	comeToThisPage();
 		makeSureItIsPlaying();
 		
 		verifyPlayer("Live Radio");
@@ -69,7 +70,8 @@ public class LiveRadioPage extends Page {
     
     public void WEB_11749_playStationAfterLogin()
     {   login();
-    	gotoExplorerOption(option_liveRadio, "Live");
+    	//gotoExplorerOption(option_liveRadio, "Live");
+    	comeToThisPage();
 		makeSureItIsPlaying();
 		
 		verifyPlayer("Live Radio");
@@ -84,7 +86,8 @@ public class LiveRadioPage extends Page {
     public void WEB_11753_favStationAndListenHistoryOnPlayer()
     {
     	//for users not sign in
-    	gotoExplorerOption(option_liveRadio, "Live");
+    	//gotoExplorerOption(option_liveRadio, "Live");
+    	comeToThisPage();
 		firstLive.click();
 		
 		try{
@@ -131,7 +134,8 @@ public class LiveRadioPage extends Page {
     public void WEB_11748_ThumbUpAndDownLiveWithoutLogin()
     {
     	
-    	gotoExplorerOption(option_liveRadio, "Live");
+    	//gotoExplorerOption(option_liveRadio, "Live");
+    	comeToThisPage();
 		firstLive.click();
 		makeSureItIsPlaying();
 		
@@ -149,7 +153,8 @@ public class LiveRadioPage extends Page {
     public void WEB_11750_filterLiveStationAfterLogin()
     {
     	login();
-    	gotoExplorerOption(option_liveRadio, "Live");
+    	//gotoExplorerOption(option_liveRadio, "Live");
+    	comeToThisPage();
     	filterStation();
     	String chosenStation = firstStation.getText();
     	firstStation.click();
@@ -174,7 +179,7 @@ public class LiveRadioPage extends Page {
 		login();
 		search("Elvis Duran");
 		firstSearchResult.click();
-	//	makeSureItIsPlaying();
+		makeSureItIsPlaying();
 		WaitUtility.sleep(1000);
 		addToFavoriteFromPlayer();
 	
@@ -204,7 +209,8 @@ public class LiveRadioPage extends Page {
 	    
 	public void WEB_14441_mutePlayer()
 	{   
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		volumeButton.click();
 		if (!iconMute.getAttribute("class").equalsIgnoreCase("icon-mute"))
 			handleError("Player is not muted.", "WEB_14441_mutePlayer");
@@ -213,14 +219,23 @@ public class LiveRadioPage extends Page {
 	
 	public void WEB_11744_filterStation()
 	{   
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
+		
 		/*
-		new Select(country).selectByVisibleText("Mexico");
-		WaitUtility.sleep(2000);
-		//new Select(city).selectByIndex(3);
-		new Select(driver.findElement(By.name("city"))).selectByIndex(1);
-		WaitUtility.sleep(1000);
-		new Select(genres).deselectByIndex(2);
+		Actions action = new Actions(driver);
+		
+		action = action.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/button")));
+		
+		WaitUtility.sleep(1500);
+		try {
+			//System.out.println(" gotoExplorerOption() - option: " + option.getText());
+		   action.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[2]/a"))).click().build().perform();
+			
+		}catch(Exception e)
+		{
+			
+		}
 		*/
 		filterStation();
 		String chosenStation = firstStationLabel.getText();
@@ -249,7 +264,8 @@ public class LiveRadioPage extends Page {
 
 	public void WEB_11745_International()
 	{  
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		do{
 		  new Select(city).selectByVisibleText("All Stations, INT");
 		  WaitUtility.sleep(500);
@@ -259,14 +275,15 @@ public class LiveRadioPage extends Page {
 		
 		firstINT.click();
 		firstINT_playButton.click();
-		
+		makeSureItIsPlaying();
 		//Verify that it is indeed playing
 		if (!firstINT_stopPlayButton.getAttribute("class").equalsIgnoreCase("icon-stop"))
 			handleError("The chosen station is not playing.", "WEB_11745_International");
 	}
 	
 	public void WEB_11796_LiveStationAutoPlay(){
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		
 		firstLiveTextLink.click();
 		WaitUtility.sleep(1000);
@@ -283,14 +300,19 @@ public class LiveRadioPage extends Page {
 	}
 	
 	public void WEB_11746_PlayStopScan(){
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		icon_play.click();
 		
 		makeSureItIsPlaying();
+		if (isChrome)
+		{	icon_play_pause_stop_xpath.click();
+			icon_play_pause_stop_xpath.click();
+		}else
+		{	icon_stop.click();
 		
-		icon_stop.click();
-		
-		icon_play.click();
+			icon_play.click();
+		}
 		//here, get the song that is playing
 		String songTitle = player_song.getText();
 		System.out.println("song playing:" + songTitle);
@@ -307,7 +329,8 @@ public class LiveRadioPage extends Page {
 	public void WEB_11752_thumpUp()
 	{   login();
 		
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		
 		do {
 			firstLive.click();
@@ -329,7 +352,8 @@ public class LiveRadioPage extends Page {
 	{  //fOR FAVORITE, make sure that the player is not playing to circuit pre-roll
 		login();
 		
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		firstLive.click();
 		makeSureItIsNotPlaying();
 		
@@ -340,7 +364,8 @@ public class LiveRadioPage extends Page {
 	
 	public void WEB_11754_thumpDown()
 	{   login();
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		firstLive.click();
 		makeSureItIsPlaying();
 		
@@ -363,7 +388,8 @@ public class LiveRadioPage extends Page {
 	
 	public void WEB_11747_adjustVolume()
 	{   login();
-		gotoExplorerOption(option_liveRadio, "Live");
+		//gotoExplorerOption(option_liveRadio, "Live");
+		comeToThisPage();
 		firstLive.click();
 		makeSureItIsPlaying();
 		int widthOfVolumeBar = volumeBar.getSize().getWidth();
@@ -378,8 +404,8 @@ public class LiveRadioPage extends Page {
 	
 	public void WEB_11785_playStationFromGenreProfile(){
 		
-		gotoExplorerOption(option_genres, "Genres");
 		
+		gotoGenrePage();
 		
 		//click on country genre
 		driver.findElement(By.cssSelector("section.section-block:nth-child(7) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).click();
@@ -389,10 +415,10 @@ public class LiveRadioPage extends Page {
 	    //Verify: 0. user is brought to the station page; and it is playing & sign up page shows up
 		String subTitle = driver.findElement(By.cssSelector("section.section-block:nth-child(3) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).getText();
 		if (!subTitle.contains("Similar"))
-			errors.append("Clicking on top country station doesn't bring user to station page. ");
+			errors.append("Clicking on top country station does  n't bring user to station page. ");
 		verifyPlayer("Country station", "WEB_11785_playStationFromGenreProfile");
 		WaitUtility.sleep(10000);//for some reason, it takes long time for the pre-roll to show
-		if (!isSoftGateShow())
+		if (!isSoftGateShow())             
 			handleError("Sign up page is not showing up. ", "WEB_11785_playStationFromGenreProfile");
 		
 		
@@ -409,5 +435,50 @@ public class LiveRadioPage extends Page {
 		 
 	}
 	
+	
+	
 
+	public void comeToThisPage()
+	{
+		if (isChrome)
+			gotoExplorerOption(option_liveRadio_xpath,"Popular");
+		else	
+		    gotoExplorerOption(option_liveRadio,"Popular");
+	
+		if (!driver.getTitle().contains("Popular"))
+	    	comeToThisPage_direct();
+	}		
+	
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/live/country/US/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+	
+	public void gotoGenrePage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/genre/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+	
+	public void gotoGenrePage()
+	{   if (isChrome)
+			gotoExplorerOption(option_genres_xpath,"Genres");
+		else	
+			gotoExplorerOption(option_genres,"Genres");
+	}
 }

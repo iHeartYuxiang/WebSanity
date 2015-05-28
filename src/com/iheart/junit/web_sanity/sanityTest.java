@@ -28,8 +28,8 @@ public class sanityTest {
 		PopularUserFlow popularFlow;
 		
 		
-	    String browser = "firefox";
-		//String browser = "chrome";
+	    //String browser = "firefox";
+		String browser = "chrome";
 		   
 		static String userCity = "";
 		
@@ -897,11 +897,11 @@ public class sanityTest {
 	    
 	    @After
 	    public void tearDown() throws Exception {
-	    	driver.quit();
+	    	 driver.quit();
 	    	 if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	 
-	    	closeBrowserSession();
+	    	 closeBrowserSession();
 	    }
 		
 	    
@@ -919,8 +919,8 @@ public class sanityTest {
 	    public void closeBrowserSession() throws Exception 
 	  { 
 	    	
-		  //Runtime.getRuntime().exec("taskkill /F /IM chrome.exe"); 
+		  Runtime.getRuntime().exec("taskkill /F /IM chrome.exe"); 
 		 // Runtime.getRuntime().exec("taskkill /F /IM iexplorer.exe"); 
-		  Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
+		 // Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
 	  }
 }

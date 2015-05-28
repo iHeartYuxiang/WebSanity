@@ -19,8 +19,8 @@ public class RunCustomRadioCases {
 	WebDriver driver;
 	PopularUserFlow popPage;
 	CustomRadioPage customRadioPage;
-	String browser = "firefox";
-	//String browser = "chrome";
+	//String browser = "firefox";
+	String browser = "chrome";
 	
 	
 	

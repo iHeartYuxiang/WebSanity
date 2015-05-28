@@ -16,15 +16,14 @@ public class PodcastsPage  extends Page{
 	    private WebElement secondPod;
 	
 	
-	
-	//@FindBy(css="#main > div > div.filters > div > div > select") private WebElement topics; //This works fine for Firefox
 	@FindBy(name="category") private WebElement topics; //topics for podcasts
 	
 	@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)") 
 	    private WebElement firstPod;
-	//CSS PATH IN CHROME
-	//#main > div > div:nth-child(2) > section:nth-child(1) > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i
-	//@FindBy(css="ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
+	@FindBy(xpath="//*[@id='main']/div/section/ul/li[1]/div/div[1]/a/div[2]/button/i")  private WebElement firstPod_xpath;
+	              //*[@id="main"]/div/div[2]/section[1]/ul/li[1]/div/div[1]/a/div[2]/button/i
+				
+	
 	@FindBy(css="ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
 		private WebElement  firstPodName;
 	@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
@@ -34,9 +33,7 @@ public class PodcastsPage  extends Page{
 	@FindBy(css="#hero > div.hero-content > div > div.profile-info > div > ul > li.station-name > button > i")
 		private WebElement favorite;
 	
-				
-	//@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(3) > div > div > button > span")
-	//	private WebElement loggedInUser; //use signedAccount in the Page.java
+	
 	
 	//thumpUp/Down
 	@FindBy(css="#player > div.player-center > div.player-controls > button:nth-child(2) > i")
@@ -56,8 +53,8 @@ public class PodcastsPage  extends Page{
 	
 	public void WEB_11772_browsePodcasts()
 	{
-		gotoExplorerOption(option_podCasts,"Popular");
-		
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
 		secondPod.click();
 		
@@ -68,7 +65,10 @@ public class PodcastsPage  extends Page{
 		driver.navigate().back();
 		new Select(topics).selectByIndex(3);
 	   // firstPod.click();
-		driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		if (Page.getBrowser().equals("chrome"))
+			firstPod_xpath.click();
+		else
+		     driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 	    makeSureItIsPlaying();
 		
 	  //Verify sign-up gate shows up
@@ -82,17 +82,9 @@ public class PodcastsPage  extends Page{
 		login();
 		
 		
-		  gotoExplorerOption(option_podCasts,"Popular");
+		 // gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
-		
-		/*
-	  
-		Actions action = new Actions(driver);
-		
-		 action.moveToElement(explorer).click().perform();
-		 driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[5]/a")).click();
-		WaitUtility.sleep(500);
-		*/
 		
 				
 		secondPod.click();
@@ -113,12 +105,7 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		
-		
-		WebElement podcast = driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a"));
-		System.out.println("Before call:" + driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a")).getText());
-		
-		
-		gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
 		
 		new Select(topics).selectByIndex(2);
@@ -149,8 +136,8 @@ public class PodcastsPage  extends Page{
 	public void WEB_11775_addShowToFavorite()
 	{
 		login();
-		gotoExplorerOption(option_podCasts,"Popular");
-		
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
 		
 		//Need to remember this station name
@@ -174,8 +161,8 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		
-		gotoExplorerOption(option_podCasts,"Popular");
-		
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
 		//Need to remember this station name
 		String chosenStation = firstPodName.getText();
@@ -194,8 +181,8 @@ public class PodcastsPage  extends Page{
 	public void WEB_11777_skipLimitless()
 	{
 		login();
-		gotoExplorerOption(option_podCasts,"Popular");
-		
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
 	    firstPod.click();
 	    
@@ -209,10 +196,18 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		
-		gotoExplorerOption(option_podCasts,"Popular");
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage();
 		
-	    firstPod.click();
-		//driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		if (Page.getBrowser().equals("chrome"))
+		{  try{
+			   driver.findElement(By.xpath("//*[@id='main']/div/div[2]/section[1]/ul/li[1]/div/div[1]/a/div[2]/button/i")).click();
+			}catch(Exception e)
+			{
+				firstPod_xpath.click();
+			}
+		}else
+	        firstPod.click();
 		makeSureItIsPlaying();
 	   
 		//Verify it is playing
@@ -283,17 +278,35 @@ public class PodcastsPage  extends Page{
 	
 
 	
-	/*
-	private void explorePod()
-	{  
-		Actions action = new Actions(driver);
+	private void gotoExplorerOption()
+	{
+		if (Page.getBrowser().equalsIgnoreCase("chrome"))
+			gotoExplorerOption(option_podCasts_xpath,"Popular");
+		else	
+		    gotoExplorerOption(option_podCasts,"Popular");
+	}
+
+	public void comeToThisPage()
+	{
+		if (isChrome)
+			gotoExplorerOption(option_podCasts_xpath,"Popular");
+		else	
+		    gotoExplorerOption(option_podCasts,"Popular");
 		
-		action = action.moveToElement(explorer);
-		WaitUtility.sleep(500);
-		action.moveToElement(option_podCasts).click().build().perform();
-		
+	    if (!driver.getTitle().contains("Popular"))
+	    	comeToThisPage_direct();
 	}
 	
-	*/
-
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/show/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
 }

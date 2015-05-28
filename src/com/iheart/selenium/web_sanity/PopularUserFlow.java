@@ -69,5 +69,9 @@ public class PopularUserFlow extends Page {
 	}
 	
 	
+	public void comeToThisPage()
+	{
+		//DO NOTHING
+	}
 	
 }

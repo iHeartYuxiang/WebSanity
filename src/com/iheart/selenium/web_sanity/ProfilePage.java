@@ -40,7 +40,8 @@ public class ProfilePage extends Page {
 	public void WEB_11779_playStations()
 	{
 		login();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage();
 		
 		myStations.click();
 		firstStation.click();
@@ -48,7 +49,8 @@ public class ProfilePage extends Page {
 		verifyPlayer("station");
 		
 		driver.navigate().refresh();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage();
 		history.click();
 		firstSong.click();
 		makeSureItIsPlaying();
@@ -56,7 +58,8 @@ public class ProfilePage extends Page {
 		verifyPlayer("chosen song from Listen Hisotry ");
 		
 		driver.navigate().refresh();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage();
 		favoriteSongs.click();
 		WaitUtility.sleep(1000);
 	    try{
@@ -71,7 +74,8 @@ public class ProfilePage extends Page {
 		verifyPlayer("chosen favorite song");
 		
 		driver.navigate().refresh();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage();
 		favoriteEpisodes.click();
 		firstFavEpisode.click();
 		makeSureItIsPlaying();
@@ -83,7 +87,14 @@ public class ProfilePage extends Page {
 	public void WEB_11780_playStationsInMyStationsPage()
 	{
 		login();
-		gotoSingedAccountOption(option_myStations, "User Profile");
+		/*
+		if (isChrome)
+		     gotoSingedAccountOption(option_myStations_xpath, "User Profile");
+		else
+			gotoSingedAccountOption(option_myStations, "User Profile");
+		*/
+		gotoMyStationPage();
+		//comeToThisPage();
 		
 		//Verify page header
 		if (!pageHeader.getText().equals("My Stations"))
@@ -102,7 +113,13 @@ public class ProfilePage extends Page {
 	public void WEB_11781_playStationsInListenHistoryPage()
 	{
 		login();
-		gotoSingedAccountOption(option_listenHistory, "User Profile");
+		/*
+		if (isChrome)
+		    gotoSingedAccountOption(option_listenHistory_xpath, "User Profile");
+		else
+			gotoSingedAccountOption(option_listenHistory, "User Profile");
+		*/
+		gotoMyListenHistoryPage();
 		//Verify page header
 		if (!pageHeader.getText().equals("Listen History"))
 		{	handleError("Clicking on Listen History link didn't lead user to the right page.","WEB_11781_playStationsInListenHistoryPage" );
@@ -119,7 +136,10 @@ public class ProfilePage extends Page {
 	public void WEB_11782_friendPage()
 	{
 		login();
-		gotoSingedAccountOption(option_friends, "User Profile");
+		if(isChrome)
+		  gotoSingedAccountOption(option_friends_xpath, "User Profile");
+		else
+			gotoSingedAccountOption(option_friends, "User Profile");
 		//Verify page header
 		String _pageHeader ="";
 		boolean friendsExist = true;
@@ -143,8 +163,10 @@ public class ProfilePage extends Page {
 	public void WEB_11783_logout()
 	{
 		login();
-		
-		gotoSingedAccountOption(option_logout, "Home");
+		if(isChrome)
+			gotoSingedAccountOption(option_logout_xpath, "Home");
+		else	
+			gotoSingedAccountOption(option_logout, "Home");
 		
 		//verfiy that no station is playing
 		try{
@@ -166,34 +188,76 @@ public class ProfilePage extends Page {
 		
 	}	
 	
-	private void verifyPlayer_OBSOLETE(String category)
-	{   boolean isPlaying = false;
-	    try{
-	    	if (icon_pause.isDisplayed())
-	    	{	isPlaying = true;
-	    		System.out.println("It is  playing. Good" );
-	    	}
-	    }catch(Exception e)
-	    {   
-	    }
-	    
-	    if (!isPlaying)
-	    {	
-		    try{
-		    	if (icon_stop.isDisplayed())
-		    	{	isPlaying = true;
-		    		System.out.println("It is  playing. Good" );
-		    	}
-		    }catch(Exception e)
-		    {   
-		    }
-	    }
-	    
-		if (!isPlaying)
-		    handleError("The " + category + " is not playing.", "verifyPlayer");
+	  
+	
+	//default
+	public void comeToThisPage()
+	{ 
+		try {
+			if (isChrome)
+				gotoSingedAccountOption(option_profile_xpath,"User Profile");
+			else	
+				gotoSingedAccountOption(option_profile,"User Profile");
+		}catch(Exception e)
+		{
 		
+		}
+		
+		if (!driver.getTitle().contains("User"))
+	    	comeToThisPage_direct();
 	}
 	
 	
+	public void gotoMyStationPage()
+	{
+		if (isChrome)
+			gotoSingedAccountOption(option_myStations_xpath,"User Profile");
+		else	
+			gotoSingedAccountOption(option_myStations,"User Profile");
+		
+		
+	}
+	
+	public void gotoMyListenHistoryPage()
+	{
+		try{
+			if (isChrome)
+				gotoSingedAccountOption(option_listenHistory_xpath,"User Profile");
+			else	
+				gotoSingedAccountOption(option_listenHistory,"User Profile");
+		}catch(Exception e)
+		{
+			
+		}
+		
+		
+	}
+	
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/my/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+	
+	
+	public void gotoMyStationPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/my/stations/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
 	
 }

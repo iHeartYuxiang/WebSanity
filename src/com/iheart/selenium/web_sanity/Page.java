@@ -26,6 +26,8 @@ public abstract class Page {
 	//for Explorer menu
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > button > span") 
 		public WebElement explorer;
+	@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div/div[1]/div/button") public WebElement explorer_xpath;
+				  
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul") 
 		public WebElement dropdowns;
 	
@@ -45,20 +47,16 @@ public abstract class Page {
 		public WebElement option_perfectFor;
 	
 	
-	//Chrome Version
+	//xpath for chrome
 	
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(1) > a")
-		public WebElement option_forYou_chrome;
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(2) > a") 
-		public WebElement option_liveRadio_chrome;
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(3) > a") 
-		public WebElement option_customRadio_chrome;
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(4) > a") 
-		public WebElement option_genres_chrome;
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a") 
-		public WebElement option_podCasts_chrome;
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(6) > a")
-		public WebElement option_perfectFor_chrome;
+				
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[1]/a") public WebElement option_forYou_xpath;
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[2]/a") public WebElement option_liveRadio_xpath;
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[3]/a") public WebElement option_customRadio_xpath;
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[4]/a") public WebElement option_genres_xpath;
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[5]/a") public WebElement option_podCasts_xpath;
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div/nav/ul/li[6]/a") public WebElement option_perfectFor_xpath;
+	
 	
 	
 	//Search
@@ -118,6 +116,20 @@ public abstract class Page {
 	@FindBy(css="div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")
 	    public WebElement option_logout;
 		
+	//FOR CHROME 
+	@FindBy(xpath="/html/body/div/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[1]/a")
+		public WebElement option_profile_xpath;
+	@FindBy(xpath="/html/body/div/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[2]/a")
+		public WebElement option_myStations_xpath;
+	@FindBy(xpath="/html/body/div/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[3]/a")
+		public WebElement  option_listenHistory_xpath;
+	@FindBy(xpath="/html/body/div/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[4]/a")
+		public WebElement option_friends_xpath;
+	@FindBy(xpath="/html/body/div/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[5]/a")
+		public WebElement option_setting_xpath;
+	@FindBy(xpath="/html/body/div/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[6]/a")
+	    public WebElement option_logout_xpath;
+	
 	
 	//SignedAccount -> Profile -> Favorite Episode
 	@FindBy(css="li.tabbar:nth-child(6) > a:nth-child(1)") private WebElement favoriteEpisodes;
@@ -142,6 +154,8 @@ public abstract class Page {
 	//login with email
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(3) > div > button:nth-child(1)") public WebElement loginButton;
 		
+	@FindBy(xpath="/html/body/div[1]/div[1]/div[2]/div/div[2]/div/button[1]")  public WebElement loginButton_xpath;
+	
 	@FindBy(css="[name='username'][type='text']")  public WebElement userName;
 	@FindBy(css="[name='password'][type='password']")  public WebElement passWord;
 	@FindBy(xpath="//*[@id='dialog']/div/div[2]/div[2]/div/form/button")  public WebElement login;
@@ -173,6 +187,13 @@ public abstract class Page {
 		public WebElement listenHistory;
 	@FindBy(css="#player > div.player-right.ui-on-dark > button:nth-child(1) > span:nth-child(3)")
 	    public WebElement myStations;
+	
+	
+	//Player related buttons: for chrome using xpath:
+	@FindBy(xpath="//*[@id='player']/div[2]/div[1]/button[3]/i") public WebElement icon_play_pause_stop_xpath;
+	
+	@FindBy(xpath="//*[@id='player']/div[3]/button[2]/span[2]") public WebElement listenHistory_xpath;
+	@FindBy(xpath="//*[@id='player']/div[3]/button[1]/span[2]") public WebElement myStations_xpath;
 	
 	
 	//@FindBy(css=".icon-more-horizontal") public WebElement icon_more_horizontal;
@@ -210,6 +231,7 @@ public abstract class Page {
    public static StringBuffer errors = new StringBuffer(); 
    
    public static String browser = "";
+   public static boolean isChrome = false;
    
    public Page()
    {
@@ -221,6 +243,10 @@ public abstract class Page {
 	   driver = _driver;
    }
 
+   
+   public abstract void comeToThisPage();
+   
+   
    public static void takeScreenshot_PORGRESS(WebDriver driver, String testMethod) throws Exception 
    {      
 		  // Creating new directory in Java, if it doesn't exists
@@ -291,11 +317,13 @@ public abstract class Page {
    }
    
    public void login()
-	{   if (Page.getBrowser().equalsIgnoreCase("chrome"))
-			WaitUtility.sleep(1000);
+	{  WaitUtility.sleep(1000);
 		    
 		do{
-			loginButton.click();
+			if(isChrome)
+				driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/button[1]")).click();
+			else
+			    loginButton.click();
 			WaitUtility.sleep(500);
 		}while (!driver.getPageSource().contains("Don't have an account?"));
 		
@@ -305,7 +333,7 @@ public abstract class Page {
 	
 		login.click();
 		
-		WaitUtility.sleep(1000);
+		WaitUtility.sleep(2000);
 	}
 	
    
@@ -457,15 +485,22 @@ public abstract class Page {
 	public void makeSureItIsPlaying()
 	{   
 	    try{
-
-		    icon_play.isDisplayed();
+           if (isChrome)
+           {   String _class = icon_play_pause_stop_xpath.getAttribute("class");
+               System.out.println("See class: " + _class);
+               if (_class.contains("icon-play"))
+               { 	   
+            	   System.out.println("Music is not playing. About to click.");
+            	   icon_play_pause_stop_xpath.click();
+               }
+		    
+           }else 
+           { 
+        	   if (  icon_play.isDisplayed())
+        		   icon_play.click();
+           }
 	
-		    System.out.println("Music is not playing. About to click.");
-	
-			icon_play.click();
-
 	    }catch(Exception e)
-
 	    {   System.out.println("Music is playing. ");
 	    	return;
 	    }
@@ -474,29 +509,16 @@ public abstract class Page {
 	    
 	}
 	
-	//to be done
+	
+	
+	
+	//to be done: to detect pre-roll duration dynamically
 	public void handlePreRoll()
 	{   
 		 WaitUtility.sleep(35000);
 	}
 	
-	public void handlePreRoll_obsolete()
-	{   
-		  int milliSeconds = 0;
-		  //Wait for pre-roll if adContainer is detected
-	      String duration = driver.findElement(By.cssSelector(".seconds")).getText();
-		   System.out.println("duration:" + duration);
-		   if (duration!= null && duration.length()>0)
-		   {
-			   milliSeconds = (Integer.parseInt(duration))*1000;
-		       System.out.println("Pre-roll will last (:milliSeconds):" + milliSeconds );
-		       WaitUtility.sleep(milliSeconds + 5000);
-		   }else
-		   {
-			   System.out.println("No pre-roll is detected.");
-		   }
-		
-	}
+	
 	
 	public void handlePreRoll_OLD()
 	{
@@ -539,14 +561,26 @@ public abstract class Page {
 
 	    try{
 
-		    icon_play.isDisplayed();
-	
-		    System.out.println("Music is not playing. Good");
+	    	
+	    	 if (isChrome)
+	           {   String _class = icon_play_pause_stop_xpath.getAttribute("class");
+	               System.out.println("See class: " + _class);
+	               if (_class.contains("icon-play"))
+	            	   System.out.println("Music is not playing. About to click.");
+	           }else 
+	           { 
+	        	   if (  icon_play.isDisplayed())
+	        		   System.out.println("Music is not playing. Good");
+	           }
+	    	
 
 	    }catch(Exception e)
 
 	    {   System.out.println("Music is playing. click to stop it ");
-	    	icon_play.click();
+	    	 if (isChrome)
+	    		 icon_play_pause_stop_xpath.click();
+	    	 else
+	             icon_play.click();
 		
 	    	//Wait for pre-roll
 	
@@ -565,17 +599,31 @@ public abstract class Page {
 	public static void setBrowser(String _browser)
 	{
 		browser = _browser;
+		isChrome = getBrowser().equalsIgnoreCase("chrome");
+		
 	}
 	
 	
 	public void gotoExplorerOption(WebElement option, String expectedTitle)
-	{   int count = 0;
+	{   
+		int count = 0;
 		Actions action = new Actions(driver);
 		do {
-			action = action.moveToElement(explorer);
-			//action = action.click(explorer);
-			WaitUtility.sleep(500);
+			try{
+				if (isChrome)
+					action = action.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[1]/div/button")));
+				else
+				    action = action.moveToElement(explorer);
+				action.build().perform();
+			}catch(Exception e)
+			{
+				
+			}
+			WebElement perfectForOption = (new WebDriverWait(driver, 15))
+					  .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(6) > a")));
+		
 			try {
+				System.out.println(" gotoExplorerOption() - option: " + option.getText());
 			   action.moveToElement(option).click().build().perform();
 				
 			}catch(Exception e)
@@ -586,89 +634,31 @@ public abstract class Page {
 			count++;
 		}while(count < 5 && !driver.getTitle().contains(expectedTitle));	
 		
-		if (Page.getBrowser().equalsIgnoreCase("chrome"))
-			WaitUtility.sleep(1500);
-		else
-			WaitUtility.sleep(500);
-	}
-	
-	/*
-	public void gotoExplorerOption_new(String  optionName, String expectedTitle)
-	{   
-		
-		int count = 0;
-		Actions action = new Actions(driver);
-		do {
-			action = action.moveToElement(explorer);
-			//action = action.click(explorer);
-			WaitUtility.sleep(500);
-			try {
-			   action.moveToElement(getExplorerOption(optionName)).click().build().perform();
-				
-			}catch(Exception e)
-			{
-				
-			}
-			WaitUtility.sleep(1500);
-			count++;
-		}while(count < 5 && !driver.getTitle().contains(expectedTitle));	
-		
-		if (Page.getBrowser().equalsIgnoreCase("chrome"))
-			WaitUtility.sleep(1500);
-		else
-			WaitUtility.sleep(500);
-	}
-	
-	private WebElement getExplorerOption(String optionName)
-	{   boolean isChrome = Page.getBrowser().equalsIgnoreCase("chrome");
-		if (isChrome)
-		{
-			 if (optionName.equals("For You"))
-					return option_forYou_chrome;
-			 else if (optionName.equals("Live Radio"))
-				return option_liveRadio_chrome;
-			 else if (optionName.equals("Custom Radio"))
-					return option_customRadio_chrome;
-			 else if (optionName.equals("Genres"))
-					return option_genres_chrome;
-			 else if (optionName.equals("Podcasts"))
-					return option_podCasts_chrome;
-			 else if (optionName.equals("Perfect For"))
-					return option_perfectFor_chrome;
-		}else 
-		{	
-			if (optionName.equals("For You"))
-				return option_forYou;
-			 else if (optionName.equals("Live Radio"))
-				return option_liveRadio;
-			 else if (optionName.equals("Custom Radio"))
-					return option_customRadio;
-			 else if (optionName.equals("Genres"))
-					return option_genres;
-			 else if (optionName.equals("Podcasts"))
-					return option_podCasts;
-			 else if (optionName.equals("Perfect For"))
-					return option_perfectFor;
-		}
-		
-		return option_forYou;
+		WaitUtility.sleep(1000);
 	}
 	
 	
-	public void gotoSingedAccountOption_chrome(WebElement option, String expectedTitle)
-	{
-		
-	}
-	*/
-	public void gotoSingedAccountOption(WebElement option, String expectedTitle)
+	
+	public void gotoSingedAccountOption(WebElement option, String expectedTitle) 
 	{  // limit try to 5 times
 		int count = 0;
 		
 		Actions action = new Actions(driver);
 		do {
+			
+			try{
+			
+				if (isChrome)
+					action = action.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/button[2]")));
+				else
+					action = action.moveToElement(signedAccount);
+				action.build().perform();
+			}catch(Exception e)
+			{
 				
-			action = action.moveToElement(signedAccount);
-			WaitUtility.sleep(1500);
+			}
+			WebElement logoutOption = (new WebDriverWait(driver, 15))
+					  .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div/nav/ul/li[6]/a")));
 			try{
 		    	action.moveToElement(option).click().build().perform();
 			}catch(Exception e)
@@ -681,17 +671,20 @@ public abstract class Page {
 			count++;
 		
 		}while(count <5 && !driver.getTitle().contains(expectedTitle));	
+		
+		
 	}
 	
 	
 	public void doThumbUp(String methodName)
 	{  
-	
+	    int count = 0;
 		//Sometimes the thumbUp button is disabled, keep scan until thumbUpiCON is enabled.
-		
-		while(!thumbUp_button.isEnabled())
+		//prevent endless loop
+		while(!thumbUp_button.isEnabled() && count <5)
 		{	System.out.println("thumbUp button is disabled. Scan now..");
-			icon_scan.click();
+			makeSureItIsPlaying();
+		    icon_scan.click();
 			WaitUtility.sleep(3000);
 		}
 		//If this is thumbUp before, double-click
@@ -729,7 +722,17 @@ public abstract class Page {
 	    	
 	    }
 	   
+	    /*
 	   if (!icon_favorite_unfilled.isDisplayed())
+	   {
+		   handleError("unFavorite  is not working.", methodName);
+	   }
+	   */
+	    
+	   try{
+		   
+		   icon_favorite_unfilled.getText();
+	   }catch(Exception e)
 	   {
 		   handleError("unFavorite  is not working.", methodName);
 	   }
@@ -764,7 +767,7 @@ public abstract class Page {
 	
 	
 	
-	public void verifyPlayer(String category, String testMethod)
+	public void verifyPlayer_old(String category, String testMethod)
 	{   boolean isPlaying = false;
 	    try{
 	    	if (icon_pause.isDisplayed())
@@ -792,6 +795,44 @@ public abstract class Page {
 		
 	}
 	
+	public void verifyPlayer(String category, String testMethod)
+	{   boolean isPlaying = false;
+	    try{
+	    	  String _class = icon_play_pause_stop_xpath.getAttribute("class");
+	               System.out.println("See class: " + _class);
+               if (_class.contains("icon-pause") || _class.contains("icon-stop"))
+               {   System.out.println("It is  playing. Good" );
+               		isPlaying = true;
+               }
+		 }catch(Exception e)
+	    {   
+			 
+	    }
+	   
+	    
+		if (!isPlaying)
+		    handleError("The " + category + " is not playing.", testMethod);
+		
+	}
+	
+	
+	public boolean isPlaying()
+	{   boolean isPlaying = false;
+	    try{
+	    	  String _class = icon_play_pause_stop_xpath.getAttribute("class");
+	               System.out.println("See class: " + _class);
+               if (_class.contains("icon-pause") || _class.contains("icon-stop"))
+               {   System.out.println("It is  playing. Good" );
+               		isPlaying = true;
+               }
+		 }catch(Exception e)
+	    {   
+			 
+	    }
+	   
+		 return isPlaying;
+		
+	}
 	
 	public void playAstation()
 	{
@@ -808,13 +849,16 @@ public abstract class Page {
 	
 	
 	public void faceBookSignUp()
-	{
-		faceBook.click();
+	{   if (isChrome)
+		   driver.findElement(By.xpath("//*[@id='dialog']/div/div[2]/div[2]/div/div/section/ul/li[1]/button")).click();
+	   else
+		   faceBook.click();
 		String winHandleBefore = switchWindow();
 		
 		faceEmail.sendKeys(FACEBOOKemail);
 		facePass.sendKeys("iheart001");
 		faceLogin.click();
+		
 	    
 	    WaitUtility.sleep(2000);
 	    
@@ -834,4 +878,12 @@ public abstract class Page {
 	    shareOnFacebook.click();
 	    driver.switchTo().window(winHandleBefore);
 	}
+	
+	public boolean isChrome()
+	{
+		return getBrowser().equalsIgnoreCase("chrome");
+	}
+	
+	
+	
 }

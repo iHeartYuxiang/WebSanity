@@ -140,8 +140,8 @@ public class RunPodcastsCases {
 	 public void tearDown() throws Exception {
 		 if ( Page.getErrors().length() > 0)
 			 fail( Page.getErrors().toString());
-	     driver.quit();
-	     closeBrowserSession();
+	   //  driver.quit();
+	     
 	    
 	 }
 		
