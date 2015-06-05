@@ -140,8 +140,10 @@ public abstract class Page {
 	@FindBy(id="signIn") public WebElement googLogin;
 	
 	//login with email
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(3) > div > button:nth-child(1)") public WebElement loginButton;
+	//@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(3) > div > button:nth-child(1)") public WebElement loginButton;
+	@FindBy(css=".header-right > button:nth-child(1)") public WebElement loginButton;
 		
+	
 	@FindBy(css="[name='username'][type='text']")  public WebElement userName;
 	@FindBy(css="[name='password'][type='password']")  public WebElement passWord;
 	@FindBy(xpath="//*[@id='dialog']/div/div[2]/div[2]/div/form/button")  public WebElement login;
@@ -592,74 +594,7 @@ public abstract class Page {
 			WaitUtility.sleep(500);
 	}
 	
-	/*
-	public void gotoExplorerOption_new(String  optionName, String expectedTitle)
-	{   
-		
-		int count = 0;
-		Actions action = new Actions(driver);
-		do {
-			action = action.moveToElement(explorer);
-			//action = action.click(explorer);
-			WaitUtility.sleep(500);
-			try {
-			   action.moveToElement(getExplorerOption(optionName)).click().build().perform();
-				
-			}catch(Exception e)
-			{
-				
-			}
-			WaitUtility.sleep(1500);
-			count++;
-		}while(count < 5 && !driver.getTitle().contains(expectedTitle));	
-		
-		if (Page.getBrowser().equalsIgnoreCase("chrome"))
-			WaitUtility.sleep(1500);
-		else
-			WaitUtility.sleep(500);
-	}
 	
-	private WebElement getExplorerOption(String optionName)
-	{   boolean isChrome = Page.getBrowser().equalsIgnoreCase("chrome");
-		if (isChrome)
-		{
-			 if (optionName.equals("For You"))
-					return option_forYou_chrome;
-			 else if (optionName.equals("Live Radio"))
-				return option_liveRadio_chrome;
-			 else if (optionName.equals("Custom Radio"))
-					return option_customRadio_chrome;
-			 else if (optionName.equals("Genres"))
-					return option_genres_chrome;
-			 else if (optionName.equals("Podcasts"))
-					return option_podCasts_chrome;
-			 else if (optionName.equals("Perfect For"))
-					return option_perfectFor_chrome;
-		}else 
-		{	
-			if (optionName.equals("For You"))
-				return option_forYou;
-			 else if (optionName.equals("Live Radio"))
-				return option_liveRadio;
-			 else if (optionName.equals("Custom Radio"))
-					return option_customRadio;
-			 else if (optionName.equals("Genres"))
-					return option_genres;
-			 else if (optionName.equals("Podcasts"))
-					return option_podCasts;
-			 else if (optionName.equals("Perfect For"))
-					return option_perfectFor;
-		}
-		
-		return option_forYou;
-	}
-	
-	
-	public void gotoSingedAccountOption_chrome(WebElement option, String expectedTitle)
-	{
-		
-	}
-	*/
 	public void gotoSingedAccountOption(WebElement option, String expectedTitle)
 	{  // limit try to 5 times
 		int count = 0;
