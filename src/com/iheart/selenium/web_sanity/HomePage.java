@@ -69,11 +69,10 @@ public class HomePage extends Page {
 		    driver.switchTo().window(winHandle);
 		}
 		
-		//Wait some extra seconds cos sometimes the signup page comes up slow
-		WaitUtility.sleep(3000);
+		//Wait  extra 10 seconds cos sometimes the signup page comes up slow
+		WaitUtility.sleep(10000);
 	    //Signup 
 		signUp();
-		
 		
 	}
 	

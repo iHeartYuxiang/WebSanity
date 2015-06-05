@@ -225,10 +225,10 @@ public class LiveRadioPage extends Page {
 		System.out.println("chosen station:" + chosenStation);
 		firstStation.click();
 		
-		makeSureItIsPlaying();
-		
 		String playingStation = stationPlaying.getText();
 		System.out.println("station PLAYING:" + playingStation);
+		
+		makeSureItIsPlaying();
 		
 		
 		if (!chosenStation.equalsIgnoreCase(playingStation))
