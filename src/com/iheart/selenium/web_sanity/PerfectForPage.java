@@ -33,7 +33,8 @@ public class PerfectForPage extends Page{
 	
 	public void WEB_11766_browsePerfect()
 	{
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage_direct();
 	    firstBox.click();
 	    makeSureItIsPlaying();
 	    
@@ -42,7 +43,9 @@ public class PerfectForPage extends Page{
 	    if(!isSoftGateShow())
 			handleError("Sign up gate is not displayed.", "WEB_11766_browsePerfect");
 		
-		driver.navigate().back();
+		//driver.navigate().back();
+	    
+	    comeToThisPage_direct();
 		new Select(activity).selectByIndex(3);
 		
 		firstBox_activity.click();
@@ -58,7 +61,7 @@ public class PerfectForPage extends Page{
 	public void WEB_11769_skipLimit()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage_direct();
 		
 		//First one is my 80s, which is a live station. No skip button will be displayed. 
 		//Make sure that a custom station is chosen and played
@@ -201,5 +204,31 @@ public class PerfectForPage extends Page{
 			handleError("Skip limit message is not displayed.", "checkSkipLimit");
 		
 	}
+
+	public void comeToThisPage()
+	{  /* 
+		if (isChrome)
+			gotoExplorerOption(option_perfectFor_xpath,"Perfect");
+		else	
+		    gotoExplorerOption(option_perfectFor,"Perfect");
+		*/
+		
+		// if (!driver.getTitle().contains("Perfect"))
+		    	comeToThisPage_direct();
+	}
+
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/perfect-for/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+
 
 }

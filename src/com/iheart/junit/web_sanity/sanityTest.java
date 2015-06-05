@@ -25,7 +25,6 @@ public class sanityTest {
 		PerfectForPage perfectForPage;
 		ProfilePage profilePage;
 		
-		PopularUserFlow popularFlow;
 		
 		
 	    String browser = "firefox";
@@ -48,7 +47,6 @@ public class sanityTest {
 	        podcastsPage = PageFactory.initElements(driver, PodcastsPage.class);
 	        perfectForPage = PageFactory.initElements(driver, PerfectForPage.class);
 	        profilePage = PageFactory.initElements(driver, ProfilePage.class);
-	        popularFlow = PageFactory.initElements(driver, PopularUserFlow.class);
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 		

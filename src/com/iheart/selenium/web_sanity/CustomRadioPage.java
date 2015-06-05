@@ -50,7 +50,7 @@ public class CustomRadioPage  extends Page {
 			//Close signup page
 			icon_close.click();
 			
-			gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage_direct();
 			
 			
 			
@@ -67,7 +67,9 @@ public class CustomRadioPage  extends Page {
 	  	
 	  	public void WEB_11761_filterAndPlayCustomAfterLogin()
 		{   login();
-		    gotoExplorerOption(option_customRadio, "Popular");
+		    //gotoExplorerOption(option_customRadio, "Popular");
+		    comeToThisPage_direct();
+		  
 		
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(5); 
 			
@@ -134,7 +136,7 @@ public class CustomRadioPage  extends Page {
 		{   
 			login();
 			
-			gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage_direct();
 		
 			firstArtist.click();
 	
@@ -194,7 +196,8 @@ public class CustomRadioPage  extends Page {
 		private void playCustomRadio()
 		{   
 			
-			gotoExplorerOption(option_customRadio, "Popular");
+			//gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage_direct();
 			
 			customFirstLinkPlayButton.click();
 			//makeSureItIsPlaying();
@@ -203,22 +206,34 @@ public class CustomRadioPage  extends Page {
 		private void playCustomRadioAfterLogin()
 		{   
 			//gotoExplorerOption(option_customRadio);
-			gotoExplorerOption(option_customRadio, "Popular");
+			comeToThisPage_direct();
 			customFirstLinkPlayButton.click();
 			makeSureItIsPlaying();
 		}
 		
-	/*
-		public void gotoCustomRadioPage()
-		{  
-			Actions action = new Actions(driver);
-			
-			action = action.moveToElement(explorer);
-			WaitUtility.sleep(500);
-			action.moveToElement(option_customRadio).click().build().perform();
-		
+		public void comeToThisPage()
+		{   /*
+			if (isChrome)
+				gotoExplorerOption(option_customRadio_xpath,"Popular");
+			else	
+			    gotoExplorerOption(option_customRadio,"Popular");
+			*/
+			//if (!driver.getTitle().contains("Popular"))
+		    	comeToThisPage_direct();
 		}
 		
-	*/
+		private void comeToThisPage_direct()
+		{   String currentURL = driver.getCurrentUrl();
+			System.out.println("SEE current url:"  + currentURL);
+		    String part1 = currentURL.split("//")[0];
+		    String part2  = currentURL.split("//")[1].split("/")[0];
+		    
+		    String newURL = part1 + "//" + part2 + "/artist/" ;
+			System.out.println("SEE new url:"  + newURL );
+			
+			driver.get(newURL);
+			WaitUtility.sleep(1000);
+		}
+
 
 }

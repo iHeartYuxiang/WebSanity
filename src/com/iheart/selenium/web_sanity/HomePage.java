@@ -68,6 +68,9 @@ public class HomePage extends Page {
 		for(String winHandle : driver.getWindowHandles()){
 		    driver.switchTo().window(winHandle);
 		}
+		
+		//Wait some extra seconds cos sometimes the signup page comes up slow
+		WaitUtility.sleep(3000);
 	    //Signup 
 		signUp();
 		
@@ -350,22 +353,7 @@ public class HomePage extends Page {
 		playButton.click();
 		makeSureItIsPlaying();
 		
-		/*
-		faceBook.click();
 		
-		String winHandleBefore = switchWindow();
-		
-		
-		faceEmail.sendKeys(FACEBOOKemail);
-		facePass.sendKeys("iheart001");
-		faceLogin.click();
-	    
-	    WaitUtility.sleep(2000);
-	     
-	   // goToPreviousWindow(driver, winHandleBefore);
-	    
-	    driver.switchTo().window(winHandleBefore);
-	    */
 		faceBookSignUp();
 	  //  String signedAcct = driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(1) > button:nth-child(1)")).getText();
 	    System.out.println("see account:" + signedFBacct.getText());
@@ -476,5 +464,9 @@ public class HomePage extends Page {
 			errors.append("Returned top hit is not based on user's geo.");
 	}
 	
+	
+	public void comeToThisPage()
+	{  //DO NOTHING
+	}		
 	
 }

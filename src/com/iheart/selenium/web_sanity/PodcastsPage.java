@@ -113,12 +113,7 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		
-		
-		WebElement podcast = driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a"));
-		System.out.println("Before call:" + driver.findElement(By.cssSelector("body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(5) > a")).getText());
-		
-		
-		gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 		
 		new Select(topics).selectByIndex(2);
@@ -149,7 +144,7 @@ public class PodcastsPage  extends Page{
 	public void WEB_11775_addShowToFavorite()
 	{
 		login();
-		gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 		
 		
@@ -174,15 +169,14 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		
-		gotoExplorerOption(option_podCasts,"Popular");
-		
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 		//Need to remember this station name
 		String chosenStation = firstPodName.getText();
 		System.out.println("See chosenStation:" + chosenStation);
 	    firstPod.click();
 	 
-	    System.out.println("icon_play class:" + icon_play.getAttribute("class") );
 	     makeSureItIsPlaying();
 	    
 	    doThumbUp("WEB_11776_thumbUp");
@@ -194,7 +188,7 @@ public class PodcastsPage  extends Page{
 	public void WEB_11777_skipLimitless()
 	{
 		login();
-		gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 		
 	    firstPod.click();
@@ -209,7 +203,7 @@ public class PodcastsPage  extends Page{
 	{
 		login();
 		
-		gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 	    firstPod.click();
 		//driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
@@ -282,18 +276,29 @@ public class PodcastsPage  extends Page{
 	}
 	
 
-	
-	/*
-	private void explorePod()
-	{  
-		Actions action = new Actions(driver);
-		
-		action = action.moveToElement(explorer);
-		WaitUtility.sleep(500);
-		action.moveToElement(option_podCasts).click().build().perform();
-		
+	public void comeToThisPage()
+	{   /*
+		if (isChrome)
+			gotoExplorerOption(option_podCasts_xpath,"Popular");
+		else	
+		    gotoExplorerOption(option_podCasts,"Popular");
+		*/
+	 //   if (!driver.getTitle().contains("Popular"))
+	    	comeToThisPage_direct();
 	}
 	
-	*/
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/show/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+
 
 }

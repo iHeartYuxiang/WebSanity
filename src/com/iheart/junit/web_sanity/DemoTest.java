@@ -27,7 +27,7 @@ public class DemoTest {
 		PerfectForPage perfectForPage;
 		ProfilePage profilePage;
 		
-		PopularUserFlow popularFlow;
+	
 		
 		String browser = "firefox";
 		//String browser = "chrome";
@@ -50,76 +50,79 @@ public class DemoTest {
 	        podcastsPage = PageFactory.initElements(driver, PodcastsPage.class);
 	        perfectForPage = PageFactory.initElements(driver, PerfectForPage.class);
 	        profilePage = PageFactory.initElements(driver, ProfilePage.class);
-	        popularFlow = PageFactory.initElements(driver, PopularUserFlow.class);
+	       
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
-	    @Test
-	    public void testWEB_11784_signUp() throws Exception
-	    {
-	    	System.out.println("test method:" +  name.getMethodName() );
-	    	try{
-		    	   homePage.WEB_11784_signUp();
-	    	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	} 
-		     System.out.println(name.getMethodName() + " is Done.");
-	    	
-	    }
 		
-		
-		 @Test
-		 public void testWEB_11774_filterPodAfterLogin() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		podcastsPage.WEB_11774_filterPodAfterLogin();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		
+	  
+		@Test
+	     public void testWEB_11754_thumpDownLiveRadio() throws Exception
+	     {   
+	         System.out.println("test method:" +  name.getMethodName() );
+	         try
+	        {
+	             liveRadioPage.WEB_11754_thumpDown();
+	        }catch(Exception e)
+	        {
+	            handleException(e);
+	        }
+	         System.out.println(name.getMethodName() + " is Done.");
+	     }
 		
 		 
-		 @Test
-		 public void testWEB_11741_searchAfterLogin() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		homePage.WEB_11741_searchAfterLogin();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
+		 
 		 
 		 @Test
-		 public void testWEB_11762_skipLimit() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 	   customRadioPage.WEB_11762_skipLimit();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-
-		 	}  
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
+	     public void testWEB_11776_thumbUpPodcasts() throws Exception
+	     {   
+	         System.out.println("test method:" +  name.getMethodName() );
+	         try{
+	             podcastsPage.WEB_11776_thumbUp();
+	         }catch(Exception e)
+	         {
+	             handleException(e);
+	         }      
+	         System.out.println(name.getMethodName() + " is Done.");
+	     }
 		 
-
-	 
+		 /*
+		  
+		  @Test
+	        public void testWEB_11740_search() throws Exception
+	        {
+	            System.out.println("test method:" +  name.getMethodName() );
+	            try{
+	                   homePage.WEB_11740_search();
+	            }catch(Exception e)
+	             {
+	                 handleException(e);
+	             }        
+	            System.out.println(name.getMethodName() + " is Done.");
+	        }
+	        
+	        
+	         @Test
+	        public void testWEB_18302_PopularUserFlow() 
+	        {
+	            System.out.println("test method:" +  name.getMethodName() );
+	            driver.get("http://www.z100.com");
+	            homePage.flowAlong();
+	            System.out.println(name.getMethodName() + " is Done.");
+	        }
+		 */
+		  
+		 
+		
+		
+		
 	    @After
 	    public void tearDown() throws Exception{
 	    	driver.quit(); 
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	
-	    	//closeBrowserSession();
+	    	closeBrowserSession();
 	    }
 	
 	    private void handleException(Exception e)

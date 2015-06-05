@@ -62,8 +62,9 @@ public abstract class Page {
 	
 	
 	//Search
-   @FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > form > div.form-group.ui-inline-block.search-input > input") 
-   	public WebElement searchBox;
+ //  @FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > form > div.form-group.ui-inline-block.search-input > input") 
+    @FindBy(css=".input") public WebElement searchBox;
+   
   
    @FindBy(css="li.genre:nth-child(1) > div:nth-child(1) > div:nth-child(1)") public WebElement top40;
    @FindBy(css=".genre-game-footer > button:nth-child(1)") public WebElement getStations;
@@ -222,6 +223,9 @@ public abstract class Page {
    {
 	   driver = _driver;
    }
+   
+   
+   public abstract void comeToThisPage();
 
    public static void takeScreenshot_PORGRESS(WebDriver driver, String testMethod) throws Exception 
    {      
@@ -439,6 +443,7 @@ public abstract class Page {
 		String  randomEmail_firstPart = getCurrentDateInMilli();
 		String _email = randomEmail_firstPart + "@gmail.com";
 		System.out.println("See randomEmail:" + _email);
+		WaitUtility.sleep(800);
 	    email.sendKeys(_email);
 	    password.sendKeys(_PASSWORD);
 	    zipCode.sendKeys("10013");

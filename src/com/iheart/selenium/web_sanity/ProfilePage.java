@@ -195,5 +195,91 @@ public class ProfilePage extends Page {
 	}
 	
 	
+	public void comeToThisPage()
+	{ /*
+		try {
+			if (isChrome)
+				gotoSingedAccountOption(option_profile_xpath,"User Profile");
+			else	
+				gotoSingedAccountOption(option_profile,"User Profile");
+		}catch(Exception e)
+		{
+		
+		}
+		
+		*/
+		//if (!driver.getTitle().contains("User"))
+	    	comeToThisPage_direct();
+	}
+	
+	
+	public void gotoMyStationPage()
+	{  try{
+				gotoSingedAccountOption(option_myStations,"User Profile");
+		}catch(Exception e)
+		{
+			
+		}
+			
+		if(!driver.getTitle().contains("User"))
+			gotoMyStationPage_direct();
+	}
+	
+	public void gotoMyListenHistoryPage()
+	{
+		try{
+				
+				gotoSingedAccountOption(option_listenHistory,"User Profile");
+		}catch(Exception e)
+		{
+			
+		}
+		
+		if (!driver.getTitle().contains("User"))
+			gotoMyListenHistoryPage_direct();
+	}
+	
+	private void comeToThisPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/my/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+	
+	
+	public void gotoMyStationPage_direct()
+	{   String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/my/stations/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+	}
+	
+	private void gotoMyListenHistoryPage_direct(){
+		String currentURL = driver.getCurrentUrl();
+		System.out.println("SEE current url:"  + currentURL);
+	    String part1 = currentURL.split("//")[0];
+	    String part2  = currentURL.split("//")[1].split("/")[0];
+	    
+	    String newURL = part1 + "//" + part2 + "/my/history/" ;
+		System.out.println("SEE new url:"  + newURL );
+		
+		driver.get(newURL);
+		WaitUtility.sleep(1000);
+		
+	}
+	
+
 	
 }
