@@ -108,7 +108,9 @@ public class HomePage extends Page {
 		comedy.click();
 		playStation.click();
 		
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
+		//driver.navigate().back();
+		driver.get("iheart.com");
 		sport.click();
 		playStation.click();
 	}

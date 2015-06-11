@@ -97,6 +97,7 @@ public class RunDailyTest {
 	            
 	        }
 	     
+	    
 	     
 	     @Test
 	        public void testWEB_8823_FaceBookSignUp() throws Exception
@@ -346,7 +347,7 @@ public class RunDailyTest {
 		    	if (Page.getErrors().length() > 0)
 					 fail(Page.getErrors().toString());
 		    	
-		    	closeBrowserSession();
+		    	//closeBrowserSession();
 		    }
 		
 		    private void handleException(Exception e)

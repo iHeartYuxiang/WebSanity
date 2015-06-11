@@ -54,66 +54,35 @@ public class DemoTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
-		
-	  
+		/*
+		 
 		@Test
-	     public void testWEB_11754_thumpDownLiveRadio() throws Exception
-	     {   
-	         System.out.println("test method:" +  name.getMethodName() );
-	         try
-	        {
-	             liveRadioPage.WEB_11754_thumpDown();
-	        }catch(Exception e)
-	        {
-	            handleException(e);
-	        }
-	         System.out.println(name.getMethodName() + " is Done.");
-	     }
+		 public void testWEB_11763_thumpUpCustom() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 	   customRadioPage.WEB_11763_thumpUpCustom();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		*/
 		
-		 
-		 
-		 
 		 @Test
-	     public void testWEB_11776_thumbUpPodcasts() throws Exception
-	     {   
-	         System.out.println("test method:" +  name.getMethodName() );
-	         try{
-	             podcastsPage.WEB_11776_thumbUp();
-	         }catch(Exception e)
-	         {
-	             handleException(e);
-	         }      
-	         System.out.println(name.getMethodName() + " is Done.");
-	     }
+		 public void testWEB_11776_thumbUpPodcasts() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try{
+		 		podcastsPage.WEB_11776_thumbUp();
+		 	}catch(Exception e)
+		 	{
+		 		handleException(e);
+		 	}  	
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
 		 
-		 /*
-		  
-		  @Test
-	        public void testWEB_11740_search() throws Exception
-	        {
-	            System.out.println("test method:" +  name.getMethodName() );
-	            try{
-	                   homePage.WEB_11740_search();
-	            }catch(Exception e)
-	             {
-	                 handleException(e);
-	             }        
-	            System.out.println(name.getMethodName() + " is Done.");
-	        }
-	        
-	        
-	         @Test
-	        public void testWEB_18302_PopularUserFlow() 
-	        {
-	            System.out.println("test method:" +  name.getMethodName() );
-	            driver.get("http://www.z100.com");
-	            homePage.flowAlong();
-	            System.out.println(name.getMethodName() + " is Done.");
-	        }
-		 */
-		  
-		 
-		
 		
 		
 	    @After
@@ -122,7 +91,7 @@ public class DemoTest {
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	
-	    	closeBrowserSession();
+	    	
 	    }
 	
 	    private void handleException(Exception e)

@@ -224,6 +224,7 @@ public class LiveRadioPage extends Page {
 		String chosenStation = firstStationLabel.getText();
 		System.out.println("chosen station:" + chosenStation);
 		firstStation.click();
+		WaitUtility.sleep(1000);
 		
 		String playingStation = stationPlaying.getText();
 		System.out.println("station PLAYING:" + playingStation);

@@ -43,6 +43,7 @@ public class ProfilePage extends Page {
 		gotoSingedAccountOption(option_profile, "User Profile");
 		
 		myStations.click();
+		WaitUtility.sleep(1000);
 		firstStation.click();
 		makeSureItIsPlaying();
 		verifyPlayer("station");
