@@ -303,9 +303,10 @@ public abstract class Page {
 		do{
 			loginButton.click();
 			WaitUtility.sleep(500);
+			
 		}while (!driver.getPageSource().contains("Don't have an account?"));
 		
-		WaitUtility.sleep(500);
+		//WaitUtility.sleep(1500);
     	userName.sendKeys(FACEBOOKemail);
 	    passWord.sendKeys(_PASSWORD);
 	
@@ -375,7 +376,9 @@ public abstract class Page {
 		String nextSong = driver.findElement(By.className("player-song")).getText();
 		System.out.println("After skip:" + nextSong);
 		
-		if (nextSong.equalsIgnoreCase(songPlaying))
+		
+		//Some times different episodes have the same title, such as 'ABC News - Headlines and Top Stories', so need to address this case
+		if (nextSong.equalsIgnoreCase(songPlaying) &&!nextSong.equals("ABC News Update"))
 			errors.append("skip button is not working for Podcasts. ");
 	}
 	
@@ -626,13 +629,14 @@ public abstract class Page {
 	
 	public void doThumbUp(String methodName)
 	{  
-	
-		//Sometimes the thumbUp button is disabled, keep scan until thumbUpiCON is enabled.
-		
-		while(!thumbUp_button.isEnabled())
+	    WaitUtility.sleep(1000);
+		//Sometimes the thumbUp button is disabled, keep scan(At most 10 times though to avoid hang) until thumbUpiCON is enabled.
+		int count = 0; 
+		while(!thumbUp_button.isEnabled() && count < 3)
 		{	System.out.println("thumbUp button is disabled. Scan now..");
 			icon_scan.click();
-			WaitUtility.sleep(3000);
+			count++;
+			WaitUtility.sleep(2000);
 		}
 		//If this is thumbUp before, double-click
 		try{
@@ -645,9 +649,11 @@ public abstract class Page {
 		thumbUp.click();
 		WaitUtility.sleep(500);
 		
+		//check to make sure that thumpUp Icon is filled
 		
-		if (!thumbUpDone.isDisplayed())
+	    if (!thumbUpDone.isDisplayed())
 			handleError("Favorite icon is not highlighted.", methodName);
+		
 		
 		String response = driver.findElement(By.className("growls")).getText();
 		System.out.println("See growls:" + response);
@@ -662,11 +668,12 @@ public abstract class Page {
 		   if (icon_favorite_filled.isDisplayed())
 		   {  
 			   icon_favorite_filled.click();
-		       WaitUtility.sleep(1000);
+		       //WaitUtility.sleep(1000);
+			   WaitUtility.waitForAjax(driver);
 		   }
 	    }catch(Exception e)
 	    {
-	    	
+	    	System.out.println("Exception clicking on filled heart.");
 	    }
 	   
 	   if (!icon_favorite_unfilled.isDisplayed())
@@ -692,7 +699,14 @@ public abstract class Page {
 	
 	public boolean isSoftGateShow()
 	{   WaitUtility.sleep(2000);
-	    System.out.println(signupHint.getText());
+	    try{
+	       System.out.println(signupHint.getText());
+	    }catch(Exception e)
+	    {
+	       System.out.println("Soft gate is not shown.");
+	       return false;
+	    		   
+	    }
 		return signupHint.getText().contains("Have an account?");
 	}
 	

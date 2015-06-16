@@ -56,8 +56,8 @@ public class PodcastsPage  extends Page{
 	
 	public void WEB_11772_browsePodcasts()
 	{
-		gotoExplorerOption(option_podCasts,"Popular");
-		
+		//gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 		secondPod.click();
 		
@@ -67,6 +67,7 @@ public class PodcastsPage  extends Page{
 		
 		driver.navigate().back();
 		new Select(topics).selectByIndex(3);
+		WaitUtility.waitForAjax(driver);
 	   // firstPod.click();
 		driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 	    makeSureItIsPlaying();
@@ -82,8 +83,8 @@ public class PodcastsPage  extends Page{
 		login();
 		
 		
-		  gotoExplorerOption(option_podCasts,"Popular");
-		
+		//  gotoExplorerOption(option_podCasts,"Popular");
+		comeToThisPage_direct();
 		
 		/*
 	  
@@ -168,15 +169,19 @@ public class PodcastsPage  extends Page{
 	public void WEB_11776_thumbUp()
 	{
 		login();
-		
+		WaitUtility.waitForAjax(driver);
 		//gotoExplorerOption(option_podCasts,"Popular");
 		comeToThisPage_direct();
 		
 		//Need to remember this station name
+	   // WaitUtility.sleep(1000);
+		
+	
 		String chosenStation = firstPodName.getText();
 		System.out.println("See chosenStation:" + chosenStation);
+		  
 	    firstPod.click();
-	 
+	    WaitUtility.waitForAjax(driver);
 	     makeSureItIsPlaying();
 	    
 	    doThumbUp("WEB_11776_thumbUp");
@@ -297,7 +302,7 @@ public class PodcastsPage  extends Page{
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	}
 
 

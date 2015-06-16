@@ -72,7 +72,7 @@ public class CustomRadioPage  extends Page {
 		  
 		
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(5); 
-			
+			WaitUtility.waitForAjax(driver);
 			customFirstLinkPlayButton.click();
 			
 		}
@@ -232,7 +232,8 @@ public class CustomRadioPage  extends Page {
 			System.out.println("SEE new url:"  + newURL );
 			
 			driver.get(newURL);
-			WaitUtility.sleep(1000);
+			//WaitUtility.sleep(1000);
+			WaitUtility.waitForAjax(driver);
 		}
 
 

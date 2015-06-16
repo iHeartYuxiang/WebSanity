@@ -40,26 +40,30 @@ public class ProfilePage extends Page {
 	public void WEB_11779_playStations()
 	{
 		login();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage_direct();
 		
 		myStations.click();
-		WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 		firstStation.click();
 		makeSureItIsPlaying();
 		verifyPlayer("station");
 		
 		driver.navigate().refresh();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage_direct();
 		history.click();
+		WaitUtility.waitForAjax(driver);
 		firstSong.click();
 		makeSureItIsPlaying();
 		//makeSureItIsPlayingWithNoWait();
 		verifyPlayer("chosen song from Listen Hisotry ");
 		
 		driver.navigate().refresh();
-		gotoSingedAccountOption(option_profile, "User Profile");
+	//	gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage_direct();
 		favoriteSongs.click();
-		WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	    try{
 		   firstFavSong.click();
 	    }catch(Exception e)
@@ -72,8 +76,12 @@ public class ProfilePage extends Page {
 		verifyPlayer("chosen favorite song");
 		
 		driver.navigate().refresh();
-		gotoSingedAccountOption(option_profile, "User Profile");
+		//gotoSingedAccountOption(option_profile, "User Profile");
+		comeToThisPage_direct();
+		
 		favoriteEpisodes.click();
+		
+		WaitUtility.waitForAjax(driver);
 		firstFavEpisode.click();
 		makeSureItIsPlaying();
 		//makeSureItIsPlayingWithNoWait();
@@ -84,7 +92,8 @@ public class ProfilePage extends Page {
 	public void WEB_11780_playStationsInMyStationsPage()
 	{
 		login();
-		gotoSingedAccountOption(option_myStations, "User Profile");
+		//gotoSingedAccountOption(option_myStations, "User Profile");
+		comeToThisPage_direct();
 		
 		//Verify page header
 		if (!pageHeader.getText().equals("My Stations"))
@@ -103,7 +112,8 @@ public class ProfilePage extends Page {
 	public void WEB_11781_playStationsInListenHistoryPage()
 	{
 		login();
-		gotoSingedAccountOption(option_listenHistory, "User Profile");
+		//gotoSingedAccountOption(option_listenHistory, "User Profile");
+		gotoMyListenHistoryPage_direct();
 		//Verify page header
 		if (!pageHeader.getText().equals("Listen History"))
 		{	handleError("Clicking on Listen History link didn't lead user to the right page.","WEB_11781_playStationsInListenHistoryPage" );
@@ -250,7 +260,8 @@ public class ProfilePage extends Page {
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.sleep(1000);
+		//WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	}
 	
 	
@@ -264,7 +275,8 @@ public class ProfilePage extends Page {
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.sleep(1000);
+		//WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	}
 	
 	private void gotoMyListenHistoryPage_direct(){
@@ -277,8 +289,8 @@ public class ProfilePage extends Page {
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.sleep(1000);
-		
+		//WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	}
 	
 

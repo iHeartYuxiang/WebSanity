@@ -104,13 +104,15 @@ public class HomePage extends Page {
 	
 	
 	public void WEB_11734_startUp()
-	{   WaitUtility.sleep(500);
+	{   
 		comedy.click();
+		WaitUtility.waitForAjax(driver);
 		playStation.click();
 		
 		//driver.navigate().refresh();
 		//driver.navigate().back();
 		driver.get("iheart.com");
+		WaitUtility.waitForAjax(driver);
 		sport.click();
 		playStation.click();
 	}
@@ -120,8 +122,9 @@ public class HomePage extends Page {
 	{
 		
 		firstGenra.click();
+		WaitUtility.waitForAjax(driver);
 		getStation.click();
-		WaitUtility.sleep(500);
+		WaitUtility.waitForAjax(driver);
 		
 		// assert that player shall appear
 	   System.out.println("See text:"+ myStation.getText());
@@ -158,18 +161,17 @@ public class HomePage extends Page {
 	    //Check page title of the newly launched window
 		System.out.println(driver.getTitle()); 
 		
-		driver.close();
+	
 
-		//Switch back to original browser (first window)
-		driver.switchTo().window(winHandleBefore);
 	}
 	
 	public void WEB_11790_Hero() throws Exception
 	{
 		
 		firstGenra.click();
+		WaitUtility.waitForAjax(driver);
 		getStation.click();
-		WaitUtility.sleep(500);
+		WaitUtility.waitForAjax(driver);
 		
 	   System.out.println("See text:"+ myStation.getText());
 	   
@@ -206,7 +208,7 @@ public class HomePage extends Page {
 	    //Check page title of the newly launched window
 		System.out.println(driver.getTitle()); 
 		
-		driver.close();
+		//driver.close();
 
 		//Switch back to original browser (first window)
 		driver.switchTo().window(winHandleBefore);
@@ -244,7 +246,7 @@ public class HomePage extends Page {
 	     {   
 	    	 theOption = element.getText().trim();
 	    	  options += theOption;
-	    	 WaitUtility.sleep(500);
+	    	  WaitUtility.waitForAjax(driver);
 	    	
 	     }
 		 
@@ -308,7 +310,10 @@ public class HomePage extends Page {
 	public void WEB_11784_signUp()
 	{
 		firstGenra.click();
+		WaitUtility.waitForAjax(driver);
+		
 		getStation.click();
+		WaitUtility.waitForAjax(driver);
 		playButton.click();
 		makeSureItIsPlaying();
 	    
@@ -350,8 +355,11 @@ public class HomePage extends Page {
 	public void WEB_8823_faceBooksignUp()
 	{
 		firstGenra.click();
+		WaitUtility.sleep(1000);
 		getStation.click();
+		WaitUtility.sleep(1000);
 		playButton.click();
+		
 		makeSureItIsPlaying();
 		
 		
@@ -400,6 +408,13 @@ public class HomePage extends Page {
 		//Need to switch Windows here
 		String winHandleBefore = switchWindow();
 		googEmail.sendKeys(FACEBOOKemail);
+		//NEXT BUTTON IS ADDED
+		try{
+			driver.findElement(By.id("next")).click();
+		}catch(Exception e)
+		{
+			
+		}
 		googPass.sendKeys(_PASSWORD);
 		googLogin.click();
 		

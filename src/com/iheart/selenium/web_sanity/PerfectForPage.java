@@ -79,7 +79,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11768_addToFavorite()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage_direct();
 		
 		//Need to remember this station name
 		String chosenStation = firstBoxTitle.getText();
@@ -122,7 +123,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11770_thumpUpPerfect()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage_direct();
 		
 		//Need to remember this station name
 		String chosenStation = firstBoxTitle.getText();
@@ -160,11 +162,11 @@ public class PerfectForPage extends Page{
 	public void WEB_11767_filterAfterLogin()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
-		
+		//gotoExplorerOption(option_perfectFor, "Perfect");
+		comeToThisPage_direct();
 		new Select(activity).selectByIndex(2);
 		
-		WaitUtility.sleep(500);
+		WaitUtility.waitForAjax(driver);
 		
 		//Need to remember this station name
 		String chosenStation = firstBoxTitle.getText();
@@ -227,7 +229,8 @@ public class PerfectForPage extends Page{
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.sleep(1000);
+	//	WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	}
 
 

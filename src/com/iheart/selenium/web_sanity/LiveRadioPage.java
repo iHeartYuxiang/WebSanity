@@ -177,8 +177,8 @@ public class LiveRadioPage extends Page {
 		login();
 		search("Elvis Duran");
 		firstSearchResult.click();
-	//	makeSureItIsPlaying();
-		WaitUtility.sleep(1000);
+	
+		WaitUtility.waitForAjax(driver);
 		addToFavoriteFromPlayer();
 	
 		//Verify that we are on share page now
@@ -259,10 +259,12 @@ public class LiveRadioPage extends Page {
 		  count++;
 		}while(!h3_header.getText().contains("All Stations, INT") && count < 5);
 		
-		WaitUtility.sleep(500);
+		WaitUtility.waitForAjax(driver);
 		
 		firstINT.click();
+		WaitUtility.waitForAjax(driver);
 		firstINT_playButton.click();
+		WaitUtility.waitForAjax(driver);
 		
 		//Verify that it is indeed playing
 		if (!firstINT_stopPlayButton.getAttribute("class").equalsIgnoreCase("icon-stop"))
@@ -356,7 +358,10 @@ public class LiveRadioPage extends Page {
 		//gotoExplorerOption(option_liveRadio, "Live");
 		comeToThisPage_direct();
 		firstLive.click();
+		WaitUtility.waitForAjax(driver);
 		makeSureItIsPlaying();
+		
+		
 		
 		//Keep scan if the thumbDown icon is disabled
 		
@@ -395,8 +400,8 @@ public class LiveRadioPage extends Page {
 	
 	public void WEB_11785_playStationFromGenreProfile(){
 		
-		gotoExplorerOption(option_genres, "Genres");
-		
+		//gotoExplorerOption(option_genres, "Genres");
+		gotoGenrePage_direct();
 		
 		//click on country genre
 		driver.findElement(By.cssSelector("section.section-block:nth-child(7) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).click();
@@ -454,7 +459,8 @@ public class LiveRadioPage extends Page {
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.sleep(1000);
+		//WaitUtility.sleep(1000);
+		WaitUtility.waitForAjax(driver);
 	}
 	
 	public void gotoGenrePage()
