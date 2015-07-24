@@ -86,7 +86,7 @@ public class PerfectForPage extends Page{
 		String chosenStation = firstBoxTitle.getText();
 		System.out.println("See chosenStation:" + chosenStation);
 	    firstBox.click();
-	    makeSureItIsPlaying();
+	   // makeSureItIsPlaying(); //will restore it
 	    
 	    doFavorite("WEB_11768_addToFavorite");
 	    

@@ -29,8 +29,8 @@ public class DemoTest {
 		
 	
 		
-		String browser = "firefox";
-		//String browser = "chrome";
+		//String browser = "firefox";
+		String browser = "chrome";
 		
 		static String userCity = "";
 		
@@ -53,41 +53,32 @@ public class DemoTest {
 	       
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
-
-		/*
-		 
+		
 		@Test
-		 public void testWEB_11763_thumpUpCustom() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 	   customRadioPage.WEB_11763_thumpUpCustom();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		*/
+
+	    public void testPlayCustom() throws Exception
+
+	    {  System.out.println("test method:" +  name.getMethodName() );
 		
-		 @Test
-		 public void testWEB_11776_thumbUpPodcasts() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		podcastsPage.WEB_11776_thumbUp();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		 
+			try{
 		
+			    customRadioPage.playCustom();
+			    WaitUtility.sleep(50*60*1000);
 		
+			 }catch(Exception e)
+		
+			{
+				 handleException(e);
+			}    
+		
+			    System.out.println(name.getMethodName() + " is Done.");
+
+	    }
+		
+	
 	    @After
 	    public void tearDown() throws Exception{
-	    	driver.quit(); 
+	    	//driver.quit(); 
 	    	if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
 	    	

@@ -5,24 +5,26 @@ import java.util.concurrent.TimeUnit;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
-
+import java.util.Arrays;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.CapabilityType;
 
 
 
@@ -47,10 +49,10 @@ public class Utils {
 	{   WebDriver driver;
 	
 	    if (browser.equalsIgnoreCase("firefox"))
-	
+	    { 
 	        driver = new FirefoxDriver();
 	
-	    else if (browser.equalsIgnoreCase("chrome"))
+	    }else if (browser.equalsIgnoreCase("chrome"))
 	    {   //Set actual path to the driver file
 	
 	      System.setProperty("webdriver.chrome.driver", "C:\\Users\\1111128\\workspace\\drivers\\chromedriver.exe");
@@ -80,9 +82,89 @@ public class Utils {
 	
 	      }
 	
-	      driver.manage().window().maximize();
+	     
 	
-	      driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	      return driver;
+	
+	  }
+	
+	
+public static WebDriver  createWebDriverWithProxy(String browser) 
+	
+	{   WebDriver driver;
+	
+	    if (browser.equalsIgnoreCase("firefox"))
+	    { 
+	    	//added for nielsen stuff:
+	    	 FirefoxProfile profile = new FirefoxProfile();
+
+		    /**
+		     * Get the native browser to use our proxy
+		     */
+	    	 
+	    	/* 
+		    profile.setPreference("network.proxy.type", 1);
+		    profile.setPreference("network.proxy.http", "localhost");
+		    profile.setPreference("network.proxy.https", "localhost");
+		    profile.setPreference("network.proxy.http_port", 5368);  // localProxyPort = 5368;
+		    profile.setPreference("network.proxy.https_port", 5378);  // localProxyPort = 5368;
+	     
+	
+		    driver = new FirefoxDriver(profile);
+	        */
+	    	 
+	    	 String PROXY = "localhost:5368";
+
+	    	 org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
+	    	 proxy.setHttpProxy(PROXY)
+	    	      .setFtpProxy(PROXY)
+	    	      .setSslProxy(PROXY);
+	    	 DesiredCapabilities cap = new DesiredCapabilities();
+	    	 cap.setCapability(CapabilityType.PROXY, proxy);
+	    	  driver = new FirefoxDriver(cap);
+	    	
+	    	
+	    	//The following is original
+	      //  driver = new FirefoxDriver();
+	
+	    }else if (browser.equalsIgnoreCase("chrome"))
+	    {   //Set actual path to the driver file
+	
+	      System.setProperty("webdriver.chrome.driver", "C:\\Users\\1111128\\workspace\\drivers\\chromedriver.exe");
+	   //   System.setProperty("webdriver.chrome.driver", "/Users/1111128/Documents/workspace/drivers/chromedriver.exe");	
+	     
+	    /*
+	      DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+	      capabilities.setCapability("chrome.switches", Arrays.asList("--proxy-server=http://user:password@proxy.com:8080"));
+	       driver = new ChromeDriver(capabilities);  
+	      */
+	      
+	      ChromeOptions options = new ChromeOptions();
+	      options.addArguments("test-type");
+	      options.addArguments("--start-maximized");
+	      options.addArguments("--proxy-server=http://localhost:5369 ");
+	      options.addArguments("--proxy-server=https://localhost:5369 ");
+	      driver = new ChromeDriver(options);
+	     
+	      }else if (browser.equalsIgnoreCase("ie"))
+	      {    //Set actual path to the driver file
+	
+	      System.setProperty("webdriver.ie.driver","C:\\Users\\1111128\\workspace\\drivers\\IEDriverServer.exe");
+	
+	      
+	      driver = new InternetExplorerDriver();
+	
+	      }else 
+	
+	      {
+	
+	      System.out.println("Unknown browser.");
+	
+	      return null;
+	
+	      }
+	
+	     
 	
 	      return driver;
 	
@@ -168,7 +250,20 @@ public class Utils {
 	
 	} 
 	
+	public static WebDriver launchBrowserWithProxy(String url, String browser)
+	{       Page.setBrowser(browser);
+			WebDriver driver = createWebDriverWithProxy(browser);
+			
+			driver.get(url);
+			//WaitUtility.waitForAjax(driver);
+			WaitUtility.hijackAJAX(driver);
+			
+			 driver.manage().window().maximize();
+				
+		      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			return driver;
 	
+	}
 	
 	
 	public static WebDriver launchBrowser(String url, String browser)
@@ -176,13 +271,15 @@ public class Utils {
 			WebDriver driver = createWebDriver(browser);
 			
 			driver.get(url);
-			WaitUtility.waitForAjax(driver);
+		//	WaitUtility.waitForAjax(driver);
 			
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			
+			 driver.manage().window().maximize();
+				
+		      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			return driver;
 	
 	}
+	
 	
 	public static WebDriver launchBrowserInCloud(String url, CapabilitySetting setting)
 	{

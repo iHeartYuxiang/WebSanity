@@ -27,8 +27,9 @@ public class sanityTest {
 		
 		
 		
-	    String browser = "firefox";
+	   // String browser = "firefox";
 		//String browser = "chrome";
+		String browser = "IE";
 		   
 		static String userCity = "";
 		

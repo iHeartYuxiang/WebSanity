@@ -30,8 +30,8 @@ public class RunDailyTest {
 	
 	
 	
-	String browser = "firefox";
-	//String browser = "chrome";
+	//String browser = "firefox";
+	String browser = "chrome";
 	
 	static String userCity = "";
 	
@@ -343,7 +343,7 @@ public class RunDailyTest {
 	
 	     @After
 		    public void tearDown() throws Exception{
-	    	    driver.quit(); 
+	    	   // driver.quit(); 
 		    	if (Page.getErrors().length() > 0)
 					 fail(Page.getErrors().toString());
 		    	

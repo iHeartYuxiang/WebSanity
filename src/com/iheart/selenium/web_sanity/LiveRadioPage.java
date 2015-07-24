@@ -229,7 +229,7 @@ public class LiveRadioPage extends Page {
 		String playingStation = stationPlaying.getText();
 		System.out.println("station PLAYING:" + playingStation);
 		
-		makeSureItIsPlaying();
+		//makeSureItIsPlaying(); //will restore
 		
 		
 		if (!chosenStation.equalsIgnoreCase(playingStation))
@@ -436,7 +436,7 @@ public class LiveRadioPage extends Page {
 	{  comeToThisPage_direct();
 	}		
 	
-	private void comeToThisPage_direct()
+	protected void comeToThisPage_direct()
 	{   String currentURL = driver.getCurrentUrl();
 		System.out.println("SEE current url:"  + currentURL);
 	    String part1 = currentURL.split("//")[0];
@@ -472,7 +472,13 @@ public class LiveRadioPage extends Page {
 	}
 
 
-
-	
-
+    public void playLiveRadio()
+    {
+		login();
+		WaitUtility.sleep(360000);
+		/*
+		comeToThisPage_direct();
+		makeSureItIsPlaying();
+		*/
+    }
 }

@@ -207,7 +207,9 @@ public class CustomRadioPage  extends Page {
 		{   
 			//gotoExplorerOption(option_customRadio);
 			comeToThisPage_direct();
+			WaitUtility.waitForAjax(driver);
 			customFirstLinkPlayButton.click();
+			
 			makeSureItIsPlaying();
 		}
 		
@@ -236,5 +238,12 @@ public class CustomRadioPage  extends Page {
 			WaitUtility.waitForAjax(driver);
 		}
 
+		public void playCustom()
+		{
+			login();
+			playCustomRadioAfterLogin();
+		}
+		
+		
 
 }
