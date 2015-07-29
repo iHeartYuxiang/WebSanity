@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 
+import com.mba.proxylight.RequestProcessor;
+
 import static org.junit.Assert.*; 
 
 
@@ -229,7 +231,7 @@ public class LiveRadioPage extends Page {
 		String playingStation = stationPlaying.getText();
 		System.out.println("station PLAYING:" + playingStation);
 		
-		//makeSureItIsPlaying(); //will restore
+		makeSureItIsPlaying();
 		
 		
 		if (!chosenStation.equalsIgnoreCase(playingStation))
@@ -436,14 +438,14 @@ public class LiveRadioPage extends Page {
 	{  comeToThisPage_direct();
 	}		
 	
-	protected void comeToThisPage_direct()
+	public void comeToThisPage_direct()
 	{   String currentURL = driver.getCurrentUrl();
-		System.out.println("SEE current url:"  + currentURL);
+	//	System.out.println("SEE current url:"  + currentURL);
 	    String part1 = currentURL.split("//")[0];
 	    String part2  = currentURL.split("//")[1].split("/")[0];
 	    
 	    String newURL = part1 + "//" + part2 + "/live/country/US/" ;
-		System.out.println("SEE new url:"  + newURL );
+	//	System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
 		WaitUtility.sleep(1000);
@@ -471,14 +473,5 @@ public class LiveRadioPage extends Page {
 			gotoGenrePage_direct();
 	}
 
-
-    public void playLiveRadio()
-    {
-		login();
-		WaitUtility.sleep(360000);
-		/*
-		comeToThisPage_direct();
-		makeSureItIsPlaying();
-		*/
-    }
+    
 }

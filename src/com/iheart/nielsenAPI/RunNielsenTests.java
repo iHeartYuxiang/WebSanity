@@ -31,7 +31,7 @@ public class RunNielsenTests {
 	 CustomRadioPage customRadioPage;
 		
 	static String browser = "firefox";
-   //static String browser = "chrome";
+    //  static String browser = "chrome";
 	
 	 
 	final String URL = "http://www.iheart.com";
@@ -65,12 +65,12 @@ public class RunNielsenTests {
     }
 	
 	@Test
-	 public void testPlay3Minutes() throws Exception
+	 public void testPlay5Minutes() throws Exception
 	 {  
 	 	System.out.println("test method:" +  name.getMethodName() );
 	 	try{
 	 		
-	 	    liveRadioPage.playFor3Minutes();
+	 	    liveRadioPage.playFor5Minutes();
 	 		
 	 		
 	 	     proxy.proxy.stop();
@@ -129,7 +129,7 @@ public class RunNielsenTests {
 	 	System.out.println(name.getMethodName() + " is Done.");
 	 }
 
-	@Ignore("SKIP THIS")
+	@Test
 	 public void testPrivacyPolicy() throws Exception
 	 {  
 	 	System.out.println("test method:" +  name.getMethodName() );
@@ -145,7 +145,7 @@ public class RunNielsenTests {
 	
     @After
     public void tearDown() throws Exception{
-    	driver.quit(); 
+        driver.quit(); 
        
     	if (Page.getErrors().length() > 0)
 			 fail(Page.getErrors().toString());

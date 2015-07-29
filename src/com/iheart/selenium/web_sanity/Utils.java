@@ -256,7 +256,6 @@ public static WebDriver  createWebDriverWithProxy(String browser)
 			
 			driver.get(url);
 			//WaitUtility.waitForAjax(driver);
-			WaitUtility.hijackAJAX(driver);
 			
 			 driver.manage().window().maximize();
 				

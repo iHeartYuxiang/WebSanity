@@ -4,6 +4,8 @@ package com.iheart.nielsenAPI;
 import com.iheart.selenium.web_sanity.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -16,20 +18,35 @@ public class NielsenTracking extends LiveRadioPage{
 	 CustomRadioPage customRadioPage;
 	
 	
-		public void playFor3Minutes()
+		public void playFor5Minutes()
 	    {   
 	    	comeToThisPage_direct();
 	    	
 	    	WaitUtility.sleep(1000);
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
-	    	//driver.findElement(By.xpath("//*[@id='player']/div[2]/div/button[3]/i")).click();
+	    	makeSureItIsPlaying();
+	    	
 	    	//play for 3 minutes and 20 seconds
-	    	WaitUtility.sleep(3*60*1000 + 2 * 1000);
+	    	WaitUtility.sleep(5*60*1000 + 1 * 1000);
 	    	
-	    	if (!is_IVD_ok())
-	    		errors.append("I, P, D ping doesn't work properly.");
+	    	if (!is_IVD_ok_NEW())
+	    		errors.append("I, V, D ping doesn't work properly.");
 	    	
-			
+	    	//String quarterlyPing = RequestProcessor.getNielsenRequestMap().get("quarterlyPing");
+	    	String quarterlyPing = "";
+	    	
+	    	List<String> urls = RequestProcessor.getNielsenRequests();
+			for (String url: urls)
+			{	 if (isQuarterlyPing(url))
+			     {	quarterlyPing = url ;
+		        	System.out.println("Quarterly ping: " + url);
+		        	break;
+		         }
+			}
+	    
+	    	
+			if (!isQuaterlyPingOK(quarterlyPing))
+				errors.append("Quarterly ping doesn't work properly.");
 			
 	    }
 		
@@ -41,23 +58,29 @@ public class NielsenTracking extends LiveRadioPage{
 	    	//play for 2 minutes and 2 seconds
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
-	    	if (!is_IVD_ok())
-	    		errors.append("I, P, D ping doesn't work properly.");
+	    	//if (!is_IVD_ok())
+	    	if (!is_IVD_ok_NEW())
+	    		errors.append("I, V, D ping doesn't work properly.");
 	    	
 	    	clearNielsenRequest();
 	    	//stop, then pause for 2 minutes
 	    	driver.findElement(By.cssSelector(".icon-stop")).click();
+	    	//Wait for the pre-roll
+	    	WaitUtility.sleep(30*1000);
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 	        int newCount = getNielsenRequest().size();
 	        if (newCount > 0  )
 	        	errors.append("No ping shall be sent out after audio is paused.");
 	       
 	    	
-	    	//play again for 2 minutes and 2 seconds
+	        //Skip station and play again for 2 minutes and 2 seconds
+	        driver.findElement(By.cssSelector("button.text:nth-child(4)")).click();
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
+	    	makeSureItIsPlaying();
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 	    	
-	    	if (!is_IVD_ok())
+	    	//if (!is_IVD_ok())
+	    	if (!is_IVD_ok_NEW())
 	    		errors.append("I, P, D ping doesn't work properly after stream is restarted.");
 	    	
 			
@@ -67,14 +90,20 @@ public class NielsenTracking extends LiveRadioPage{
 		//opt-out, opt-in
 		public void privacyPolicy()
 		{  
-			//To be done: OPT OUT
+			// OPT OUT
 			driver.findElement(By.cssSelector("div.copyright:nth-child(3) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)")).click();
 			//switch window
 			switchWindow();
 			
 			driver.findElement(By.cssSelector(".detailContent > p:nth-child(58) > a:nth-child(1)")).click();
 			switchWindow();
-			WaitUtility.sleep(20*1000);//extremely slow to check the status
+			WaitUtility.sleep(40*1000);//extremely slow to check the status
+			try{
+				driver.findElement(By.id("overlayClose")).click();
+			}catch(Exception e)
+			{
+				
+			}
 			try {
 			   driver.findElement(By.id("selectAllACTIVE")).click();
 			
@@ -95,9 +124,10 @@ public class NielsenTracking extends LiveRadioPage{
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
 	    	WaitUtility.sleep(1*60*1000 + 1 * 1000);
 	        
-	    	System.out.println("See nielsen request count:" + getNielsenRequest().size());
+	        int count = RequestProcessor.getNielsenRequestMap().size();
+	    	System.out.println("See nielsen request count:" + RequestProcessor.getNielsenRequestMap().size());
 	    	
-	    	if (is_IVD_ok())
+	    	if (count > 0)
 	    		errors.append("No ping shall be sent over to nielsen after user opt out.");
 			
 		}
@@ -109,13 +139,16 @@ public class NielsenTracking extends LiveRadioPage{
 	    	WaitUtility.sleep(1000);
 	    	//play for 2 minutes , then kill the browser
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
+	    	//Wait for the pre-roll
+	    	WaitUtility.sleep(30*1000);
+	    	
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 		    clearNielsenRequest();
 			//change station
 	    	driver.findElement(By.cssSelector("button.text:nth-child(4)")).click();
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 	    	
-	    	if (!is_IVD_ok())
+	    	if (!is_IVD_ok_NEW())
 	    		errors.append("I, P, D ping doesn't work properly after stream is restarted.");
 	    	
 		}
@@ -127,11 +160,14 @@ public class NielsenTracking extends LiveRadioPage{
 	    	WaitUtility.sleep(1000);
 	    	//play for 2 minutes , then kill the browser
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
+	    	//Wait for the pre-roll
+	    	WaitUtility.sleep(30*1000);
+	    	
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 	    	
 	    	//Verify result: I V D pings + D ping with cr = _11
 	    	
-	    	if (!is_IVD_ok())
+	    	if (!is_IVD_ok_NEW())
 	    		errors.append("I, P, D ping doesn't work properly.");
 	    	
 	    	clearNielsenRequest();
@@ -159,18 +195,11 @@ public class NielsenTracking extends LiveRadioPage{
 			 customRadioPage.playCustom();
 			 WaitUtility.sleep(5000);
 			
-			 List<String> urls = RequestProcessor.getNielsenRequests();
-				for (String url: urls)
-				{	System.out.println(url);
-				    if (isImpressionPingOK(url) )
-				    {
-				    	errors.append("Customer station shall not be measured.");
-				    	break;
-				    }
-				}
+			// List<String> urls = RequestProcessor.getNielsenRequests();
+			Map<String, String>  urls = RequestProcessor.getNielsenRequestMap();
+			if(isImpressionPingOK(urls.get("impressionPing")) )
+					errors.append("Customer station shall not be measured.");
 		}
-		
-		
 		
 		public List<String> getNielsenRequest()
 		{
@@ -186,9 +215,12 @@ public class NielsenTracking extends LiveRadioPage{
 		public void  clearNielsenRequest()
 		{
 			 RequestProcessor.clearNielsenRequests();
+			 
 		}	
 
 		// I, V, D 
+		
+		/*
 		public boolean is_IVD_ok()
 		{
 			boolean isImpressionOK = false;
@@ -217,6 +249,27 @@ public class NielsenTracking extends LiveRadioPage{
 		    return (isImpressionOK && isViewOK && isDurationOK);
 		    	
 		}
+		*/
+		
+		public boolean is_IVD_ok_NEW()
+		{
+			boolean isImpressionOK = false;
+	    	boolean isViewOK = false;
+	    	boolean isDurationOK = false;
+	    	
+	    	Map<String, String> urls = RequestProcessor.getNielsenRequestMap();
+	    	System.out.println("See urls count:" + urls.size());
+	    	System.out.println(urls);
+	    	
+		    isImpressionOK = isImpressionPingOK(urls.get("impressionPing"));
+		    isViewOK = isViewPingOK(urls.get("viewPing"));
+		    isDurationOK = isDurationPingOK(urls.get("durationPing"));
+			System.out.println("IVD:" + isImpressionOK + "/" + isViewOK + "/" + isDurationOK);
+			
+		    return (isImpressionOK && isViewOK && isDurationOK);
+		    	
+		}
+		
 		
 		
 	
@@ -227,7 +280,10 @@ public class NielsenTracking extends LiveRadioPage{
 		 */
 		
 		public boolean isImpressionPingOK(String request)
-		{   boolean isOK = false;
+		{  System.out.println("isImpressionPingOK:" + request);
+		    if (request == null)
+		    	return false;
+			boolean isOK = false;
 		
 		    try {
 		    	isOK =  (request.substring(request.indexOf("cr="))).contains("_I") 
@@ -241,28 +297,51 @@ public class NielsenTracking extends LiveRadioPage{
 		   
 		}
 		
-		public boolean isImpressionPing(String url)
+		public static boolean isImpressionPing(String url)
 		{
 			return url.contains("at=start");
 		}
 		
-		public boolean isViewPing(String url)
+		public static boolean isViewPing(String url)
 		{
 			return url.contains("at=view");
 		}
 		
-		public boolean isDurationPing(String url)
+		public static boolean isDurationPing(String url)
 		{
 			return url.contains("at=timer");
 		}
 		
-		public boolean isPendingPing(String url)
+		public static boolean isPendingPing(String url)
 		{
 			return url.contains("at=timer") && url.contains("_11");
 		}
 		
-		public boolean isViewPingOK(String request)
+		public static boolean isHelloPing(String url)
 		{
+			return url.contains("cfg?")
+					   && url.contains("apid");
+		}
+		
+		public static boolean isGoodByePing(String url)
+		{
+			return   url.contains("cfg?")
+					   && url.contains("uoo=true");
+		}
+		
+		public static boolean isQuarterlyPing(String url)
+		{
+			return url.contains("at=view")
+					&&(url.substring(url.indexOf("cr="))).contains("_Q") ;
+					
+		}
+		
+		
+		
+		
+		public boolean isViewPingOK(String request)
+		{   if (request == null)
+	    	     return false;
 		    return  (request.substring(request.indexOf("cr="))).contains("_V")
 		    		&& request.contains("at=view")
 		    		&&  isC18_19_20_OK(request);
@@ -270,7 +349,8 @@ public class NielsenTracking extends LiveRadioPage{
 		}
 		
 		public boolean isDurationPingOK(String request)
-		{
+		{   if (request == null)
+	    			return false;
 			return   request.contains("at=timer")
 					&&(request.substring(request.indexOf("cr="))).contains("_D") 
 					//&&(request.contains("11111"))
@@ -280,7 +360,9 @@ public class NielsenTracking extends LiveRadioPage{
 		
 		
 		public boolean isQuaterlyPingOK(String request)
-		{
+		{   System.out.println("isQuaterlyPingOK:" + request);
+			if (request == null)
+	    			return false;
 			return   request.contains("at=timer")
 					&&(request.substring(request.indexOf("cr="))).contains("_Q") 
 					&&(request.contains("11111"))
@@ -290,7 +372,9 @@ public class NielsenTracking extends LiveRadioPage{
 		
 	
 		public boolean isPendingPingOK(String request)
-		{
+		{  
+			if (request == null)
+		    	return false;
 			return   request.contains("at=timer")
 					&&(request.substring(request.indexOf("cr="))).contains("_11") 
 					&&(request.contains("11111"))
@@ -301,6 +385,8 @@ public class NielsenTracking extends LiveRadioPage{
 		
 		public boolean isHelloPingOK(String request)
 		{
+			if (request == null)
+		    	return false;
 		   return  request.startsWith("https")
 				   && request.contains("cfg?")
 				   && request.contains("apid");
@@ -309,13 +395,17 @@ public class NielsenTracking extends LiveRadioPage{
 		
 		public boolean isGoodbyePingOK(String request)
 		{
+			if (request == null)
+		    	return false;
 			 return  request.startsWith("https")
 					   && request.contains("cfg?")
 					   && request.contains("uoo=true");
 		}
 		
 		private boolean isC18_19_20_OK(String request)
-		{  String c18 = request.substring(request.indexOf("c18="));
+		{   if (request == null)
+	    		return false;
+			String c18 = request.substring(request.indexOf("c18="));
 			String c19 = request.substring(request.indexOf("c19="));
 			String c20 = request.substring(request.indexOf("c20="));
 			System.out.println("c18:" + c18);
@@ -330,6 +420,26 @@ public class NielsenTracking extends LiveRadioPage{
 			
 			return isOK;  
 		}
+		
+		public void playStationAfterLogin()
+	    {   login();
+	    	
+			comeToThisPage_direct();
+			WaitUtility.injectJQuery(driver);
+			try {
+	           WaitUtility.hijackHTTPS(driver);
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			WaitUtility.sleep(3000);
+			
+	    	driver.findElement(By.xpath("//*[@id='player']/div[2]/div/button[3]/i")).click();
+			
+			
+	    }
+		    
 		
 	
 }

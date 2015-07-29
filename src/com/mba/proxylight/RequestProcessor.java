@@ -17,10 +17,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
 import java.io.DataOutputStream;
-
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
+
+import com.iheart.nielsenAPI.NielsenTracking;
 
 
 public abstract class RequestProcessor { 
@@ -29,6 +30,8 @@ public abstract class RequestProcessor {
   public static CharsetEncoder encoder = charset.newEncoder();
 	
   private static List<String>  nielsenRequests = new ArrayList<String>();
+  private static Map<String, String>   nielsenRequestMap = new HashMap<String, String>();
+  
   private static int processorsCpt = 1;
   private static int processorsCount = 0;
   private static long SOCKET_TIMEOUT = 15 * 1000; // 15 secondes d'inactivite
@@ -316,7 +319,10 @@ public abstract class RequestProcessor {
   public static ByteBuffer str_to_bb(String msg){
     try{
       return encoder.encode(CharBuffer.wrap(msg));
-    }catch(Exception e){e.printStackTrace();}
+    }catch(Exception e)
+    {//e.printStackTrace();
+    	
+    }
     return null;
   }
 
@@ -480,19 +486,35 @@ public abstract class RequestProcessor {
 	//  System.out.println("from Proxy:" + "/" + "isSECURE?" + request.isSecure() + "***" + request.getUrl()); 
 	
 	  if (url.contains("imrworld"))
-	  {    System.out.println("RequestProcessor:" + request.getUrl());  
-		
+	  {    
 		  
-	       nielsenRequests.add(url);
+		  nielsenRequests.add(url);
+		  
+		  System.out.println("RequestProcessor:" + url );  
+		
+		  if(NielsenTracking.isHelloPing(url)) 
+			  nielsenRequestMap.put("helloPing", url);
+		  else if(NielsenTracking.isGoodByePing(url)) 
+			  nielsenRequestMap.put("goodByePing", url);
+		  else if(NielsenTracking.isImpressionPing(url)) 
+			  nielsenRequestMap.put("impressionPing", url);
+		  else if(NielsenTracking.isViewPing(url)) 
+			  nielsenRequestMap.put("viewPing", url);
+		  else if(NielsenTracking.isDurationPing(url)) 
+			  nielsenRequestMap.put("durationPing", url);
+		  else if(NielsenTracking.isPendingPing(url)) 
+			  nielsenRequestMap.put("pendingPing", url);
+		  else if(NielsenTracking.isQuarterlyPing(url)) 
+			  nielsenRequestMap.put("quarterlyPing", url);
+		 
 	  }
-	 
-	  
-	  
 	 
 	  
     return false;
   }
 
+  
+  
   private void filterResponse(Response response) {
 	  /*
     List<ResponseFilter> filters = getResponseFilters();
@@ -527,8 +549,13 @@ public abstract class RequestProcessor {
 	return nielsenRequests;  
   }
   
-  public static void clearNielsenRequests()
+  public static Map<String, String> getNielsenRequestMap()
   {
+	  return nielsenRequestMap;
+  }
+  
+  public static void clearNielsenRequests()
+  {  nielsenRequestMap.clear();
 	 nielsenRequests.clear();  
   }
 }
