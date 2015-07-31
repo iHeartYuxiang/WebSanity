@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="21" failures="0" hostname="CCONYC18QAD" name="com.iheart.junit.web_sanity.RunDailyTest" skipped="0" tests="21" time="19171.522" timestamp="2015-07-23T19:00:05">
+<testsuite errors="19" failures="10" hostname="CCONYC18QAD" name="com.iheart.junit.web_sanity.RunDailyTest" skipped="0" tests="21" time="19370.13" timestamp="2015-07-30T19:00:02">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -76,13 +76,13 @@
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.iheart.junit.web_sanity.RunDailyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\1111128\workspace\WebSanity\junit\TEST-com.iheart.junit.web_sanity.RunDailyTest.xml crashfile=C:\Users\1111128\workspace\WebSanity\junitvmwatcher6294520956473388235.properties propsfile=C:\Users\1111128\workspace\WebSanity\junit8846447468880426247.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.iheart.junit.web_sanity.RunDailyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\1111128\workspace\WebSanity\junit\TEST-com.iheart.junit.web_sanity.RunDailyTest.xml crashfile=C:\Users\1111128\workspace\WebSanity\junitvmwatcher79666430578580246.properties propsfile=C:\Users\1111128\workspace\WebSanity\junit4387508362693156563.properties" />
     <property name="java.class.path" value="C:\Users\1111128\workspace\WebSanity\bin;C:\Users\1111128\workspace\lib\selenium-server-standalone-2.45.0.jar;C:\Users\1111128\workspace\lib\selenium-java-2.45.0.zip;C:\Program Files\apache-ant-1.9.4\lib\ant-launcher.jar;C:\Program Files\apache-ant-1.9.4\lib\ant.jar;C:\Program Files\apache-ant-1.9.4\lib\ant-junit.jar;C:\Program Files\apache-ant-1.9.4\lib\ant-junit4.jar" />
     <property name="ant.file.type.WebSanity" value="file" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="env.ST_INSTALL_PATH" value="C:\Program Files (x86)\HP\Unified Functional Testing\" />
     <property name="ant.file.type" value="file" />
-    <property name="env.LOGONSERVER" value="\\CCRDC31NYC" />
+    <property name="env.LOGONSERVER" value="\\CCRDC30NYC" />
     <property name="env.windir" value="C:\Windows" />
     <property name="java.vm.specification.version" value="1.8" />
     <property name="env.PROCESSOR_ARCHITECTURE" value="AMD64" />
@@ -120,510 +120,625 @@
     <property name="ant.project.invoked-targets" value="RunDailyTest" />
     <property name="env.PROCESSOR_LEVEL" value="6" />
   </properties>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11783_logout" time="913.561">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.47 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26740_27197}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 73d3977eea85b3f635c941204c603409" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11783_logout" time="1122.791">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1119.85 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20988_10036}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 53fc22060f160c7d58316a9c021672c5" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.47 seconds
+Command duration or timeout: 1119.85 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26740_27197}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 73d3977eea85b3f635c941204c603409
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20988_10036}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 53fc22060f160c7d58316a9c021672c5
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11744_filterStation" time="912.002">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.46 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26064_8488}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 3021d65478c29de7ca17848a50506a46" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11744_filterStation" time="1136.453">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1134.90 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir6416_28698}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: b2984c53d33ac05f13b41bef1bb6ac40" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.46 seconds
+Command duration or timeout: 1134.90 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26064_8488}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 3021d65478c29de7ca17848a50506a46
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir6416_28698}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b2984c53d33ac05f13b41bef1bb6ac40
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11739_loginWithGoog" time="912.462">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.47 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir9800_13163}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 65cc45b8810e051171a0dc2a0a679a18" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11739_loginWithGoog" time="1136.519">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1134.93 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir12824_6122}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 9860806e10b2c2e7612701050935e20c" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.47 seconds
+Command duration or timeout: 1134.93 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir9800_13163}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 65cc45b8810e051171a0dc2a0a679a18
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir12824_6122}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 9860806e10b2c2e7612701050935e20c
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11738_FACEBOOKsignUp" time="912.421">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.56 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20768_19287}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 2c1082545bea95c74eac9722aad028ef" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11738_FACEBOOKsignUp" time="1106.776">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1104.86 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir17280_5827}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 18dd109cbfc7c07fad8c250cf37895d2" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.56 seconds
+Command duration or timeout: 1104.86 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20768_19287}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 2c1082545bea95c74eac9722aad028ef
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir17280_5827}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 18dd109cbfc7c07fad8c250cf37895d2
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11754_thumpDownLiveRadio" time="912.871">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.54 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26856_4319}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: d11b2340be0eed6f4ab087ecbce84e31" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11754_thumpDownLiveRadio" time="1106.488">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1104.83 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir21312_10144}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: fe7b13855047503270be87c2ecd8dc59" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.54 seconds
+Command duration or timeout: 1104.83 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26856_4319}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: d11b2340be0eed6f4ab087ecbce84e31
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir21312_10144}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fe7b13855047503270be87c2ecd8dc59
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11761_filterAndPlayCustomAfterLogin" time="913.984">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.76 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir27820_6108}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 7eca70cc9742bf8b543f463592ab1dcb" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11761_filterAndPlayCustomAfterLogin" time="1151.331">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1149.97 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir6736_3416}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: f5a83cb3706c5354900d0f1dd38b1fde" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.76 seconds
+Command duration or timeout: 1149.97 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir27820_6108}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 7eca70cc9742bf8b543f463592ab1dcb
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir6736_3416}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: f5a83cb3706c5354900d0f1dd38b1fde
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11779_playStations" time="913.721">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.79 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir27612_1329}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: a5a5935a3567bfea625bdabd491a39bd" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11779_playStations" time="1076.33">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1075.02 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir14712_24304}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 8e12d37efeaa3876bf61433137e0358b" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.79 seconds
+Command duration or timeout: 1075.02 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir27612_1329}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: a5a5935a3567bfea625bdabd491a39bd
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir14712_24304}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 8e12d37efeaa3876bf61433137e0358b
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11734_startUp" time="913.169">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.65 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir25012_17514}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 809838f068fe2eab6fa54eac8279827c" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11734_startUp" time="1136.387">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1135.07 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir7896_23127}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 2353a86d15a85d997d488d85cc8536eb" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.65 seconds
+Command duration or timeout: 1135.07 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir25012_17514}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 809838f068fe2eab6fa54eac8279827c
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir7896_23127}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 2353a86d15a85d997d488d85cc8536eb
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11737_loginWithEmail" time="912.85">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.79 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir24120_198}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: affbc0c7aaf0661a9278c1751ed25ec7" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11737_loginWithEmail" time="1106.353">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1104.80 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir18484_20963}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: c4f93aa9c9b34324116a265a6bd283c6" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.79 seconds
+Command duration or timeout: 1104.80 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir24120_198}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: affbc0c7aaf0661a9278c1751ed25ec7
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir18484_20963}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c4f93aa9c9b34324116a265a6bd283c6
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11782_friendPage" time="913.104">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.78 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir22832_23864}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: a7f7b2a66d7b4a251f59bedcdc9a781f" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11782_friendPage" time="182.626">
+    <error message="unknown error: unable to discover open pages&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 181.61 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: unknown error: unable to discover open pages
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.78 seconds
+Command duration or timeout: 181.61 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir22832_23864}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: a7f7b2a66d7b4a251f59bedcdc9a781f
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:139)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:160)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:149)
+	at com.iheart.selenium.web_sanity.Utils.createWebDriver(Utils.java:65)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:270)
+	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
+</error>
+  </testcase>
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11752_thumbUpLiveRadio" time="1091.463">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1089.92 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir12012_28642}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 5cc09997c507d00a5074ec623ddf6f31" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
+  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1089.92 seconds
+Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
+System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir12012_28642}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 5cc09997c507d00a5074ec623ddf6f31
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11752_thumbUpLiveRadio" time="912.729">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.61 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir28916_21974}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 12ac8af76c5b808798cd0672fd3e6365" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11763_thumpUpCustom" time="204.899">
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
+  </testcase>
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_18302_PopularUserFlow" time="1045.745">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1044.96 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir9804_25081}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 0d6f88793e66ac39fbdc2d2d0c4142de" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.61 seconds
+Command duration or timeout: 1044.96 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir28916_21974}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 12ac8af76c5b808798cd0672fd3e6365
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir9804_25081}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0d6f88793e66ac39fbdc2d2d0c4142de
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11763_thumpUpCustom" time="912.376">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.50 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir28704_24774}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: f810d28ed7675749ad8c1b664ce3be0f" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_8823_FaceBookSignUp" time="1076.304">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1074.94 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir5116_25700}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 000a8f1b84e0948e5dbfa4dd5a2eef2b" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.50 seconds
+Command duration or timeout: 1074.94 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir28704_24774}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: f810d28ed7675749ad8c1b664ce3be0f
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir5116_25700}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 000a8f1b84e0948e5dbfa4dd5a2eef2b
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_18302_PopularUserFlow" time="912.899">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.74 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir23940_2446}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: d169ebc30b4965ab0d6948e4f4d05355" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11780_playStationsInMyStationsPage" time="1076.249">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1074.93 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir5612_24393}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 0c1a096e09c116062b28671c77c865b8" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.74 seconds
+Command duration or timeout: 1074.93 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir23940_2446}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: d169ebc30b4965ab0d6948e4f4d05355
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir5612_24393}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0c1a096e09c116062b28671c77c865b8
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_8823_FaceBookSignUp" time="912.316">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.55 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir28876_11402}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 93f52f0d5f98a3954152729efbd2a293" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11736_signUp" time="170.526">
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
+  </testcase>
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11776_thumbUpPodcasts" time="1075.811">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1074.95 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir7672_263}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: ab487d710b2d99c91a23f3ee1223af54" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.55 seconds
+Command duration or timeout: 1074.95 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir28876_11402}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 93f52f0d5f98a3954152729efbd2a293
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir7672_263}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ab487d710b2d99c91a23f3ee1223af54
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11780_playStationsInMyStationsPage" time="913.345">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 911.35 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir29068_24520}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: c5b9a119059185aedc3dcb7ae1adf05b" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11740_search" time="152.757">
+    <error message="unknown error: unable to discover open pages&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 151.74 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: unknown error: unable to discover open pages
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 911.35 seconds
+Command duration or timeout: 151.74 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir29068_24520}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: c5b9a119059185aedc3dcb7ae1adf05b
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:139)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:160)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:149)
+	at com.iheart.selenium.web_sanity.Utils.createWebDriver(Utils.java:65)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:270)
+	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
+</error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
+  </testcase>
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11750_filterLiveStationAfterLogin" time="1061.379">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1060.05 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20188_18792}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 649e69c3e87eaa9f8486d188a31590c2" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
+  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1060.05 seconds
+Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
+System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20188_18792}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 649e69c3e87eaa9f8486d188a31590c2
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11736_signUp" time="913.247">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.77 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26232_28852}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 0b22bdb791d5fa480e2eeaf3b108446b" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11766_browsePerfect" time="1061.322">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1059.91 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir12672_30067}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 82993213fba889d1a876632684b3ebee" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.77 seconds
+Command duration or timeout: 1059.91 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir26232_28852}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 0b22bdb791d5fa480e2eeaf3b108446b
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir12672_30067}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 82993213fba889d1a876632684b3ebee
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11776_thumbUpPodcasts" time="913.005">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.70 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30208_6343}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 229356811af3f4590a525bc5064c2362" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11774_filterPodAfterLogin" time="1091.303">
+    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=44.0.2403.107)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 1089.95 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir18128_19377}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 84c84c3708f4f5a8328b0e0a77e2a999" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.70 seconds
+Command duration or timeout: 1089.95 seconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
 System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30208_6343}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 229356811af3f4590a525bc5064c2362
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir18128_19377}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 84c84c3708f4f5a8328b0e0a77e2a999
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
 	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
+	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:272)
 	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
 </error>
+    <failure message="Exception is thrown." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Exception is thrown.
+	at com.iheart.junit.web_sanity.RunDailyTest.tearDown(RunDailyTest.java:348)
+</failure>
   </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11740_search" time="912.98">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.78 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30156_22811}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: 58476d9ffed3c3c44e414cc88e287d17" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+  <system-out><![CDATA[test method:testWEB_11763_thumpUpCustom
+SEE current url:http://www.iheart.com/
+SEE new url:http://www.iheart.com/artist/
+Jquery is loaded.
+Active Ajax call count after waiting:0
+Jquery is loaded.
+Active Ajax call count after waiting:0
+Music is not playing. About to click.
+Music is playing. 
+It is playing:Taylor Swift
+See screenshotName:testWEB_11763_thumpUpCustom2015_07_30_18_12_40.png
+Screenshot is taken.
+testWEB_11763_thumpUpCustom is Done.
+test method:testWEB_11736_signUp
+See randomEmail:1438297698569@gmail.com
+See screenshotName:testWEB_11736_signUp2015_07_30_19_08_49.png
+Screenshot is taken.
+testWEB_11736_signUp is Done.
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 47854
+Only local connections are allowed.
+[511.596][SEVERE]: Timed out receiving message from renderer: 299.560
+[1111.599][SEVERE]: Timed out receiving message from renderer: 600.000
+[1121.600][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 27396
+Only local connections are allowed.
+[526.416][SEVERE]: Timed out receiving message from renderer: 299.994
+[1126.419][SEVERE]: Timed out receiving message from renderer: 600.000
+[1136.419][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 12094
+Only local connections are allowed.
+[526.440][SEVERE]: Timed out receiving message from renderer: 299.994
+[1126.443][SEVERE]: Timed out receiving message from renderer: 600.000
+[1136.443][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 48196
+Only local connections are allowed.
+[496.653][SEVERE]: Timed out receiving message from renderer: 299.994
+[1096.656][SEVERE]: Timed out receiving message from renderer: 600.000
+[1106.657][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 5526
+Only local connections are allowed.
+[496.372][SEVERE]: Timed out receiving message from renderer: 299.994
+[1096.374][SEVERE]: Timed out receiving message from renderer: 600.000
+[1106.374][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 20131
+Only local connections are allowed.
+[541.279][SEVERE]: Timed out receiving message from renderer: 299.994
+[1141.281][SEVERE]: Timed out receiving message from renderer: 600.000
+[1151.282][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 15973
+Only local connections are allowed.
+[466.283][SEVERE]: Timed out receiving message from renderer: 299.994
+[1066.286][SEVERE]: Timed out receiving message from renderer: 600.000
+[1076.286][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 11114
+Only local connections are allowed.
+[526.341][SEVERE]: Timed out receiving message from renderer: 299.995
+[1126.343][SEVERE]: Timed out receiving message from renderer: 600.000
+[1136.344][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 26281
+Only local connections are allowed.
+[496.316][SEVERE]: Timed out receiving message from renderer: 299.994
+[1096.318][SEVERE]: Timed out receiving message from renderer: 600.000
+[1106.318][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 13387
+Only local connections are allowed.
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 43975
+Only local connections are allowed.
+[481.425][SEVERE]: Timed out receiving message from renderer: 299.995
+[1081.427][SEVERE]: Timed out receiving message from renderer: 600.000
+[1091.427][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 8557
+Only local connections are allowed.
+org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (608, 699). Other element would receive the click: <div id="jw-wrapper" class="">...</div>
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.78 seconds
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
-System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
+Command duration or timeout: 733 milliseconds
+Build info: version: '2.45.0', revision: '5017cb8', time: '2015-02-26 23:59:50'
+System info: host: 'CCONYC18QAD', ip: '10.88.189.52', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_40'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30156_22811}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 58476d9ffed3c3c44e414cc88e287d17
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir20128_9170}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: a87d542fe75d901b890aee3542995473
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
-	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
-</error>
-  </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11750_filterLiveStationAfterLogin" time="912.617">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.92 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30608_11069}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: b3f2802b84dd794fdc26039b50ebeb2a" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:50)
+	at com.sun.proxy.$Proxy6.click(Unknown Source)
+	at com.iheart.selenium.web_sanity.Page.doThumbUp(Page.java:649)
+	at com.iheart.selenium.web_sanity.CustomRadioPage.WEB_11763_thumpUpCustom(CustomRadioPage.java:119)
+	at com.iheart.junit.web_sanity.RunDailyTest.testWEB_11763_thumpUpCustom(RunDailyTest.java:207)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 42767
+Only local connections are allowed.
+[435.704][SEVERE]: Timed out receiving message from renderer: 299.995
+[1035.705][SEVERE]: Timed out receiving message from renderer: 600.000
+[1045.706][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 17766
+Only local connections are allowed.
+[466.273][SEVERE]: Timed out receiving message from renderer: 299.995
+[1066.274][SEVERE]: Timed out receiving message from renderer: 600.000
+[1076.274][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 34610
+Only local connections are allowed.
+[466.218][SEVERE]: Timed out receiving message from renderer: 299.995
+[1066.219][SEVERE]: Timed out receiving message from renderer: 600.000
+[1076.220][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 13099
+Only local connections are allowed.
+[0.950][SEVERE]: bind() returned an error: Only one usage of each socket address (protocol/network address/port) is normally permitted. (0x2740)
+org.openqa.selenium.NoSuchElementException: no such element
+  (Session info: chrome=44.0.2403.107)
   (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.92 seconds
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
-System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
+Command duration or timeout: 30.60 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '5017cb8', time: '2015-02-26 23:59:50'
+System info: host: 'CCONYC18QAD', ip: '10.88.189.52', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_40'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30608_11069}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: b3f2802b84dd794fdc26039b50ebeb2a
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir7824_17133}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=44.0.2403.107, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 466356d6d963f3ba77de9adfde2a582d
+*** Element info: {Using=css selector, value=[name='userName'][type='text']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
-	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
-</error>
-  </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11766_browsePerfect" time="912.351">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.51 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir31232_14136}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: e0caf511f4c00cce6f9b7865ad60ee23" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
-  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.51 seconds
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
-System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir31232_14136}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: e0caf511f4c00cce6f9b7865ad60ee23
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
-	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
-</error>
-  </testcase>
-  <testcase classname="com.iheart.junit.web_sanity.RunDailyTest" name="testWEB_11774_filterPodAfterLogin" time="912.668">
-    <error message="timeout: Timed out receiving message from renderer: 10.000&#xa;  (Session info: chrome=43.0.2357.134)&#xa;  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)&#xa;Command duration or timeout: 910.50 seconds&#xa;Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;&#xa;System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;&#xa;Driver info: org.openqa.selenium.chrome.ChromeDriver&#xa;Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30024_25390}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#xa;Session ID: e6527d8a3074f9296ecc9464dfbba88d" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 10.000
-  (Session info: chrome=43.0.2357.134)
-  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 910.50 seconds
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;
-System info: host: &apos;CCONYC18QAD&apos;, ip: &apos;10.88.189.52&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_40&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\1111128\AppData\Local\Temp\scoped_dir30024_25390}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: e6527d8a3074f9296ecc9464dfbba88d
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at com.iheart.selenium.web_sanity.Utils.launchBrowser(Utils.java:273)
-	at com.iheart.junit.web_sanity.RunDailyTest.init(RunDailyTest.java:46)
-</error>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 16024
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:441)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:426)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
+	at com.sun.proxy.$Proxy6.sendKeys(Unknown Source)
+	at com.iheart.selenium.web_sanity.Page.signUp(Page.java:450)
+	at com.iheart.selenium.web_sanity.HomePage.WEB_11736_signUp(HomePage.java:327)
+	at com.iheart.junit.web_sanity.RunDailyTest.testWEB_11736_signUp(RunDailyTest.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 34142
 Only local connections are allowed.
-[302.415][SEVERE]: Timed out receiving message from renderer: 298.742
-[902.417][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.417][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 10198
+[465.771][SEVERE]: Timed out receiving message from renderer: 299.993
+[1065.772][SEVERE]: Timed out receiving message from renderer: 600.000
+[1075.773][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 23085
 Only local connections are allowed.
-[301.851][SEVERE]: Timed out receiving message from renderer: 298.413
-[901.853][SEVERE]: Timed out receiving message from renderer: 600.000
-[911.854][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 19447
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 19118
 Only local connections are allowed.
-[302.205][SEVERE]: Timed out receiving message from renderer: 298.789
-[902.207][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.207][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 41822
+[0.945][SEVERE]: bind() returned an error: Only one usage of each socket address (protocol/network address/port) is normally permitted. (0x2740)
+[451.346][SEVERE]: Timed out receiving message from renderer: 299.995
+[1051.347][SEVERE]: Timed out receiving message from renderer: 600.000
+[1061.348][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 11944
 Only local connections are allowed.
-[302.102][SEVERE]: Timed out receiving message from renderer: 298.400
-[902.103][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.103][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 34308
+[451.286][SEVERE]: Timed out receiving message from renderer: 299.995
+[1051.288][SEVERE]: Timed out receiving message from renderer: 600.000
+[1061.288][SEVERE]: Timed out receiving message from renderer: 10.000
+Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 21146
 Only local connections are allowed.
-[302.540][SEVERE]: Timed out receiving message from renderer: 298.735
-[902.541][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.543][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 41484
-Only local connections are allowed.
-[303.416][SEVERE]: Timed out receiving message from renderer: 297.996
-[903.418][SEVERE]: Timed out receiving message from renderer: 600.000
-[913.420][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 38401
-Only local connections are allowed.
-[302.914][SEVERE]: Timed out receiving message from renderer: 298.579
-[902.916][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.917][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 20152
-Only local connections are allowed.
-[302.805][SEVERE]: Timed out receiving message from renderer: 298.771
-[902.808][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.808][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 43267
-Only local connections are allowed.
-[302.584][SEVERE]: Timed out receiving message from renderer: 298.481
-[902.585][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.587][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 2994
-Only local connections are allowed.
-[302.834][SEVERE]: Timed out receiving message from renderer: 298.430
-[902.836][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.836][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 21375
-Only local connections are allowed.
-[302.402][SEVERE]: Timed out receiving message from renderer: 298.282
-[902.404][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.404][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 48895
-Only local connections are allowed.
-[302.145][SEVERE]: Timed out receiving message from renderer: 298.780
-[902.147][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.147][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 28855
-Only local connections are allowed.
-[302.683][SEVERE]: Timed out receiving message from renderer: 298.803
-[902.684][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.685][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 20363
-Only local connections are allowed.
-[302.034][SEVERE]: Timed out receiving message from renderer: 298.653
-[902.036][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.036][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 15355
-Only local connections are allowed.
-[303.073][SEVERE]: Timed out receiving message from renderer: 298.792
-[903.075][SEVERE]: Timed out receiving message from renderer: 600.000
-[913.075][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 3376
-Only local connections are allowed.
-[302.906][SEVERE]: Timed out receiving message from renderer: 298.375
-[902.907][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.907][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 40969
-Only local connections are allowed.
-[302.704][SEVERE]: Timed out receiving message from renderer: 298.740
-[902.707][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.707][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 7301
-Only local connections are allowed.
-[302.481][SEVERE]: Timed out receiving message from renderer: 298.549
-[902.484][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.485][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 6104
-Only local connections are allowed.
-[302.360][SEVERE]: Timed out receiving message from renderer: 298.498
-[902.361][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.362][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 24440
-Only local connections are allowed.
-[302.148][SEVERE]: Timed out receiving message from renderer: 298.780
-[902.149][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.149][SEVERE]: Timed out receiving message from renderer: 10.000
-Starting ChromeDriver 2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf) on port 30815
-Only local connections are allowed.
-[302.450][SEVERE]: Timed out receiving message from renderer: 298.484
-[902.453][SEVERE]: Timed out receiving message from renderer: 600.000
-[912.453][SEVERE]: Timed out receiving message from renderer: 10.000
+[481.256][SEVERE]: Timed out receiving message from renderer: 299.994
+[1081.258][SEVERE]: Timed out receiving message from renderer: 600.000
+[1091.258][SEVERE]: Timed out receiving message from renderer: 10.000
 ]]></system-err>
 </testsuite>
