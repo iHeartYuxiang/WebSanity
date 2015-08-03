@@ -72,7 +72,7 @@ public class CustomRadioPage  extends Page {
 		  
 		
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(5); 
-			WaitUtility.waitForAjax(driver);
+			//WaitUtility.waitForAjax(driver);
 			customFirstLinkPlayButton.click();
 			
 		}
@@ -172,8 +172,8 @@ public class CustomRadioPage  extends Page {
 		public void WEB_11772_browsePodcasts()
 		{   
 			
-			gotoExplorerOption(option_podCasts, "Popular");
-			
+			//gotoExplorerOption(option_podCasts, "Popular");
+			podcasts.click();
 			
 			driver.findElement(By.cssSelector("ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 			makeSureItIsPlaying();
@@ -233,7 +233,7 @@ public class CustomRadioPage  extends Page {
 			
 			driver.get(newURL);
 			//WaitUtility.sleep(1000);
-			WaitUtility.waitForAjax(driver);
+			////WaitUtility.waitForAjax(driver);
 		}
 
 

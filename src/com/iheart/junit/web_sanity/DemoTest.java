@@ -35,7 +35,7 @@ public class DemoTest {
 		static String userCity = "";
 		
 		 
-		final String URL = "http://www.iheart.com";
+		final String URL = "http://stage.iheart.com";
 		
 		@Rule public TestName name = new TestName();
 		
@@ -54,34 +54,163 @@ public class DemoTest {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
-		/*
-		 
-		@Test
-		 public void testWEB_11763_thumpUpCustom() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 	   customRadioPage.WEB_11763_thumpUpCustom();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
-		*/
-		
+	
 		 @Test
-		 public void testWEB_11776_thumbUpPodcasts() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		podcastsPage.WEB_11776_thumbUp();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
+	     public void testWEB_11766_browsePerfect() throws Exception
+	     {   
+	         System.out.println("test method:" +  name.getMethodName() );
+	         try{
+	             perfectForPage.WEB_11766_browsePerfect();
+	         }catch(Exception e)
+	         {
+	             handleException(e);
+	         }
+	         System.out.println(name.getMethodName() + " is Done.");
+	     }
+	     
+		 
+		 @Test
+	     public void testWEB_11750_filterLiveStationAfterLogin() throws Exception
+	     {   
+	         System.out.println("test method:" +  name.getMethodName() );
+	         try
+	        {
+	             liveRadioPage.WEB_11750_filterLiveStationAfterLogin();
+	        }catch(Exception e)
+	        {
+	            handleException(e);
+	        }
+	         System.out.println(name.getMethodName() + " is Done.");
+	     }
+		 
+		 
+		 @Test
+	        public void testWEB_8823_FaceBookSignUp() throws Exception
+	        {
+	           
+	            System.out.println("test method:" +  name.getMethodName() );
+	            try{
+	                   homePage.WEB_8823_faceBooksignUp();
+	            }catch(Exception e)
+	             {
+	                 handleException(e);
+	             } 
+	            System.out.println(name.getMethodName() + " is Done.");
+	            
+	        }
+		 
+		 
+		 @Test
+	        public void testWEB_18302_PopularUserFlow() 
+	        {
+	            System.out.println("test method:" +  name.getMethodName() );
+	            driver.get("http://www.z100.com");
+	            homePage.flowAlong();
+	            System.out.println(name.getMethodName() + " is Done.");
+	        }
+		 
+		 
+		   @Test
+		     public void testWEB_11752_thumbUpLiveRadio() throws Exception
+		     {   
+		         System.out.println("test method:" +  name.getMethodName() );
+		         try
+		        {
+		            liveRadioPage.WEB_11752_thumpUp();
+		        }catch(Exception e)
+		        {
+		            handleException(e);
+		        }
+		         System.out.println(name.getMethodName() + " is Done.");
+		     }
+		   
+		   
+		   
+		   @Test
+	        public void testWEB_11737_loginWithEmail() throws Exception
+	        {
+	            System.out.println("test method:" +  name.getMethodName() );
+	            try{
+	                   homePage.WEB_11737_loginWithEmail();
+	            }catch(Exception e)
+	             {
+	                 handleException(e);
+	             }        
+	            System.out.println(name.getMethodName() + " is Done.");
+	            
+	        }
+	     
+		   
+		   @Test
+		     public void testWEB_11779_playStations() throws Exception
+		     {   
+		         System.out.println("test method:" +  name.getMethodName() );
+		         try{
+		            profilePage.WEB_11779_playStations();
+		         }catch(Exception e)
+		         {
+		             handleException(e);
+		         }  
+		         System.out.println(name.getMethodName() + " is Done.");
+		     }
+		   
+		   
+		   
+		   @Test
+		     public void testWEB_11738_FACEBOOKsignUp() throws Exception
+		     {   
+		         System.out.println("test method:" +  name.getMethodName() );
+		         try{
+		             homePage.WEB_11738_FACEBOOKsignUp();
+		         }catch(Exception e)
+		         {
+		             handleException(e);
+		         }      
+		         System.out.println(name.getMethodName() + " is Done.");
+		     }
+		   
+		   
+		   @Test
+	        public void testWEB_11739_loginWithGoog() throws Exception
+	        {
+	            System.out.println("test method:" +  name.getMethodName() );
+	            try{
+	                   homePage.WEB_11739_loginWithGoog();
+	            }catch(Exception e)
+	             {
+	                 handleException(e);
+	             }        
+	            System.out.println(name.getMethodName() + " is Done.");
+	        }
+		   
+		   @Test
+	        public void testWEB_11744_filterStation() throws Exception
+	        {
+	            System.out.println("test method:" +  name.getMethodName() );
+	            try
+	            {
+	               liveRadioPage.WEB_11744_filterStation();
+	            }catch(Exception e)
+	            {
+	                handleException(e);
+	            }
+	            System.out.println(name.getMethodName() + " is Done.");
+	        }
+		   
+		   @Test
+		     public void testWEB_11783_logout() throws Exception
+		     {   
+		         System.out.println("test method:" +  name.getMethodName() );
+		         try{
+		            profilePage.WEB_11783_logout();
+		         }catch(Exception e)
+		         {
+		             handleException(e);
+		         }      
+		         System.out.println(name.getMethodName() + " is Done.");
+		     }
+		     
+		 
 		 
 		
 		

@@ -43,8 +43,8 @@ public class ProfilePage extends Page {
 		//gotoSingedAccountOption(option_profile, "User Profile");
 		comeToThisPage_direct();
 		
-		myStations.click();
-		WaitUtility.waitForAjax(driver);
+		//myStations.click();
+		//WaitUtility.waitForAjax(driver);
 		firstStation.click();
 		makeSureItIsPlaying();
 		verifyPlayer("station");
@@ -53,7 +53,7 @@ public class ProfilePage extends Page {
 		//gotoSingedAccountOption(option_profile, "User Profile");
 		comeToThisPage_direct();
 		history.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		firstSong.click();
 		makeSureItIsPlaying();
 		//makeSureItIsPlayingWithNoWait();
@@ -63,7 +63,7 @@ public class ProfilePage extends Page {
 	//	gotoSingedAccountOption(option_profile, "User Profile");
 		comeToThisPage_direct();
 		favoriteSongs.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 	    try{
 		   firstFavSong.click();
 	    }catch(Exception e)
@@ -81,7 +81,7 @@ public class ProfilePage extends Page {
 		
 		favoriteEpisodes.click();
 		
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		firstFavEpisode.click();
 		makeSureItIsPlaying();
 		//makeSureItIsPlayingWithNoWait();
@@ -155,7 +155,7 @@ public class ProfilePage extends Page {
 	{
 		login();
 		
-		gotoSingedAccountOption(option_logout, "Home");
+		gotoSingedAccountOption(option_logout,EXPECTED_TITLE_FORYOU);
 		
 		//verfiy that no station is playing
 		try{
@@ -168,7 +168,7 @@ public class ProfilePage extends Page {
 		
 		//verify that login link is present
 		try{
-			header_login.getText();
+			loginButton.getTagName();
 			System.out.println("Log In button is displayed. Good.");
 		}catch(Exception e)
 		{
@@ -261,7 +261,7 @@ public class ProfilePage extends Page {
 		
 		driver.get(newURL);
 		//WaitUtility.sleep(1000);
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 	}
 	
 	
@@ -276,7 +276,7 @@ public class ProfilePage extends Page {
 		
 		driver.get(newURL);
 		//WaitUtility.sleep(1000);
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 	}
 	
 	private void gotoMyListenHistoryPage_direct(){
@@ -290,7 +290,7 @@ public class ProfilePage extends Page {
 		
 		driver.get(newURL);
 		//WaitUtility.sleep(1000);
-		WaitUtility.waitForAjax(driver);
+		////WaitUtility.waitForAjax(driver);
 	}
 	
 

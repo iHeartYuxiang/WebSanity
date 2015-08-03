@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 
 
-
+//aka For You Page
 public class HomePage extends Page {
 
 	
@@ -30,15 +30,16 @@ public class HomePage extends Page {
 	
 	@FindBy(css="li.genre:nth-child(10) > div:nth-child(1) > div:nth-child(3)") public WebElement sport;
 	@FindBy(css="button.idle:nth-child(3)") public WebElement playStation;
-	@FindBy(css="button.text:nth-child(1)") public WebElement myStation;
 	
+	@FindBy(css="button.text:nth-child(1)") public WebElement myStation;
+	@FindBy(css=".section-header")   public WebElement stationHeader;
 	
 	@FindBy(css="li.genre:nth-child(1) > div:nth-child(1) > div:nth-child(1)") public WebElement firstGenra;
 	@FindBy(css=".genre-game-footer > button:nth-child(1)") public WebElement getStation;
 	@FindBy(css="li.tabbar:nth-child(1) > a:nth-child(1)") public WebElement forYouLink;
 	@FindBy(css="#hero > div.hero-content > div > div.profile-art-wrapper") public WebElement hero;
-	@FindBy(css="a.small:nth-child(1)") public WebElement heroEnter;
-	
+	//@FindBy(css="a.small:nth-child(1)") public WebElement heroEnter;
+	@FindBy(css=".station-description > p:nth-child(1) > div:nth-child(1) > a:nth-child(3)")  public WebElement heroEnter;
 	
 
 	@FindBy(css="#player > div.player-center > div > button.idle.btn-circle.medium.play > i")
@@ -106,13 +107,13 @@ public class HomePage extends Page {
 	public void WEB_11734_startUp()
 	{   
 		comedy.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		playStation.click();
 		
 		//driver.navigate().refresh();
 		//driver.navigate().back();
 		driver.get("iheart.com");
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		sport.click();
 		playStation.click();
 	}
@@ -122,9 +123,9 @@ public class HomePage extends Page {
 	{
 		
 		firstGenra.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		getStation.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		
 		// assert that player shall appear
 	   System.out.println("See text:"+ myStation.getText());
@@ -169,23 +170,18 @@ public class HomePage extends Page {
 	{
 		
 		firstGenra.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
+		WaitUtility.sleep(500);
 		getStation.click();
-		WaitUtility.waitForAjax(driver);
-		
-	   System.out.println("See text:"+ myStation.getText());
+		//WaitUtility.waitForAjax(driver);
+		WaitUtility.sleep(500);
 	   
-		if(!myStation.getText().contains("Stations"))
+		//if(!myStation.getText().contains("My"))
+	   if (!stationHeader.getText().contains("Stations Just For You"))
 			 handleError("Didn't reach My Stations page.", "WEB_11790_Hero" );
 		
-		//Check for you link
-		//check Hero 
-		try {
-			forYouLink.getText();
-			System.out.println("For You link is here.");
-		}catch(Exception e)
-		{   handleError("For You link is missing.", "WEB_11790_Hero" );
-		}
+	   makeSureItIsPlaying();
+	   
 		
 		try {
 			hero.getText();
@@ -231,8 +227,8 @@ public class HomePage extends Page {
 	    	
 	}
 	
-	
-	public void WEB_11735_explorerMenu() throws Exception
+	/* No more dropdown menu
+	public void WEB_11735_explorerMenu_OBSOLETE() throws Exception
 	{   String theOption ="";
 		String options ="";
 		
@@ -246,7 +242,7 @@ public class HomePage extends Page {
 	     {   
 	    	 theOption = element.getText().trim();
 	    	  options += theOption;
-	    	  WaitUtility.waitForAjax(driver);
+	    	  //WaitUtility.waitForAjax(driver);
 	    	
 	     }
 		 
@@ -286,9 +282,30 @@ public class HomePage extends Page {
 		 driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")).click();
 		
 	}
+	*/
 	
 	
+	public void WEB_11735_exploreMenu() throws Exception
+	{
+		 verifyLink(forYou, EXPECTED_TITLE_FORYOU);
+		 verifyLink(liveRadio, EXPECTED_TITLE_LIVERADIO);
+		 verifyLink(customRadio, EXPECTED_TITLE_CUSTOMRADIO);
+		 verifyLink(genres, EXPECTED_TITLE_GENRES);
+		 verifyLink(perfectFor, EXPECTED_TITLE_PERFECTFOR);
+		 verifyLink(podcasts, EXPECTED_TITLE_PODCASTS);
+	}
 	
+	private void verifyLink(WebElement option, String expectedTitle)
+	{    option.click();
+	     String _option =  option.getText() ;
+		 System.out.println("See option/ title: "+ _option +"/"+ driver.getTitle());
+		 if(!driver.getTitle().contains(expectedTitle))
+			 handleError(_option +" link is not working.", "WEB_11735_explorerMenu" );
+			 
+	}
+	
+	
+	/* RETIRED!
 	private void verifyExplorerLink(WebElement option, String expectedTitle)
 	{   
 		explorer.click();
@@ -304,16 +321,16 @@ public class HomePage extends Page {
 			 handleError(_option +" link is not working.", "WEB_11735_explorerMenu" );
 			 
 	}
-	
+	*/
 	
 	
 	public void WEB_11784_signUp()
 	{
 		firstGenra.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		
 		getStation.click();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		playButton.click();
 		makeSureItIsPlaying();
 	    
@@ -323,13 +340,13 @@ public class HomePage extends Page {
 	
 	
 	public void WEB_11736_signUp()
-	{   driver.findElement(By.cssSelector("button.short:nth-child(3)")).click();
+	{   loginButton.click();
+		signUpLink.click();
 		signUp();
 	}
 	
 	public void WEB_11738_FACEBOOKsignUp()
-	{   header_signUp.click();
-	   // facebookLogin.click();
+	{   loginButton.click();
 	    faceBookSignUp();
 		
 	}

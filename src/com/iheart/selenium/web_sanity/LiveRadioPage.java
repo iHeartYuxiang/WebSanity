@@ -25,11 +25,20 @@ public class LiveRadioPage extends Page {
 		@FindBy(css="#player > div.player-center > div > div > button > i") public WebElement iconMute;
 		
 		//Filter station
+	/*
 		@FindBy(css="#main > div > div > div.form-group.ui-inline-block.country-filter > div > select") public WebElement country;
 		@FindBy(css="#main > div > div > div.form-group.ui-inline-block.market-filter > div > select") public WebElement city;
 		@FindBy(css="#main > div > div > div.form-group.ui-inline-block.genre-filter > div > select") public WebElement genres;
 		@FindBy(css="#main > div > section > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i") public WebElement firstStation;
 		@FindBy(css="#main > div > section > ul > li:nth-child(1) > div > div.station-text > a") public WebElement firstStationLabel;
+		@FindBy(css=".player-station") public WebElement stationPlaying;
+	*/
+		@FindBy(css=".country-filter > div:nth-child(1) > select:nth-child(2)") public WebElement country;
+		@FindBy(css=".market-filter > div:nth-child(1) > select:nth-child(2)") public WebElement city;
+		@FindBy(css="div.form-group:nth-child(3) > div:nth-child(1) > select:nth-child(2)") public WebElement genres;
+		
+		@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)") public WebElement firstStation;
+		@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)") public WebElement firstStationLabel;
 		@FindBy(css=".player-station") public WebElement stationPlaying;
 		
 		//AFTER SEARCH
@@ -460,12 +469,12 @@ public class LiveRadioPage extends Page {
 		
 		driver.get(newURL);
 		//WaitUtility.sleep(1000);
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 	}
 	
 	public void gotoGenrePage()
 	{  	
-		gotoExplorerOption(option_genres,"Genres");
+		genres.click();
 	
 		if (!driver.getTitle().contains("Genres"))
 			gotoGenrePage_direct();

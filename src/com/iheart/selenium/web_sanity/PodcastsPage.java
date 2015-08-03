@@ -67,7 +67,7 @@ public class PodcastsPage  extends Page{
 		
 		driver.navigate().back();
 		new Select(topics).selectByIndex(3);
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 	   // firstPod.click();
 		driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 	    makeSureItIsPlaying();
@@ -169,7 +169,7 @@ public class PodcastsPage  extends Page{
 	public void WEB_11776_thumbUp()
 	{
 		login();
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		//gotoExplorerOption(option_podCasts,"Popular");
 		comeToThisPage_direct();
 		
@@ -181,7 +181,7 @@ public class PodcastsPage  extends Page{
 		System.out.println("See chosenStation:" + chosenStation);
 		  
 	    firstPod.click();
-	    WaitUtility.waitForAjax(driver);
+	    //WaitUtility.waitForAjax(driver);
 	     makeSureItIsPlaying();
 	    
 	    doThumbUp("WEB_11776_thumbUp");
@@ -302,7 +302,7 @@ public class PodcastsPage  extends Page{
 		System.out.println("SEE new url:"  + newURL );
 		
 		driver.get(newURL);
-		WaitUtility.waitForAjax(driver);
+		////WaitUtility.waitForAjax(driver);
 	}
 
 
