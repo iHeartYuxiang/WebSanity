@@ -57,19 +57,22 @@ public class NielsenTracking extends LiveRadioPage{
 	    	WaitUtility.sleep(1000);
 	    	//play for 2 minutes and 2 seconds
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
-	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
+	    	makeSureItIsPlaying();
+	    	WaitUtility.sleep(1*60*1000 + 1 * 1000);
 	    	//if (!is_IVD_ok())
 	    	if (!is_IVD_ok_NEW())
 	    		errors.append("I, V, D ping doesn't work properly.");
 	    	
 	    	clearNielsenRequest();
+	    	 System.out.println("nielsenRequest shall be cleared:" + getNielsenRequest().size() );
 	    	//stop, then pause for 2 minutes
 	    	driver.findElement(By.cssSelector(".icon-stop")).click();
-	    	//Wait for the pre-roll
-	    	WaitUtility.sleep(30*1000);
-	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
+	    	makeSureItIsNotPlaying();
+	        System.out.println("Station shall not be playing now.");
+	    	WaitUtility.sleep(1*60*1000 + 1 * 1000);
 	        int newCount = getNielsenRequest().size();
-	        if (newCount > 0  )
+	        System.out.println("newCount after stop:" + newCount);
+	        if (newCount > 1  )
 	        	errors.append("No ping shall be sent out after audio is paused.");
 	       
 	    	
@@ -77,7 +80,7 @@ public class NielsenTracking extends LiveRadioPage{
 	        driver.findElement(By.cssSelector("button.text:nth-child(4)")).click();
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
 	    	makeSureItIsPlaying();
-	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
+	    	WaitUtility.sleep(1*60*1000 + 1 * 1000);
 	    	
 	    	//if (!is_IVD_ok())
 	    	if (!is_IVD_ok_NEW())
@@ -117,7 +120,7 @@ public class NielsenTracking extends LiveRadioPage{
 			 clearNielsenRequest();
 			//Then play a little
 			driver.get("http://www.iheart.com/live/country/US/city/new-york-ny-159/");
-	    	
+			makeSureItIsPlaying();
 	    	WaitUtility.sleep(1000);
 	    	
 	    	//play for 2 minutes and 2 seconds
@@ -139,13 +142,14 @@ public class NielsenTracking extends LiveRadioPage{
 	    	WaitUtility.sleep(1000);
 	    	//play for 2 minutes , then kill the browser
 	    	driver.findElement(By.cssSelector(".icon-play")).click();
-	    	//Wait for the pre-roll
-	    	WaitUtility.sleep(30*1000);
+	    	makeSureItIsPlaying();
 	    	
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 		    clearNielsenRequest();
 			//change station
 	    	driver.findElement(By.cssSelector("button.text:nth-child(4)")).click();
+	    	driver.findElement(By.cssSelector(".icon-play")).click();
+	    	makeSureItIsPlaying();
 	    	WaitUtility.sleep(2*60*1000 + 1 * 1000);
 	    	
 	    	if (!is_IVD_ok_NEW())
@@ -330,7 +334,8 @@ public class NielsenTracking extends LiveRadioPage{
 		}
 		
 		public static boolean isQuarterlyPing(String url)
-		{
+		{   if((url.substring(url.indexOf("cr="))).contains("_Q"))
+			 	System.out.println("RP!! quarterlY?:" + url );
 			return url.contains("at=view")
 					&&(url.substring(url.indexOf("cr="))).contains("_Q") ;
 					

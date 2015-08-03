@@ -31,19 +31,14 @@ public class RunNielsenTests {
 	 CustomRadioPage customRadioPage;
 		
 	static String browser = "firefox";
-    //  static String browser = "chrome";
+   //static String browser = "chrome";
 	
 	 
 	final String URL = "http://www.iheart.com";
+	//final String URL = "http://stage.iheart.com";
 	
 	@Rule public TestName name = new TestName();
 	
-	@BeforeClass
-    public static void addProxy() {
-		// proxy = new Proxy();
-		// proxy.initProxy(browser);
-		
-	}
 	
 	@Before
     public void init() {
@@ -145,7 +140,7 @@ public class RunNielsenTests {
 	
     @After
     public void tearDown() throws Exception{
-        driver.quit(); 
+        //driver.quit(); 
        
     	if (Page.getErrors().length() > 0)
 			 fail(Page.getErrors().toString());
@@ -163,11 +158,6 @@ public class RunNielsenTests {
         }
     }
     
-    //to handle firefox v37.0 specific issue on windows 7
-    public void closeBrowserSession() throws Exception 
-	  { 
-	    	
-		 Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
-	  }
+   
 }
 
