@@ -92,8 +92,9 @@ public abstract class Page {
 	 @FindBy(css="header.dialog-section > div:nth-child(2) > span:nth-child(1) > a:nth-child(3)")  public WebElement signUpLink;
 	@FindBy(css="#dialog > div > div.dialog.ui-on-grey > div.wrapper > header > h2") public WebElement signupHeader;
 	//@FindBy(css="header.dialog-section > div:nth-child(2) > span:nth-child(1) > span:nth-child(1)") public WebElement signupHint; //Have an account? Log In
-	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)") public WebElement signupHint; //Have an account? Log In
-	
+	//@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)") public WebElement signupHint; //Have an account? Log In
+	@FindBy(css=".dialog-title")   public WebElement signupHint; //Have an account? Log In
+	          
 	@FindBy(css="[name='userName'][type='text']")  public WebElement email;
 	@FindBy(css="[name='password'][type='password']")  public WebElement password;
 	
@@ -155,9 +156,9 @@ public abstract class Page {
     public final static String EXPECTED_TITLE_FORYOU = "Listen to Free Radio Stations";
     public final static String EXPECTED_TITLE_LIVERADIO = "Listen to Top Radio Stations";
     public final static String EXPECTED_TITLE_CUSTOMRADIO = "Create Free Music Stations";
-    public final static String EXPECTED_TITLE_GENRES = "Free Radio & Custom";
+    public final static String EXPECTED_TITLE_GENRES = "Find Radio & Custom";
     public final static String EXPECTED_TITLE_PODCASTS = "Listen to the Best Podcasts";
-    public final static String EXPECTED_TITLE_PERFECTFOR = "Listen to Music Perfect for";
+    public final static String EXPECTED_TITLE_PERFECTFOR = "Listen to Music Pefect for";
     public final static String EXPECTED_TITLE_LOGOUT = "Listen to Free Radio Stations";
     
     
@@ -224,8 +225,9 @@ public abstract class Page {
 	    public WebElement myStations;
 	
 	
-	//@FindBy(css=".icon-more-horizontal") public WebElement icon_more_horizontal;
-	@FindBy(css=".more") public WebElement icon_more_horizontal;
+	 @FindBy(css=".now-playing-options > button:nth-child(1)") public WebElement icon_more_horizontal;
+   // @FindBy(css=".icon-more-horizontal") public WebElement icon_more_horizontal;
+	//@FindBy(css=".more") public WebElement icon_more_horizontal;
 	
 	@FindBy(css="div.align-left:nth-child(3) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)") public WebElement shareButton;
 	@FindBy(css="div.align-left:nth-child(3) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)") public WebElement addToFavorite;
@@ -751,12 +753,13 @@ public abstract class Page {
 	    try{
 	       System.out.println(signupHint.getText());
 	    }catch(Exception e)
-	    {
+	    {  e.printStackTrace();
 	       System.out.println("Soft gate is not shown.");
 	       return false;
 	    		   
 	    }
-		return signupHint.getText().contains("Have an account?");
+		//return signupHint.getText().contains("Have an account?");
+	    return signupHint.getText().contains("Sign Up");
 	}
 	
 	
@@ -772,7 +775,7 @@ public abstract class Page {
 	    try{
 	    	if (icon_pause.isDisplayed())
 	    	{	isPlaying = true;
-	    		System.out.println("It is  playing. Good" );
+	    		System.out.println(category + " is  playing. Good" );
 	    	}
 	    }catch(Exception e)
 	    {   

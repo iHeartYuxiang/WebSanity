@@ -36,10 +36,13 @@ public class HomePage extends Page {
 	
 	@FindBy(css="li.genre:nth-child(1) > div:nth-child(1) > div:nth-child(1)") public WebElement firstGenra;
 	@FindBy(css=".genre-game-footer > button:nth-child(1)") public WebElement getStation;
-	@FindBy(css="li.tabbar:nth-child(1) > a:nth-child(1)") public WebElement forYouLink;
+	//@FindBy(css="li.tabbar:nth-child(1) > a:nth-child(1)") public WebElement forYouLink;
+	///@FindBy(css="li.tabbar:nth-child(1) > a:nth-child(1)") public WebElement forYouLink;
+	
 	@FindBy(css="#hero > div.hero-content > div > div.profile-art-wrapper") public WebElement hero;
-	//@FindBy(css="a.small:nth-child(1)") public WebElement heroEnter;
-	@FindBy(css=".station-description > p:nth-child(1) > div:nth-child(1) > a:nth-child(3)")  public WebElement heroEnter;
+	@FindBy(css="a.small") public WebElement heroEnter;
+	
+	//@FindBy(css=".station-description > p:nth-child(1) > div:nth-child(1) > a:nth-child(3)")  public WebElement heroEnter;
 	
 
 	@FindBy(css="#player > div.player-center > div > button.idle.btn-circle.medium.play > i")
@@ -135,13 +138,14 @@ public class HomePage extends Page {
 		
 		//Check for you link
 		//check Hero 
+		/*
 		try {
 			forYouLink.getText();
 			System.out.println("For You link is here.");
 		}catch(Exception e)
 		{   handleError("For You link is missing.", "WEB_11759_11790_Hero" );
 		}
-		
+		*/
 		try {
 			hero.getText();
 		}catch(Exception e)
@@ -184,12 +188,15 @@ public class HomePage extends Page {
 	   
 		
 		try {
-			hero.getText();
+		  	System.out.println("see hero:" + hero.getText());
 		}catch(Exception e)
 		{   
 			handleError("Hero is missing.", "WEB_11790_Hero");
 		}
 		
+		
+		/*
+		 
 		heroEnter.click();
 		
 		//Verify that a seperate window is launched
@@ -220,8 +227,11 @@ public class HomePage extends Page {
 	    //Play a custom station
 	    driver.findElement(By.cssSelector("#main > ul:nth-child(1) > li:nth-child(8) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 	    
+	    
+	    
 	    if (!icon_play.isDisplayed())
 	    	errors.append("Custom station is playing for unauthorized user.");
+	    	*/
 	    if(!isSoftGateShow())
 	    	errors.append("Sign up page is not displayed for unauthorized user.");
 	    	

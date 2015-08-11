@@ -35,7 +35,8 @@ public class Failed {
 		static String userCity = "";
 		
 		 
-		final String URL = "http://stage.iheart.com";
+		//final String URL = "http://stage.iheart.com";
+		final String URL = "http://www.iheart.com";
 		
 		@Rule public TestName name = new TestName();
 		
@@ -54,21 +55,20 @@ public class Failed {
 	        Page.getErrors().delete(0, Page.getErrors().length());
 	    }
 
-		
 		 @Test
-		    public void testWEB_11790_Hero() throws Exception
-		    {
-		       
-		    	System.out.println("test method:" +  name.getMethodName() );
-		    	try{
-			    	   homePage.WEB_11790_Hero();
-		    	}catch(Exception e)
-			 	{
-			 		handleException(e);
-			 	} 	   
-		    	System.out.println(name.getMethodName() + " is Done.");
-		    	
-		    }
+		 public void testWEB_11751_INT() throws Exception
+		 {   
+		 	System.out.println("test method:" +  name.getMethodName() );
+		 	try
+	    	{   
+		 	    liveRadioPage.WEB_11751_INT();
+	    	}catch(Exception e)
+	    	{
+	    		handleException(e);
+	    	}
+		 	System.out.println(name.getMethodName() + " is Done.");
+		 }
+		 
 		
 		/* 
 		 @Test
@@ -115,18 +115,7 @@ public class Failed {
 		    }
 		 
 			 
-		 @Test
-		 public void testWEB_11748_ThumbUpAndDownLiveWithoutLogin() throws Exception
-		 {   
-		 	System.out.println("test method:" +  name.getMethodName() );
-		 	try{
-		 		liveRadioPage.WEB_11748_ThumbUpAndDownLiveWithoutLogin();
-		 	}catch(Exception e)
-		 	{
-		 		handleException(e);
-		 	}  	
-		 	System.out.println(name.getMethodName() + " is Done.");
-		 }
+		
 		 	*/
 
 		 

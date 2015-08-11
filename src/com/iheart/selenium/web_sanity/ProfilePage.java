@@ -13,13 +13,20 @@ public class ProfilePage extends Page {
     @FindBy(css="li.tabbar:nth-child(2) > a:nth-child(1)") private WebElement myStations;
     @FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")
       	private WebElement firstStation;
-    @FindBy(css="li.tabbar:nth-child(3) > a:nth-child(1)") private WebElement history;
+    
+   
+    @FindBy(css="#main > div:nth-child(2) > div:nth-child(1) > section:nth-child(2) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")  private WebElement history;
+  //  @FindBy(css="li.tabbar:nth-child(3) > a:nth-child(1)") private WebElement history;
     @FindBy(css=".listen-history > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")
         private WebElement firstSong;
-    @FindBy(css="li.tabbar:nth-child(5) > a:nth-child(1)") private WebElement favoriteSongs;
+   // @FindBy(css="li.tabbar:nth-child(5) > a:nth-child(1)") private WebElement favoriteSongs;
+    @FindBy(css="section.section-block:nth-child(3) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)") private WebElement favoriteSongs;
+    
     @FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")
     	private WebElement firstFavSong;
-    @FindBy(css="li.tabbar:nth-child(6) > a:nth-child(1)") private WebElement favoriteEpisodes;
+   // @FindBy(css="li.tabbar:nth-child(6) > a:nth-child(1)") private WebElement favoriteEpisodes;
+    @FindBy(css="section.section-block:nth-child(4) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)") private WebElement favoriteEpisodes;
+    
     @FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")
     	private WebElement firstFavEpisode;
     
@@ -53,7 +60,7 @@ public class ProfilePage extends Page {
 		//gotoSingedAccountOption(option_profile, "User Profile");
 		comeToThisPage_direct();
 		history.click();
-		//WaitUtility.waitForAjax(driver);
+		WaitUtility.sleep(1000);
 		firstSong.click();
 		makeSureItIsPlaying();
 		//makeSureItIsPlayingWithNoWait();
@@ -63,7 +70,7 @@ public class ProfilePage extends Page {
 	//	gotoSingedAccountOption(option_profile, "User Profile");
 		comeToThisPage_direct();
 		favoriteSongs.click();
-		//WaitUtility.waitForAjax(driver);
+		WaitUtility.sleep(1000);
 	    try{
 		   firstFavSong.click();
 	    }catch(Exception e)
@@ -80,7 +87,7 @@ public class ProfilePage extends Page {
 		comeToThisPage_direct();
 		
 		favoriteEpisodes.click();
-		
+		WaitUtility.sleep(1000);
 		//WaitUtility.waitForAjax(driver);
 		firstFavEpisode.click();
 		makeSureItIsPlaying();

@@ -40,7 +40,7 @@ public class LiveRadioPage extends Page {
 		@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)") public WebElement firstStation;
 		@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)") public WebElement firstStationLabel;
 		@FindBy(css=".player-station") public WebElement stationPlaying;
-		
+	
 		//AFTER SEARCH
 		@FindBy(css=".selected > div:nth-child(2) > p:nth-child(1) > a:nth-child(1)") private WebElement firstSearchResult;
 		
@@ -97,6 +97,7 @@ public class LiveRadioPage extends Page {
     	comeToThisPage_direct();
 		firstLive.click();
 		
+		/*
 		try{
 		    icon_play.isDisplayed();
 		    System.out.println("Music is not playing. About to click.");
@@ -107,12 +108,14 @@ public class LiveRadioPage extends Page {
 	    {   System.out.println("Music is playing. ");
 	    	return;
 	    }
+		*/
+		makeSureItIsPlaying();
 		
 		//Click on Add to Favorite link
 		
 		addToFavoriteFromPlayer();
 		
-		handlePreRoll();
+		//handlePreRoll();
 		//is softgate show up?
 		if (!isSoftGateShow())
 			handleError("Sing up page is not displayed after unauthorized user clicks on Add To Favorite button.", "WEB_11753_favStationAndListenHistoryOnPlayer");
@@ -187,9 +190,9 @@ public class LiveRadioPage extends Page {
 		search("Elvis Duran");
 		firstSearchResult.click();
 	
-		WaitUtility.waitForAjax(driver);
-		addToFavoriteFromPlayer();
-	
+		WaitUtility.sleep(1000);
+		
+		shareFromPlayer();
 		//Verify that we are on share page now
 		System.out.println("Share page title: " + sharePageTitle.getText());
 	
@@ -200,7 +203,7 @@ public class LiveRadioPage extends Page {
 		shareOnfaceBook();
 	}    
     
-    private void addToFavoriteFromPlayer()
+    private void addToFavoriteFromPlayer_obsolete()
     {
     	Actions builder = new Actions(driver);
 		builder = builder.moveToElement(icon_more_horizontal);
@@ -209,11 +212,35 @@ public class LiveRadioPage extends Page {
 			builder.moveToElement(shareButton).click().build().perform();
 		}catch(Exception e)
 		{
-			
+			e.printStackTrace();
 		}
     }
     
-	    
+    private void addToFavoriteFromPlayer()
+    {
+    	
+    	//icon_more_horizontal.click();
+    	driver.findElement(By.cssSelector(".align-bottom > button:nth-child(1)")).click();
+    	//driver.findElement(By.cssSelector(".now-playing-options > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")).click();
+    	driver.findElement(By.cssSelector(".align-bottom > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")).click();
+    }
+    
+    private void shareFromPlayer()
+    {
+    	
+    	//icon_more_horizontal.click();
+    	//driver.findElement(By.cssSelector(".align-bottom > button:nth-child(1)")).click();
+    	//driver.findElement(By.cssSelector(".align-bottom > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)")).click();
+    	Actions action = new Actions(driver);
+    	WebElement we = driver.findElement(By.cssSelector(".align-bottom > button:nth-child(1)"));
+    	action.moveToElement(we).moveToElement(driver.findElement(By.cssSelector(".align-bottom > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)"))).click().build().perform();
+
+    	
+    	
+    }
+       
+    
+    
 	public void WEB_14441_mutePlayer()
 	{   
 		//gotoExplorerOption(option_liveRadio, "Live");
@@ -233,7 +260,7 @@ public class LiveRadioPage extends Page {
 		String chosenStation = firstStationLabel.getText();
 		System.out.println("chosen station:" + chosenStation);
 		firstStation.click();
-		WaitUtility.sleep(1000);
+		WaitUtility.sleep(3000);
 		
 		String playingStation = stationPlaying.getText();
 		System.out.println("station PLAYING:" + playingStation);
@@ -246,7 +273,7 @@ public class LiveRadioPage extends Page {
 	}
 	
 	private void filterStation()
-	{
+	{   WaitUtility.sleep(1000);
 		new Select(country).selectByVisibleText("Mexico");
 		WaitUtility.sleep(2000);
 		//new Select(city).selectByIndex(3);
@@ -263,17 +290,17 @@ public class LiveRadioPage extends Page {
 		int count = 0;
 		
 		do{
-		  new Select(city).selectByVisibleText("All Stations, INT");
+		  new Select(city).selectByVisibleText("All Cities");
 		  WaitUtility.sleep(500);
 		  count++;
 		}while(!h3_header.getText().contains("All Stations, INT") && count < 5);
 		
-		WaitUtility.waitForAjax(driver);
+	
 		
 		firstINT.click();
-		WaitUtility.waitForAjax(driver);
+		WaitUtility.sleep(500);
 		firstINT_playButton.click();
-		WaitUtility.waitForAjax(driver);
+		WaitUtility.sleep(500);
 		
 		//Verify that it is indeed playing
 		if (!firstINT_stopPlayButton.getAttribute("class").equalsIgnoreCase("icon-stop"))
@@ -416,8 +443,9 @@ public class LiveRadioPage extends Page {
 		driver.findElement(By.cssSelector("section.section-block:nth-child(7) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).click();
 		
 		//play top country station
-		driver.findElement(By.cssSelector("#main > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
-	    //Verify: 0. user is brought to the station page; and it is playing & sign up page shows up
+		driver.findElement(By.cssSelector("#main > div:nth-child(2) > div:nth-child(1) > section:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		          		//Verify: 0. user is brought to the station page; and it is playing & sign up page shows up
+		WaitUtility.sleep(1000);
 		String subTitle = driver.findElement(By.cssSelector("section.section-block:nth-child(3) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")).getText();
 		if (!subTitle.contains("Similar"))
 			errors.append("Clicking on top country station doesn't bring user to station page. ");
@@ -429,9 +457,10 @@ public class LiveRadioPage extends Page {
 		
 		//top country artist	
 		driver.navigate().back();
-	    driver.findElement(By.cssSelector("#main > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+	   // driver.findElement(By.cssSelector("#main > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
+		driver.findElement(By.cssSelector("section.section-block:nth-child(3) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 		//verify: it is not playing & signup page shows up
-	    
+		WaitUtility.sleep(500);
 	    if (!icon_play.isDisplayed())  
 	       errors.append("Custom station is playing for unauthorized user.");
 	    
@@ -458,7 +487,7 @@ public class LiveRadioPage extends Page {
 		WaitUtility.sleep(1000);
 	}
 	
-	public void gotoGenrePage_direct()
+	public void gotoGenrePage_direct_old()
 	{   String currentURL = driver.getCurrentUrl();
 		System.out.println("SEE current url:"  + currentURL);
 	    String part1 = currentURL.split("//")[0];
@@ -469,6 +498,14 @@ public class LiveRadioPage extends Page {
 		
 		driver.get(newURL);
 		//WaitUtility.sleep(1000);
+		//WaitUtility.waitForAjax(driver);
+	}
+	
+	
+	public void gotoGenrePage_direct()
+	{  
+		driver.findElement(By.cssSelector(".header-menu-main > li:nth-child(2) > a:nth-child(1)")).click();
+		WaitUtility.sleep(1000);
 		//WaitUtility.waitForAjax(driver);
 	}
 	
