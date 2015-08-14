@@ -23,13 +23,9 @@ import org.openqa.selenium.remote.Augmenter;
 
 public abstract class Page {
 
-	//for Explorer menu
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > button > span") 
-		public WebElement explorer;
-	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul") 
-		public WebElement dropdowns;
 	
-	//body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li  //The following is firefox version
+	
+	/* dropDOWN menu is retired.
 	
 	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")
 		public WebElement option_forYou;
@@ -43,9 +39,9 @@ public abstract class Page {
 		public WebElement option_podCasts;
 	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")
 		public WebElement option_perfectFor;
+	*/
 	
-	
-	//Chrome Version
+	/*Chrome Version
 	
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(1) > a")
 		public WebElement option_forYou_chrome;
@@ -60,6 +56,15 @@ public abstract class Page {
 	@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(1) > div > div > nav > ul > li:nth-child(6) > a")
 		public WebElement option_perfectFor_chrome;
 	
+	*/
+	
+	@FindBy(css=".header-menu-main > li:nth-child(1) > a:nth-child(1)")   public WebElement forYou;
+	@FindBy(css=".header-menu-main > li:nth-child(2) > a:nth-child(1)")   public WebElement liveRadio;
+	@FindBy(css=".header-menu-main > li:nth-child(3) > a:nth-child(1)")    public WebElement customRadio;
+	@FindBy(css=".header-menu-main > li:nth-child(4) > a:nth-child(1)") 	public WebElement genres;
+	@FindBy(css=".header-menu-main > li:nth-child(5) > a:nth-child(1)") 	public WebElement podcasts;
+	@FindBy(css=".header-menu-main > li:nth-child(6) > a:nth-child(1)")    public WebElement perfectFor;
+	
 	
 	//Search
  //  @FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > form > div.form-group.ui-inline-block.search-input > input") 
@@ -71,10 +76,12 @@ public abstract class Page {
    @FindBy(css=".player-station") public WebElement playerStation;
 	
 	//In the header
-	
-	@FindBy(css=".header-right > button:nth-child(1)") public WebElement header_login;
-	@FindBy(css="button.short:nth-child(3)") public WebElement header_signUp;
+
+	//@FindBy(css=".header-right > button:nth-child(1)") public WebElement header_login;
+//	@FindBy(css="button.short:nth-child(3)") public WebElement header_signUp;
 	//inside signup page
+   
+   
 	@FindBy(css="button.facebook:nth-child(1)") public WebElement facebookLogin;
 	@FindBy(css="button.facebook:nth-child(2)") public WebElement googleLogin;
 	
@@ -82,9 +89,12 @@ public abstract class Page {
 	//
 	//@FindBy(css=".icon-close") public WebElement icon_close;
 	@FindBy(css=".dialog-close > div:nth-child(1) > button:nth-child(1)") public WebElement icon_close;
+	 @FindBy(css="header.dialog-section > div:nth-child(2) > span:nth-child(1) > a:nth-child(3)")  public WebElement signUpLink;
 	@FindBy(css="#dialog > div > div.dialog.ui-on-grey > div.wrapper > header > h2") public WebElement signupHeader;
-	@FindBy(css="header.dialog-section > div:nth-child(2) > span:nth-child(1) > span:nth-child(1)") public WebElement signupHint; //Have an account? Log In
-	
+	//@FindBy(css="header.dialog-section > div:nth-child(2) > span:nth-child(1) > span:nth-child(1)") public WebElement signupHint; //Have an account? Log In
+	//@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)") public WebElement signupHint; //Have an account? Log In
+	@FindBy(css=".dialog-title")   public WebElement signupHint; //Have an account? Log In
+	          
 	@FindBy(css="[name='userName'][type='text']")  public WebElement email;
 	@FindBy(css="[name='password'][type='password']")  public WebElement password;
 	
@@ -101,7 +111,9 @@ public abstract class Page {
 	@FindBy(css="#dialog > div > div.dialog.ui-on-grey > div.wrapper > div > div > form > button") public WebElement signUp;
 	
 	//SignedAccount DROP-DOWN
-	@FindBy(css="div.dropdown-trigger:nth-child(1) > button:nth-child(1)") public WebElement signedAccount;
+	/* this is old dropdown version			
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > button:nth-child(1)") public WebElement signedAccount;
+	//@FindBy(css="div.dropdown-trigger:nth-child(1) > button:nth-child(1)") public WebElement signedAccount;
 	@FindBy(css="div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1)")
 	    public WebElement signedAccountDropDown;
 	@FindBy(css="div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1)") 
@@ -118,7 +130,39 @@ public abstract class Page {
 		public WebElement option_setting;
 	@FindBy(css="div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")
 	    public WebElement option_logout;
-		
+	*/	
+	
+	//SignedAccount DROP-DOWN
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > button:nth-child(1)") public WebElement signedAccount;
+	//@FindBy(css="div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1)")
+	//    public WebElement signedAccountDropDown;
+	//@FindBy(css="div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1)") 
+	  //	public WebElement  signedAcctDropDown;
+	//			 div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")
+		public WebElement option_profile;
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)")
+		public WebElement option_myStations;
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)")
+		public WebElement  option_listenHistory;
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1)")
+		public WebElement option_friends;
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(5) > a:nth-child(1)")
+		public WebElement option_setting;
+				 
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")
+	    public WebElement option_logout;
+	
+    public final static String EXPECTED_TITLE_FORYOU = "Listen to Free Radio Stations";
+    public final static String EXPECTED_TITLE_LIVERADIO = "Listen to Top Radio Stations";
+    public final static String EXPECTED_TITLE_CUSTOMRADIO = "Create Free Music Stations";
+    public final static String EXPECTED_TITLE_GENRES = "Find Radio & Custom";
+    public final static String EXPECTED_TITLE_PODCASTS = "Listen to the Best Podcasts";
+    public final static String EXPECTED_TITLE_PERFECTFOR = "Listen to Music Pefect for";
+    public final static String EXPECTED_TITLE_LOGOUT = "Listen to Free Radio Stations";
+    
+    
+	
 	
 	//SignedAccount -> Profile -> Favorite Episode
 	@FindBy(css="li.tabbar:nth-child(6) > a:nth-child(1)") private WebElement favoriteEpisodes;
@@ -127,14 +171,16 @@ public abstract class Page {
 	@FindBy(css=".icon-favorite-unfilled")  public WebElement   icon_favorite_unfilled ;
     
 	//facebook signup
-
-	@FindBy(css="#dialog > div > div.dialog.ui-on-grey > div.wrapper > div > div > section > ul > li:nth-child(1) > button > span")  public WebElement faceBook;
+	
+	
+    @FindBy(css="button.facebook:nth-child(1)")  public WebElement faceBook;
+	//@FindBy(css="#dialog > div > div.dialog.ui-on-grey > div.wrapper > div > div > section > ul > li:nth-child(1) > button > span")  public WebElement faceBook;
 	
 	@FindBy(id="email") public WebElement faceEmail;
 	@FindBy(id="pass") public WebElement facePass;
 	@FindBy(id="u_0_2") public WebElement faceLogin;
-	@FindBy(css="div.dropdown-trigger:nth-child(1) > button:nth-child(1)") public WebElement signedFBacct;
-	
+	@FindBy(css="div.dropdown-trigger:nth-child(2) > button:nth-child(1)") public WebElement signedFBacct;
+				
 	//Google login
 	@FindBy(id="Email")  public WebElement googEmail;
 	@FindBy(id="Passwd") public WebElement googPass;
@@ -142,7 +188,8 @@ public abstract class Page {
 	
 	//login with email
 	//@FindBy(css="body > div:nth-child(1) > div.header > div.header-wrapper > div > div:nth-child(3) > div > button:nth-child(1)") public WebElement loginButton;
-	@FindBy(css=".header-right > button:nth-child(1)") public WebElement loginButton;
+	//@FindBy(css=".header-right > button:nth-child(1)") public WebElement loginButton;
+	@FindBy(css=".icon-account")  public WebElement loginButton;
 		
 	
 	@FindBy(css="[name='username'][type='text']")  public WebElement userName;
@@ -178,8 +225,9 @@ public abstract class Page {
 	    public WebElement myStations;
 	
 	
-	//@FindBy(css=".icon-more-horizontal") public WebElement icon_more_horizontal;
-	@FindBy(css=".more") public WebElement icon_more_horizontal;
+	 @FindBy(css=".now-playing-options > button:nth-child(1)") public WebElement icon_more_horizontal;
+   // @FindBy(css=".icon-more-horizontal") public WebElement icon_more_horizontal;
+	//@FindBy(css=".more") public WebElement icon_more_horizontal;
 	
 	@FindBy(css="div.align-left:nth-child(3) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)") public WebElement shareButton;
 	@FindBy(css="div.align-left:nth-child(3) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)") public WebElement addToFavorite;
@@ -297,8 +345,7 @@ public abstract class Page {
    }
    
    public void login()
-	{   if (Page.getBrowser().equalsIgnoreCase("chrome"))
-			WaitUtility.sleep(1000);
+	{   
 		    
 		do{
 			loginButton.click();
@@ -356,11 +403,12 @@ public abstract class Page {
 	public void checkFavInProfile(String name)
 	{
 		System.out.println("checkFavInProfile().option_profile:" + option_profile.getText() );
-		WebElement option =  driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(1) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")) ;
+															
+		WebElement option =  driver.findElement(By.cssSelector("div.dropdown-trigger:nth-child(2) > div:nth-child(2) > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)")) ;
 		System.out.println("checkFavInProfile().option_profile VIA DRIVER:" + option.getText());
 		gotoSingedAccountOption(option,  "User");
 		
-		favoriteEpisodes.click();
+	//	favoriteEpisodes.click();
 		if (!driver.getPageSource().contains(name))
 		   errors.append(name + " is not added in profile -> Favorite Episodes.");
 	}
@@ -577,8 +625,9 @@ public abstract class Page {
 		browser = _browser;
 	}
 	
-	
-	public void gotoExplorerOption(WebElement option, String expectedTitle)
+	//DROP-DOWN MENU IS RETIRED!
+	/*
+	public void gotoExplorerOption_obsolete(WebElement option, String expectedTitle)
 	{   int count = 0;
 		Actions action = new Actions(driver);
 		do {
@@ -601,6 +650,8 @@ public abstract class Page {
 		else
 			WaitUtility.sleep(500);
 	}
+	*/
+	
 	
 	
 	public void gotoSingedAccountOption(WebElement option, String expectedTitle)
@@ -611,7 +662,7 @@ public abstract class Page {
 		do {
 				
 			action = action.moveToElement(signedAccount);
-			WaitUtility.sleep(1500);
+			WaitUtility.sleep(500);
 			try{
 		    	action.moveToElement(option).click().build().perform();
 			}catch(Exception e)
@@ -702,12 +753,13 @@ public abstract class Page {
 	    try{
 	       System.out.println(signupHint.getText());
 	    }catch(Exception e)
-	    {
+	    {  e.printStackTrace();
 	       System.out.println("Soft gate is not shown.");
 	       return false;
 	    		   
 	    }
-		return signupHint.getText().contains("Have an account?");
+		//return signupHint.getText().contains("Have an account?");
+	    return signupHint.getText().contains("Sign Up");
 	}
 	
 	
@@ -723,7 +775,7 @@ public abstract class Page {
 	    try{
 	    	if (icon_pause.isDisplayed())
 	    	{	isPlaying = true;
-	    		System.out.println("It is  playing. Good" );
+	    		System.out.println(category + " is  playing. Good" );
 	    	}
 	    }catch(Exception e)
 	    {   
@@ -762,7 +814,7 @@ public abstract class Page {
 	
 	
 	public void faceBookSignUp()
-	{
+	{  
 		faceBook.click();
 		String winHandleBefore = switchWindow();
 		

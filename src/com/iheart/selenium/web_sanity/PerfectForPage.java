@@ -13,6 +13,8 @@ public class PerfectForPage extends Page{
 	
 	@FindBy(css="section.section-block:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")
 					private WebElement firstBox;
+	
+				
 	@FindBy(css="section.section-block:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
 	 	private WebElement firstBoxTitle;
 	
@@ -39,7 +41,7 @@ public class PerfectForPage extends Page{
 	    makeSureItIsPlaying();
 	    
 		//Verify sign-up gate shows up
-		
+		WaitUtility.sleep(10*1000);
 	    if(!isSoftGateShow())
 			handleError("Sign up gate is not displayed.", "WEB_11766_browsePerfect");
 		
@@ -89,34 +91,7 @@ public class PerfectForPage extends Page{
 	    makeSureItIsPlaying();
 	    
 	    doFavorite("WEB_11768_addToFavorite");
-	    
-	    //If the song is faved before, double click; 
-	    
-	    /*
-	    try{
-		   if (icon_favorite_filled.isDisplayed())
-		   {  
-			   icon_favorite_filled.click();
-		       WaitUtility.sleep(1000);
-		   }
-	    }catch(Exception e)
-	    {
-	    	
-	    }
-	   
-	   if (!icon_favorite_unfilled.isDisplayed())
-	   {
-		   handleError("unFavorite  is not working.", "WEB_11768_addToFavorite");
-	   }
-	   
-	   icon_favorite_unfilled.click();
-		
-	   if (!icon_favorite_filled.isDisplayed())
-	   {
-		   handleError("Favorite icon is not highlighted.", "WEB_11768_addToFavorite");
-	   }
-			
-	   */ 
+	  
 		checkFavInProfile(chosenStation);
 	}
 	
@@ -139,7 +114,8 @@ public class PerfectForPage extends Page{
 	public void WEB_11771_pauseResume()
 	{
 		login();
-		gotoExplorerOption(option_perfectFor, "Perfect");
+		perfectFor.click();
+		WaitUtility.sleep(500);
 		
 	   
 		driver.findElement(By.cssSelector("li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
@@ -166,7 +142,7 @@ public class PerfectForPage extends Page{
 		comeToThisPage_direct();
 		new Select(activity).selectByIndex(2);
 		
-		WaitUtility.waitForAjax(driver);
+		//WaitUtility.waitForAjax(driver);
 		
 		//Need to remember this station name
 		String chosenStation = firstBoxTitle.getText();
@@ -230,7 +206,7 @@ public class PerfectForPage extends Page{
 		
 		driver.get(newURL);
 	//	WaitUtility.sleep(1000);
-		WaitUtility.waitForAjax(driver);
+		////WaitUtility.waitForAjax(driver);
 	}
 
 

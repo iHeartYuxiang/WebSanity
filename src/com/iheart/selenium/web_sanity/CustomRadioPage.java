@@ -33,7 +33,11 @@ public class CustomRadioPage  extends Page {
 	  	@FindBy(css="#player > div.player-center > div.player-controls > button:nth-child(2) > i") private WebElement customThumpUp;
 	  	
 	  	@FindBy(css="#player > div.player-left > div.player-info > a.player-artist.type-secondary.type-xsmall") private WebElement currentSong;
-	  	@FindBy(css="#main > div > section > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i") private WebElement customFirstLinkPlayButton;
+	  	
+	  	@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")
+	  				private WebElement customFirstLinkPlayButton;
+	  	
+	  	//@FindBy(css="#main > div > section > ul > li:nth-child(1) > div > div.station-thumb-wrapper.ui-on-dark > a > div.hover > button > i") private WebElement customFirstLinkPlayButton;
 	    @FindBy(css="button.text:nth-child(4)") private WebElement customSkipButton;
 	  	@FindBy(css=".favorite") private WebElement  customFavorite; 
 	  	@FindBy(css="li.tile:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)") private WebElement firstArtist;
@@ -72,7 +76,7 @@ public class CustomRadioPage  extends Page {
 		  
 		
 			new Select(driver.findElement(By.name("genre"))).selectByIndex(5); 
-			WaitUtility.waitForAjax(driver);
+			//WaitUtility.waitForAjax(driver);
 			customFirstLinkPlayButton.click();
 			
 		}
@@ -172,8 +176,8 @@ public class CustomRadioPage  extends Page {
 		public void WEB_11772_browsePodcasts()
 		{   
 			
-			gotoExplorerOption(option_podCasts, "Popular");
-			
+			//gotoExplorerOption(option_podCasts, "Popular");
+			podcasts.click();
 			
 			driver.findElement(By.cssSelector("ul.station-tiles:nth-child(3) > li:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > button:nth-child(2)")).click();
 			makeSureItIsPlaying();
@@ -200,6 +204,7 @@ public class CustomRadioPage  extends Page {
 			comeToThisPage_direct();
 			
 			customFirstLinkPlayButton.click();
+			
 			//makeSureItIsPlaying();
 		}
 	
@@ -223,7 +228,8 @@ public class CustomRadioPage  extends Page {
 		}
 		
 		private void comeToThisPage_direct()
-		{   String currentURL = driver.getCurrentUrl();
+		{  /*
+			String currentURL = driver.getCurrentUrl();
 			System.out.println("SEE current url:"  + currentURL);
 		    String part1 = currentURL.split("//")[0];
 		    String part2  = currentURL.split("//")[1].split("/")[0];
@@ -233,7 +239,14 @@ public class CustomRadioPage  extends Page {
 			
 			driver.get(newURL);
 			//WaitUtility.sleep(1000);
-			WaitUtility.waitForAjax(driver);
+			////WaitUtility.waitForAjax(driver);
+			 * 
+			 */
+			
+			
+			driver.findElement(By.cssSelector(".header-menu-main > li:nth-child(3) > a:nth-child(1)")).click();
+			WaitUtility.sleep(2000);
+			
 		}
 
 

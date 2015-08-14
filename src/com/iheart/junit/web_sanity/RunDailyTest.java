@@ -36,7 +36,8 @@ public class RunDailyTest {
 	static String userCity = "";
 	
 	 
-	final String URL = "http://www.iheart.com";
+	//final String URL = "http://www.iheart.com";
+	final String URL = "http://stage.iheart.com";
 	
 	@Rule public TestName name = new TestName();
 	

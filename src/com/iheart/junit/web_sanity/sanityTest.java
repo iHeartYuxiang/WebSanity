@@ -32,7 +32,8 @@ public class sanityTest {
 		   
 		static String userCity = "";
 		
-		 final String URL = "http://www.iheart.com";
+		// final String URL = "http://www.iheart.com";
+		final String URL = "http://stage.iheart.com";
 		
 		@Rule public TestName name = new TestName();
 		
@@ -223,7 +224,7 @@ public class sanityTest {
 	       
 	    	System.out.println("test method:" +  name.getMethodName() );
 	    	try{
-		    	   homePage.WEB_11735_explorerMenu();
+		    	   homePage.WEB_11735_exploreMenu();
 	    	}catch(Exception e)
 		 	{
 		 		handleException(e);
@@ -898,8 +899,7 @@ public class sanityTest {
 	    	driver.quit();
 	    	 if (Page.getErrors().length() > 0)
 				 fail(Page.getErrors().toString());
-	    	 
-	    //	closeBrowserSession();
+	    
 	    }
 		
 	    
@@ -914,11 +914,5 @@ public class sanityTest {
             }
 	    }
 	
-	    public void closeBrowserSession() throws Exception 
-	  { 
-	    	
-		  //Runtime.getRuntime().exec("taskkill /F /IM chrome.exe"); 
-		 // Runtime.getRuntime().exec("taskkill /F /IM iexplorer.exe"); 
-		  Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); 
-	  }
+	    
 }
