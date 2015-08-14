@@ -176,8 +176,8 @@ public class Utils {
 			WebDriver driver = createWebDriver(browser);
 			
 			driver.get(url);
-			WaitUtility.waitForAjax(driver);
-			
+			//WaitUtility.waitForAjax(driver);
+			WaitUtility.sleep(1000);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			return driver;
